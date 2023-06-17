@@ -1,6 +1,12 @@
 {
-  "prettier.useTabs": true,
-  "prettier.printWidth": 178,
-  "prettier.semi": true,
-  "prettier.singleQuote": false
+	"prettier.useTabs": true,
+	"prettier.printWidth": 178,
+	"prettier.semi": true,
+	"prettier.singleQuote": false,
+	"tailwindCSS.experimental.classRegex": [
+		["klass\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["klass\\<.*?\\>\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["reklass\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["reklass\\<.*?\\>\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+	]
 }

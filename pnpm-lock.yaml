@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@klass/core':
+    specifier: ^1.2.0
+    version: 1.2.0
   astro:
     specifier: ^2.6.4
     version: 2.6.4(@types/node@20.3.1)
@@ -566,6 +569,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+
+  /@klass/core@1.2.0:
+    resolution: {integrity: sha512-YCR/zva8HXMJjbesCyB8gZdvDSAAkVzJDfqM+3horGHvNXrho0rWKzOLSB7Ya41uINcG21Nvowbd7mR42+5eSw==}
+    dev: false
 
   /@ljharb/has-package-exports-patterns@0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
