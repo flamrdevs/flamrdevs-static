@@ -6,6 +6,18 @@ import Text from "~/components/core/Text.astro";
 
 <HTMLX>
   <div id="root">
-    <Text family="mono" size="xl" weight={700}>flamrdevs</Text>
+    <div class="root">
+      <Text family="mono" size="xl" weight={700} align="center">flamrdevs</Text>
+    </div>
   </div>
 </HTMLX>
+
+<style>
+  .root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+</style>

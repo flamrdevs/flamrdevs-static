@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { cxs } from "@klass/core";
+
+type Props = Omit<HTMLAttributes<"hr">, "orientation"> & { orientation?: "horizontal" | "vertical" };
+
+const { orientation = "horizontal", class: _class, "class:list": classList, ...attrs } = Astro.props;
+
+const className = cxs("root", _class, classList);
+---
+
+<hr {...attrs} class={className} data-orientation={orientation} />
+
+<style>
+  .root {
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    @apply bg-neutral-5;
+
+    &[data-orientation="horizontal"] {
+      width: auto;
+      height: 1px;
+    }
+
+    &[data-orientation="vertical"] {
+      width: 1px;
+      height: auto;
+    }
+  }
+</style>

@@ -11,6 +11,7 @@ const { family, size, weight, align, class: _class, "class:list": classList, ...
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
+  base: "inline-block",
   variants: {
     family: {
       sans: "font-sans",

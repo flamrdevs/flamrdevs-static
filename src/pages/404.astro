@@ -2,10 +2,25 @@
 import HTMLX from "~/components/core/HTMLX.astro";
 
 import Text from "~/components/core/Text.astro";
+import Separator from "~/components/core/Separator.astro";
 ---
 
 <HTMLX title="404" description="page not found">
   <div id="root">
-    <Text family="mono" size="xl" weight={700}>404 | not found</Text>
+    <div class="root">
+      <Text family="mono" size="xl" weight={700}>404</Text>
+      <Separator orientation="vertical" />
+      <Text family="mono" size="xl" weight={700}>not found</Text>
+    </div>
   </div>
 </HTMLX>
+
+<style>
+  .root {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+</style>
