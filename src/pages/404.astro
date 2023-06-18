@@ -1,26 +1,13 @@
 ---
-import HTMLX from "~/components/core/HTMLX.astro";
-
-import Text from "~/components/core/Text.astro";
-import Separator from "~/components/core/Separator.astro";
+import { Container, HTMLX, Separator, Text } from "~/components/core";
 ---
 
 <HTMLX title="404" description="page not found">
-  <div id="root">
-    <div class="root">
-      <Text family="mono" size="xl" weight={700}>404</Text>
-      <Separator orientation="vertical" />
-      <Text family="mono" size="xl" weight={700}>not found</Text>
+  <Container max="md" class="p-4">
+    <Text family="mono" size="xl" weight={700} align="center">404</Text>
+    <div class="py-4">
+      <Separator orientation="horizontal" />
     </div>
-  </div>
+    <Text family="mono" size="xl" weight={700} align="center">not found</Text>
+  </Container>
 </HTMLX>
-
-<style>
-  .root {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-</style>

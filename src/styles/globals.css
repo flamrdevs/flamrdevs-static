@@ -9,7 +9,3 @@ html {
 body {
 	@apply bg-neutral-1 text-neutral-12;
 }
-
-#root {
-	@apply flex justify-center items-center w-screen h-screen overflow-hidden;
-}

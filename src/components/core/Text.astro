@@ -6,13 +6,16 @@ import type { VariantsOf } from "@klass/core";
 
 type Props = HTMLAttributes<"div"> & Variants;
 
-const { family, size, weight, align, class: _class, "class:list": classList, ...attrs } = Astro.props;
+const { inline, family, size, weight, align, class: _class, "class:list": classList, ...attrs } = Astro.props;
 
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-  base: "inline-block",
   variants: {
+    inline: {
+      true: "inline-block",
+      false: "block",
+    },
     family: {
       sans: "font-sans",
       mono: "font-mono",
@@ -46,6 +49,7 @@ const Root = klass({
     },
   },
   defaultVariants: {
+    inline: false,
     family: "sans",
     size: "md",
     weight: 400,
@@ -53,7 +57,7 @@ const Root = klass({
   },
 });
 
-const className = cxs(Root({ family, size, weight, align }), _class, classList);
+const className = cxs(Root({ inline, family, size, weight, align }), _class, classList);
 ---
 
 <div {...attrs} class={className}>

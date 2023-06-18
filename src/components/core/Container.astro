@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { cxs, klass } from "@klass/core";
+import type { VariantsOf } from "@klass/core";
+
+type Props = HTMLAttributes<"div"> & Variants;
+
+const { center, max, class: _class, "class:list": classList, ...attrs } = Astro.props;
+
+type Variants = VariantsOf<typeof Root>;
+
+const Root = klass({
+  base: "container",
+  variants: {
+    center: {
+      true: "mx-auto",
+    },
+    max: {
+      xs: "max-w-screen-xs",
+      sm: "max-w-screen-sm",
+      md: "max-w-screen-md",
+      lg: "max-w-screen-lg",
+      xl: "max-w-screen-xl",
+    },
+  },
+  defaultVariants: {
+    center: true,
+  },
+});
+
+const className = cxs(Root({ center, max }), _class, classList);
+---
+
+<div {...attrs} class={className}>
+  <slot />
+</div>

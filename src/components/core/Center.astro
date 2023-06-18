@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { cxs } from "@klass/core";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: _class, "class:list": classList, ...attrs } = Astro.props;
+
+const className = cxs("root", _class, classList);
+---
+
+<div {...attrs} class={className}>
+  <slot />
+</div>
+
+<style>
+  .root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
