@@ -30,8 +30,6 @@ const stats = () => {
 	const exts = "html,css,js,json,svg,ico,ttf".split(",").map((s) => `.${s}`);
 
 	const recursive = async (pathlike: string) => {
-		console.log(`recursive: pathlike=${pathlike}`);
-
 		const children: Child[] = [];
 
 		const dirents = await fs.readdir(pathlike, { withFileTypes: true });
