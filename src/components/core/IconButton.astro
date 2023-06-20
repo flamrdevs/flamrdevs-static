@@ -1,0 +1,76 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import * as IconButtonKlass from "./IconButton.klass";
+import * as Reklass from "./Reklass";
+
+import { splitProps, getRootClassesx, getButtonAttrs } from "./core";
+import type { ButtonOptions } from "./core";
+
+type Props = HTMLAttributes<"button"> &
+  ButtonOptions &
+  IconButtonKlass.Variants &
+  IconButtonKlass.InnerVariants &
+  IconButtonKlass.ChildVariants &
+  Reklass.MarginVariants &
+  Reklass.PaddingVariants;
+
+const [classes, props] = getRootClassesx(Astro.props);
+
+const [options, klass, attrs] = splitProps(props, ["disabled"], ["color", "size"]);
+
+const className = classes(IconButtonKlass.Root({ color: klass.color, size: klass.size }));
+const innerClassName = IconButtonKlass.Inner({ color: klass.color });
+const childClassName = IconButtonKlass.Child({ size: klass.size });
+---
+
+<button type="button" {...attrs} class={className} {...getButtonAttrs(options)}>
+  <div class={innerClassName}>
+    <div class={childClassName}>
+      <slot />
+    </div>
+  </div>
+</button>
+
+<style>
+  .root {
+    border-radius: 0.4rem;
+
+    &__color-neutral {
+      background-image: linear-gradient(130deg, hsl(var(--neutral-11)), hsl(var(--neutral-8)), hsl(var(--neutral-6)));
+
+      &:hover {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-8)), hsl(var(--neutral-7)));
+      }
+
+      &:active {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-9)), hsl(var(--neutral-8)));
+      }
+
+      &[data-disabled] {
+        color: hsl(var(--neutral-8));
+      }
+    }
+
+    &[data-disabled] {
+      opacity: 0.8;
+      pointer-events: none;
+    }
+  }
+
+  .inner {
+    border-radius: 0.35rem;
+
+    &__color-neutral {
+      background-image: linear-gradient(130deg, hsl(var(--neutral-3)), hsl(var(--neutral-1)));
+
+      &:hover {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-4)), hsl(var(--neutral-1)));
+      }
+
+      &:active {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-5)), hsl(var(--neutral-2)));
+      }
+    }
+  }
+</style>

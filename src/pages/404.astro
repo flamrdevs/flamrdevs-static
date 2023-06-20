@@ -1,13 +1,19 @@
 ---
-import { Container, HTMLX, Separator, Text } from "~/components/core";
+import { HTMLX, ButtonLink, Center, Container, Flex, Separator, Text } from "~/components/core";
 ---
 
 <HTMLX title="404" description="page not found">
-  <Container max="md" class="p-4">
-    <Text family="mono" size="xl" weight={700} align="center">404</Text>
-    <div class="py-4">
-      <Separator orientation="horizontal" />
-    </div>
-    <Text family="mono" size="xl" weight={700} align="center">not found</Text>
+  <Container max="md" p="4">
+    <Flex ai="center" jc="center" style="height: 1.75rem">
+      <Text family="mono" size="xl" weight={700} align="center">404</Text>
+      <Separator orientation="vertical" />
+      <Text family="mono" size="xl" weight={700} align="center">not found</Text>
+    </Flex>
+
+    <Separator orientation="horizontal" />
+
+    <Center gap="2">
+      <ButtonLink href="/">home</ButtonLink>
+    </Center>
   </Container>
 </HTMLX>

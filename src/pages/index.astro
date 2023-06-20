@@ -1,9 +1,15 @@
 ---
-import { Container, HTMLX, Text } from "~/components/core";
+import { HTMLX, ButtonLink, Center, Container, Separator, Text } from "~/components/core";
 ---
 
 <HTMLX>
-  <Container max="md" class="p-4">
-    <Text family="mono" size="xl" weight={700} align="center">flamrdevs</Text>
+  <Container max="md" p="4">
+    <Text family="mono" size="xl" weight={700} align="center">home</Text>
+
+    <Separator orientation="horizontal" />
+
+    <Center gap="2">
+      <ButtonLink href="/not-found">not found</ButtonLink>
+    </Center>
   </Container>
 </HTMLX>

@@ -1,13 +1,17 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { cxs } from "@klass/core";
+import * as Reklass from "./Reklass";
 
-type Props = HTMLAttributes<"div">;
+import { splitProps, getRootClassesx } from "./core";
 
-const { class: _class, "class:list": classList, ...attrs } = Astro.props;
+type Props = HTMLAttributes<"div"> & Reklass.GapVariants & Reklass.MarginVariants & Reklass.PaddingVariants;
 
-const className = cxs("root", _class, classList);
+const [classes, props] = getRootClassesx(Astro.props);
+
+const [gap, margin, padding, attrs] = splitProps(props, Reklass.splitter.gap, Reklass.splitter.margin, Reklass.splitter.padding);
+
+const className = classes("root", Reklass.Gap(gap), Reklass.Margin(margin), Reklass.Padding(padding));
 ---
 
 <div {...attrs} class={className}>

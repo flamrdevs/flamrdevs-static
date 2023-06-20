@@ -7,5 +7,11 @@ html {
 }
 
 body {
-	@apply bg-neutral-1 text-neutral-12;
+	@apply bg-neutral-1 text-neutral-12 font-sans;
+}
+
+.lucide {
+	stroke-width: 1.5;
+	width: 1.125rem;
+	height: 1.125rem;
 }
