@@ -8,6 +8,7 @@ const Root = klass({
 	variants: {
 		color: {
 			neutral: "root__color-neutral text-neutral-11 focus-visible:outline-neutral-11",
+			primary: "root__color-primary text-primary-11 focus-visible:outline-primary-11",
 		},
 		size: {
 			md: "h-7 p-px",
@@ -26,6 +27,7 @@ const Inner = klass({
 	variants: {
 		color: {
 			neutral: "inner__color-neutral",
+			primary: "inner__color-primary",
 		},
 	},
 	defaultVariants: {

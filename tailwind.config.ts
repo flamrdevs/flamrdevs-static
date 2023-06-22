@@ -1,13 +1,23 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
-import coloradix, { gray } from "@coloradix/tailwindcss";
+import coloradix, { gray, violet, green, blue, yellow, red } from "@coloradix/tailwindcss";
 
 const { colors, plugin } = coloradix({
 	gray,
+	violet,
+	green,
+	blue,
+	yellow,
+	red,
 })
 	.alias({
 		neutral: "gray",
+		primary: "violet",
+		success: "green",
+		info: "blue",
+		warning: "yellow",
+		danger: "red",
 	})
 	.overlay(true)
 	.enable(true);

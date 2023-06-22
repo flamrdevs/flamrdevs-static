@@ -1,15 +1,19 @@
 ---
-import { HTMLX, ButtonLink, Center, Container, Separator, Text } from "~/components/core";
+import { HTMLX, Center, Container, Separator } from "~/components/core";
+
+import FLAMRDEVSSVG from "~/components/core/FLAMRDEVSSVG.astro";
 ---
 
 <HTMLX>
   <Container max="md" p="4">
-    <Text family="mono" size="xl" weight={700} align="center">home</Text>
-
     <Separator orientation="horizontal" />
+  </Container>
 
-    <Center gap="2">
-      <ButtonLink href="/not-found">not found</ButtonLink>
-    </Center>
+  <Center>
+    <FLAMRDEVSSVG class="w-[10rem] h-[10rem] xs:w-[15rem] xs:h-[15rem] sm:w-[20rem] sm:h-[20rem] md:w-[25rem] md:h-[25rem] lg:w-[30rem] lg:h-[30rem] xl:w-[35rem] xl:h-[35rem]" />
+  </Center>
+
+  <Container max="md" p="4">
+    <Separator orientation="horizontal" />
   </Container>
 </HTMLX>

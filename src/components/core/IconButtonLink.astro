@@ -35,19 +35,37 @@ const childClassName = IconButtonKlass.Child({ size: klass.size });
   .root {
     border-radius: 0.4rem;
 
-    &__color-neutral {
-      background-image: linear-gradient(130deg, hsl(var(--neutral-11)), hsl(var(--neutral-8)), hsl(var(--neutral-6)));
+    &__color {
+      &-neutral {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-11)), hsl(var(--neutral-8)), hsl(var(--neutral-6)));
 
-      &:hover {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-8)), hsl(var(--neutral-7)));
+        &:hover {
+          background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-8)), hsl(var(--neutral-7)));
+        }
+
+        &:active {
+          background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-9)), hsl(var(--neutral-8)));
+        }
+
+        &[data-disabled] {
+          color: hsl(var(--neutral-8));
+        }
       }
 
-      &:active {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-9)), hsl(var(--neutral-8)));
-      }
+      &-primary {
+        background-image: linear-gradient(130deg, hsl(var(--primary-11)), hsl(var(--primary-8)), hsl(var(--primary-6)));
 
-      &[data-disabled] {
-        color: hsl(var(--neutral-8));
+        &:hover {
+          background-image: linear-gradient(130deg, hsl(var(--primary-12)), hsl(var(--primary-8)), hsl(var(--primary-7)));
+        }
+
+        &:active {
+          background-image: linear-gradient(130deg, hsl(var(--primary-12)), hsl(var(--primary-9)), hsl(var(--primary-8)));
+        }
+
+        &[data-disabled] {
+          color: hsl(var(--primary-8));
+        }
       }
     }
 
@@ -60,15 +78,29 @@ const childClassName = IconButtonKlass.Child({ size: klass.size });
   .inner {
     border-radius: 0.35rem;
 
-    &__color-neutral {
-      background-image: linear-gradient(130deg, hsl(var(--neutral-3)), hsl(var(--neutral-1)));
+    &__color {
+      &-neutral {
+        background-image: linear-gradient(130deg, hsl(var(--neutral-3)), hsl(var(--neutral-1)));
 
-      &:hover {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-4)), hsl(var(--neutral-1)));
+        &:hover {
+          background-image: linear-gradient(130deg, hsl(var(--neutral-4)), hsl(var(--neutral-1)));
+        }
+
+        &:active {
+          background-image: linear-gradient(130deg, hsl(var(--neutral-5)), hsl(var(--neutral-2)));
+        }
       }
 
-      &:active {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-5)), hsl(var(--neutral-2)));
+      &-primary {
+        background-image: linear-gradient(130deg, hsl(var(--primary-3)), hsl(var(--primary-1)));
+
+        &:hover {
+          background-image: linear-gradient(130deg, hsl(var(--primary-4)), hsl(var(--primary-1)));
+        }
+
+        &:active {
+          background-image: linear-gradient(130deg, hsl(var(--primary-5)), hsl(var(--primary-2)));
+        }
       }
     }
   }
