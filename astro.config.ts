@@ -27,7 +27,7 @@ const stats = () => {
 
 	const dist = (...paths: string[]) => path.resolve("dist", ...paths);
 
-	const exts = "html,css,js,json,svg,ico,ttf".split(",").map((s) => `.${s}`);
+	const exts = "html,css,js,json,png,svg,ico,ttf".split(",").map((s) => `.${s}`);
 
 	const recursive = async (pathlike: string) => {
 		const children: Child[] = [];
