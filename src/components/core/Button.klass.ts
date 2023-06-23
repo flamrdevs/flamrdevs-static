@@ -11,7 +11,7 @@ const Root = klass({
 			primary: "root__color-primary text-primary-11 focus-visible:outline-primary-11",
 		},
 		size: {
-			md: "h-7 p-px",
+			md: "h-8 p-px",
 		},
 	},
 	defaultVariants: {
