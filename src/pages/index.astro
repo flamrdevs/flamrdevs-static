@@ -1,11 +1,15 @@
 ---
-import { HTMLX, Center, Container, Separator } from "~/components/core";
+import { GithubIcon, InstagramIcon, TwitterIcon } from "lucide-solid";
+
+import * as LINK from "~/const/link";
+
+import { HTMLX, Center, Container, IconButtonLink, Separator } from "~/components/core";
 
 import FLAMRDEVSSVG from "~/components/core/FLAMRDEVSSVG.astro";
 ---
 
 <HTMLX>
-  <Container max="lg" p="4">
+  <Container max="lg" p="2">
     <Separator orientation="horizontal" />
   </Container>
 
@@ -13,7 +17,23 @@ import FLAMRDEVSSVG from "~/components/core/FLAMRDEVSSVG.astro";
     <FLAMRDEVSSVG class="w-[10rem] h-[10rem] xs:w-[15rem] xs:h-[15rem] sm:w-[20rem] sm:h-[20rem] md:w-[25rem] md:h-[25rem] lg:w-[30rem] lg:h-[30rem] xl:w-[35rem] xl:h-[35rem]" />
   </Center>
 
-  <Container max="lg" p="4">
+  <Container max="lg" p="2">
     <Separator orientation="horizontal" />
+  </Container>
+
+  <Container max="lg" p="2">
+    <Center gap="2">
+      <IconButtonLink href={LINK.GITHUB}>
+        <GithubIcon client:idle />
+      </IconButtonLink>
+
+      <IconButtonLink href={LINK.INSTAGRAM}>
+        <InstagramIcon client:idle />
+      </IconButtonLink>
+
+      <IconButtonLink href={LINK.TWITTER}>
+        <TwitterIcon client:idle />
+      </IconButtonLink>
+    </Center>
   </Container>
 </HTMLX>
