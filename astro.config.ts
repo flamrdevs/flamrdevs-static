@@ -9,6 +9,16 @@ import { stats } from "./astro.integrations";
 
 export default {
 	site: "https://flamrdevs.pages.dev",
-	integrations: [tailwind(), solid(), sitemap(), compress({ logger: 1 }), stats()],
+	integrations: [
+		tailwind(),
+		solid(),
+		sitemap(),
+		compress({
+			logger: 1,
+		}),
+		stats({
+			exts: ["html", "css", "js", "json", "png", "svg", "ico", "ttf"],
+		}),
+	],
 	server: { host: true, port: 4000 },
 } as AstroUserConfig;
