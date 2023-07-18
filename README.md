@@ -32,3 +32,36 @@
     </picture>
   </a>
 </p>
+
+## Tech Stack
+
+<p align="left">
+  <picture title="astro">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=astro">
+    <img alt="astro" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=astro" hspace="1">
+  </picture>
+  <picture title="solid">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=solid">
+    <img alt="solid" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=solid" hspace="1">
+  </picture>
+  <picture title="tailwindcss">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=tailwindcss">
+    <img alt="tailwindcss" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=tailwindcss" hspace="1">
+  </picture>
+  <picture title="node.js">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=node.js">
+    <img alt="node.js" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=node.js" hspace="1">
+  </picture>
+  <picture title="typescript">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=typescript">
+    <img alt="typescript" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=typescript" hspace="1">
+  </picture>
+  <picture title="cloudflarepages">
+    <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.cyclic.app/core/icon-button?theme=dark&icon=cloudflarepages">
+    <img alt="cloudflarepages" src="https://flamrdevs.cyclic.app/core/icon-button?theme=light&icon=cloudflarepages" hspace="1">
+  </picture>
+</p>
+
+## LICENSE
+
+[MIT License](./LICENSE)
