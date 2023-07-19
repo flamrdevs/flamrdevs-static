@@ -18,70 +18,73 @@ const className = classes(SeparatorKlass.Root(klass));
 <hr {...attrs} class={className} {...getSeparatorAttrs(options)} />
 
 <style>
-  .root {
-    margin-block: auto;
-    margin-inline: auto;
+	.root {
+		margin-block: auto;
+		margin-inline: auto;
+		border-radius: 100%;
 
-    &[data-orientation="horizontal"] {
-      width: 100%;
-      height: 1px;
-    }
+		&[data-orientation="horizontal"] {
+			width: 100%;
+			height: 1px;
+			background-image: linear-gradient(90deg, hsl(var(--neutral-3)), hsl(var(--neutral-6)), hsl(var(--neutral-3)));
+		}
 
-    &[data-orientation="vertical"] {
-      width: 1px;
-      height: 100%;
-    }
+		&[data-orientation="vertical"] {
+			width: 1px;
+			height: 100%;
+			background-image: linear-gradient(0deg, hsl(var(--neutral-3)), hsl(var(--neutral-6)), hsl(var(--neutral-3)));
+		}
 
-    &__margin {
-      &-0 {
-        &[data-orientation="horizontal"] {
-          margin-block: 0;
-        }
+		&__margin {
+			&-0 {
+				&[data-orientation="horizontal"] {
+					margin-block: 0;
+				}
 
-        &[data-orientation="vertical"] {
-          margin-inline: 0;
-        }
-      }
+				&[data-orientation="vertical"] {
+					margin-inline: 0;
+				}
+			}
 
-      &-1 {
-        &[data-orientation="horizontal"] {
-          margin-block: 0.5rem;
-        }
+			&-1 {
+				&[data-orientation="horizontal"] {
+					margin-block: 0.5rem;
+				}
 
-        &[data-orientation="vertical"] {
-          margin-inline: 0.5rem;
-        }
-      }
+				&[data-orientation="vertical"] {
+					margin-inline: 0.5rem;
+				}
+			}
 
-      &-2 {
-        &[data-orientation="horizontal"] {
-          margin-block: 1rem;
-        }
+			&-2 {
+				&[data-orientation="horizontal"] {
+					margin-block: 1rem;
+				}
 
-        &[data-orientation="vertical"] {
-          margin-inline: 1rem;
-        }
-      }
+				&[data-orientation="vertical"] {
+					margin-inline: 1rem;
+				}
+			}
 
-      &-3 {
-        &[data-orientation="horizontal"] {
-          margin-block: 1.5rem;
-        }
+			&-3 {
+				&[data-orientation="horizontal"] {
+					margin-block: 1.5rem;
+				}
 
-        &[data-orientation="vertical"] {
-          margin-inline: 1.5rem;
-        }
-      }
+				&[data-orientation="vertical"] {
+					margin-inline: 1.5rem;
+				}
+			}
 
-      &-4 {
-        &[data-orientation="horizontal"] {
-          margin-block: 2rem;
-        }
+			&-4 {
+				&[data-orientation="horizontal"] {
+					margin-block: 2rem;
+				}
 
-        &[data-orientation="vertical"] {
-          margin-inline: 2rem;
-        }
-      }
-    }
-  }
+				&[data-orientation="vertical"] {
+					margin-inline: 2rem;
+				}
+			}
+		}
+	}
 </style>

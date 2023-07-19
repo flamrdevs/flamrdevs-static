@@ -4,18 +4,20 @@ import type { VariantsOf } from "@klass/core";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: "root block border-none border-0",
 	variants: {
-		margin: {
-			"0": "root__margin-0",
-			"1": "root__margin-1",
-			"2": "root__margin-2",
-			"3": "root__margin-3",
-			"4": "root__margin-4",
+		color: {
+			neutral: "stroke-neutral-9",
+			primary: "stroke-primary-9",
+		},
+		size: {
+			sm: "w-8 h-8",
+			md: "w-10 h-10",
+			lg: "w-12 h-12",
 		},
 	},
 	defaultVariants: {
-		margin: "1",
+		color: "primary",
+		size: "md",
 	},
 });
 

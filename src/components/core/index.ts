@@ -8,5 +8,6 @@ export { default as HTMLX } from "./HTMLX.astro";
 export { default as IconButton } from "./IconButton.astro";
 export { default as IconButtonLink } from "./IconButtonLink.astro";
 export { default as Link } from "./Link.astro";
+export { default as Loader } from "./Loader.astro";
 export { default as Separator } from "./Separator.astro";
 export { default as Text } from "./Text.astro";
