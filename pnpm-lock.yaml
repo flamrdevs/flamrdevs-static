@@ -2,17 +2,17 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@astrojs/sitemap':
-    specifier: ^1.4.0
-    version: 1.4.0
+    specifier: ^2.0.0
+    version: 2.0.0
   '@klass/core':
     specifier: ^1.3.0
     version: 1.3.0
   astro:
-    specifier: ^2.8.3
-    version: 2.8.3(@types/node@20.4.2)
+    specifier: ^2.8.5
+    version: 2.8.5(@types/node@20.4.2)
   lucide-solid:
-    specifier: ^0.261.0
-    version: 0.261.0(solid-js@1.7.8)
+    specifier: ^0.262.0
+    version: 0.262.0(solid-js@1.7.8)
   solid-js:
     specifier: ^1.7.8
     version: 1.7.8
@@ -23,10 +23,10 @@ devDependencies:
     version: 2.2.0(@babel/core@7.22.9)(solid-js@1.7.8)
   '@astrojs/tailwind':
     specifier: ^4.0.0
-    version: 4.0.0(astro@2.8.3)(tailwindcss@3.3.3)
+    version: 4.0.0(astro@2.8.5)(tailwindcss@3.3.3)
   '@coloradix/tailwindcss':
     specifier: ^1.2.0
-    version: 1.2.0(@radix-ui/colors@1.0.0)(tailwindcss@3.3.3)
+    version: 1.2.0(@radix-ui/colors@1.0.1)(tailwindcss@3.3.3)
   '@types/node':
     specifier: ^20.4.2
     version: 20.4.2
@@ -54,8 +54,8 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
 
-  /@astrojs/compiler@1.5.7:
-    resolution: {integrity: sha512-dFU7GAMbpTUGPkRoCoMQrGFlTe3qIiQMSOxIXp/nB1Do4My9uogjEmBHdR5Cwr4i6rc5/1R3Od9v8kU/pkHXGQ==}
+  /@astrojs/compiler@1.6.0:
+    resolution: {integrity: sha512-vxuzp09jAW/ZQ8C4Itf6/OsF76TNjBQC06FNpcayKOzxYkCGHTLh7+0lF4ywmG/fDgSc+f1x7kKxxEKl4nqXvQ==}
 
   /@astrojs/internal-helpers@0.1.1:
     resolution: {integrity: sha512-+LySbvFbjv2nO2m/e78suleQOGEru4Cnx73VsZbrQgB2u7A4ddsQg3P2T0zC0e10jgcT+c6nNlKeLpa6nRhQIg==}
@@ -64,7 +64,7 @@ packages:
     resolution: {integrity: sha512-gssRxLGb8XnvKpqSzrDW5jdzdFnXD7eBXVkPCkkt2hv7Qzb+SAzv6hVgMok3jDCxpR1aeB+XNd9Qszj2h29iog==}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 1.5.7
+      '@astrojs/compiler': 1.6.0
       '@jridgewell/trace-mapping': 0.3.18
       '@vscode/emmet-helper': 2.9.2
       events: 3.3.0
@@ -78,13 +78,13 @@ packages:
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
 
-  /@astrojs/markdown-remark@2.2.1(astro@2.8.3):
+  /@astrojs/markdown-remark@2.2.1(astro@2.8.5):
     resolution: {integrity: sha512-VF0HRv4GpC1XEMLnsKf6jth7JSmlt9qpqP0josQgA2eSpCIAC/Et+y94mgdBIZVBYH/yFnMoIxgKVe93xfO2GA==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.8.3(@types/node@20.4.2)
+      astro: 2.8.5(@types/node@20.4.2)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -106,8 +106,8 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/sitemap@1.4.0:
-    resolution: {integrity: sha512-uTK77kcg7iTiik+u7rTGG6vK4ZWTfYMaVnFndOVQrLzaE5xivmQgIbVLtlN+xRcME5n/m6vYQFJmogFR+elGCw==}
+  /@astrojs/sitemap@2.0.0:
+    resolution: {integrity: sha512-hcemuFigv05sdXNiw0U23VO+6Duj9nq9xhINw4ZPWAQEhS/F4EiNvd9IUXb4XJ7pG93MWAnQKF9lP8EtwP6paA==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4
@@ -127,13 +127,13 @@ packages:
       - vite
     dev: true
 
-  /@astrojs/tailwind@4.0.0(astro@2.8.3)(tailwindcss@3.3.3):
+  /@astrojs/tailwind@4.0.0(astro@2.8.5)(tailwindcss@3.3.3):
     resolution: {integrity: sha512-HmCAXFFes7MUBt5ihdfH1goa8QyGkHejIpz6Z4XBKK9VNYY9G2E3brCn8+pNn5zAOzcwl3FYcuH2AiOa/NGoMQ==}
     peerDependencies:
       astro: ^2.6.5
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 2.8.3(@types/node@20.4.2)
+      astro: 2.8.5(@types/node@20.4.2)
       autoprefixer: 10.4.14(postcss@8.4.24)
       postcss: 8.4.24
       postcss-load-config: 4.0.1(postcss@8.4.24)
@@ -373,13 +373,13 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
 
-  /@coloradix/tailwindcss@1.2.0(@radix-ui/colors@1.0.0)(tailwindcss@3.3.3):
+  /@coloradix/tailwindcss@1.2.0(@radix-ui/colors@1.0.1)(tailwindcss@3.3.3):
     resolution: {integrity: sha512-ZeZ3Zna79AusSQtaTtsHbGAOy5sjzw8GrvnNK7x45YkCzvtouhNy3LB+KSRQ5Pg7w/P+N8g6U8AT3Z3z+rc+VQ==}
     peerDependencies:
       '@radix-ui/colors': ^1.0.0
       tailwindcss: ^3.0.0
     dependencies:
-      '@radix-ui/colors': 1.0.0
+      '@radix-ui/colors': 1.0.1
       tailwindcss: 3.3.3
     dev: true
 
@@ -816,8 +816,8 @@ packages:
       picocolors: 1.0.0
       tslib: 2.6.0
 
-  /@radix-ui/colors@1.0.0:
-    resolution: {integrity: sha512-l8Rfw7zR6sfPsbXrBq3Xit96Xo+CSFyRFqRX/ls8W/w+HXzbwc5dbVvl+qRjsSIRoC9EiTMRV/QpJHziuTjoqg==}
+  /@radix-ui/colors@1.0.1:
+    resolution: {integrity: sha512-xySw8f0ZVsAEP+e7iLl3EvcBXX7gsIlC1Zso/sPBW9gIWerBTgz6axrjU+MZ39wD+WFi5h5zdWpsg3+hwt2Qsg==}
     dev: true
 
   /@trysound/sax@0.2.0:
@@ -1002,8 +1002,8 @@ packages:
       terser: 5.18.2
     dev: true
 
-  /astro@2.8.3(@types/node@20.4.2):
-    resolution: {integrity: sha512-UopGl3WubMnl15TWlR6PTCcH54TooZ+JoAloErfoXQtz4PAvmEEqEVc7tHoJ45iC7rhKgzILsvDhqzitBeRihw==}
+  /astro@2.8.5(@types/node@20.4.2):
+    resolution: {integrity: sha512-qfPUKLpZ9lVi5Hc5MrzyekUUx54AyrEphW5eetNQj/+d0iodHEneZXFDzZxTEsk3rL8Y2Y9pYFXJPmQB3eahUA==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -1012,10 +1012,10 @@ packages:
       sharp:
         optional: true
     dependencies:
-      '@astrojs/compiler': 1.5.7
+      '@astrojs/compiler': 1.6.0
       '@astrojs/internal-helpers': 0.1.1
       '@astrojs/language-server': 1.0.8
-      '@astrojs/markdown-remark': 2.2.1(astro@2.8.3)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.8.5)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.2.0
       '@babel/core': 7.22.9
@@ -2207,8 +2207,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-solid@0.261.0(solid-js@1.7.8):
-    resolution: {integrity: sha512-FNsdXC+LGRDYI3vYtdcNvYiHkpX5RRFpxsNoOjpov3G/RMOPVytRXdf7UpfnJKau6HsJ9AMy+MXD6FSdebObTg==}
+  /lucide-solid@0.262.0(solid-js@1.7.8):
+    resolution: {integrity: sha512-W5W0uMeahoPNabnlLQO+iA2gQvyto7jsiLZZ/26FLoQB+clFmzZ5tB2YBhx6h/FfdDchQbJnmBU+DOry4MB1gg==}
     peerDependencies:
       solid-js: ^1.4.7
     dependencies:
@@ -2978,7 +2978,7 @@ packages:
     resolution: {integrity: sha512-pYZXSbdq0eElvzoIMArzv1SBn1NUXzopjlcnt6Ql8VW32PjC12NovwBjXJ6rh8qQLi7vF8jNqAbraKW03UPfag==}
     engines: {node: ^14.15.0 || >=16.0.0, pnpm: '>=7.14.0'}
     dependencies:
-      '@astrojs/compiler': 1.5.7
+      '@astrojs/compiler': 1.6.0
       prettier: 2.8.8
       sass-formatter: 0.7.6
       synckit: 0.8.5
