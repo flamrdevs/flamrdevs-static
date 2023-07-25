@@ -2,19 +2,19 @@ import { reklass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
 const CONDITIONS = {
-	base: "",
-	xs: "xs",
-	sm: "sm",
-	md: "md",
-	lg: "lg",
-	xl: "xl",
+	__: "",
+	xs: "xs:",
+	sm: "sm:",
+	md: "md:",
+	lg: "lg:",
+	xl: "xl:",
 } as const;
 
-const DEFAULTCONDITION = "base" satisfies keyof typeof CONDITIONS;
+const DEFAULTCONDITION = "__" satisfies keyof typeof CONDITIONS;
 
 const space = (property: string) => {
 	return {
-		none: `${property}-0`,
+		"0": `${property}-0`,
 		"1": `${property}-1`,
 		"2": `${property}-2`,
 		"3": `${property}-3`,
@@ -31,6 +31,21 @@ const space = (property: string) => {
 		"16": `${property}-16`,
 	};
 };
+
+type DisplayVariants = VariantsOf<typeof Display>;
+const Display = reklass({
+	conditions: CONDITIONS,
+	defaultCondition: DEFAULTCONDITION,
+	variants: {
+		d: {
+			none: "hidden",
+			block: "block",
+			iblock: "inline-block",
+			flex: "flex",
+			iflex: "inline-flex",
+		},
+	},
+});
 
 type AlignVariants = VariantsOf<typeof Align>;
 const Align = reklass({
@@ -103,7 +118,14 @@ const Padding = reklass({
 	},
 });
 
-export * as splitter from "./Reklass.splitter";
+export const splitter = {
+	display: Display.revariantKeys,
+	align: Align.revariantKeys,
+	justify: Justify.revariantKeys,
+	gap: Gap.revariantKeys,
+	margin: Margin.revariantKeys,
+	padding: Padding.revariantKeys,
+};
 
-export type { AlignVariants, JustifyVariants, GapVariants, MarginVariants, PaddingVariants };
-export { Align, Justify, Gap, Margin, Padding };
+export type { DisplayVariants, AlignVariants, JustifyVariants, GapVariants, MarginVariants, PaddingVariants };
+export { Display, Align, Justify, Gap, Margin, Padding };

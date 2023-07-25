@@ -1,14 +1,16 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+import style from "./Button.module.css";
+
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: "root inline-block relative overflow-hidden border-none cursor-pointer select-none outline-none outline-1 outline-offset-1",
+	base: [style.root, "inline-block relative overflow-hidden border-none cursor-pointer select-none outline-none outline-1 outline-offset-1"],
 	variants: {
 		color: {
-			neutral: "root__color-neutral text-neutral-11 focus-visible:outline-neutral-11",
-			primary: "root__color-primary text-primary-11 focus-visible:outline-primary-11",
+			neutral: [style["root__color-neutral"], "text-neutral-11 focus-visible:outline-neutral-11"],
+			primary: [style["root__color-primary"], "text-primary-11 focus-visible:outline-primary-11"],
 		},
 		size: {
 			md: "h-8 p-px",
@@ -23,11 +25,11 @@ const Root = klass({
 type InnerVariants = VariantsOf<typeof Inner>;
 
 const Inner = klass({
-	base: "inner block relative overflow-hidden w-full h-full",
+	base: [style.inner, "block relative overflow-hidden w-full h-full"],
 	variants: {
 		color: {
-			neutral: "inner__color-neutral",
-			primary: "inner__color-primary",
+			neutral: style["inner__color-neutral"],
+			primary: style["inner__color-primary"],
 		},
 	},
 	defaultVariants: {

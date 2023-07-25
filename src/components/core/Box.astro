@@ -1,20 +1,19 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import * as BoxKlass from "./Box.klass";
 import * as Reklass from "./Reklass";
 
 import { splitProps, getRootClassesx } from "./core";
 
-type Props = HTMLAttributes<"div"> & BoxKlass.Variants & Reklass.MarginVariants & Reklass.PaddingVariants;
+type Props = HTMLAttributes<"div"> & Reklass.DisplayVariants & Reklass.MarginVariants & Reklass.PaddingVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [klass, margin, padding, attrs] = splitProps(props, ["inline"], Reklass.splitter.margin, Reklass.splitter.padding);
+const [display, margin, padding, attrs] = splitProps(props, Reklass.splitter.display, Reklass.splitter.margin, Reklass.splitter.padding);
 
-const className = classes(BoxKlass.Root(klass), Reklass.Margin(margin), Reklass.Padding(padding));
+const className = classes(Reklass.Display(display), Reklass.Margin(margin), Reklass.Padding(padding));
 ---
 
 <div {...attrs} class={className}>
-  <slot />
+	<slot />
 </div>

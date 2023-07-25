@@ -7,28 +7,28 @@ import * as Reklass from "./Reklass";
 import { splitProps, getRootClassesx } from "./core";
 
 type Props = HTMLAttributes<"div"> &
-  FlexKlass.Variants &
-  Reklass.AlignVariants &
-  Reklass.JustifyVariants &
-  Reklass.GapVariants &
-  Reklass.MarginVariants &
-  Reklass.PaddingVariants;
+	FlexKlass.Variants &
+	Reklass.AlignVariants &
+	Reklass.JustifyVariants &
+	Reklass.GapVariants &
+	Reklass.MarginVariants &
+	Reklass.PaddingVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
 const [flex, align, justify, gap, margin, padding, attrs] = splitProps(
-  props,
-  ["inline"],
-  Reklass.splitter.align,
-  Reklass.splitter.justify,
-  Reklass.splitter.gap,
-  Reklass.splitter.margin,
-  Reklass.splitter.padding
+	props,
+	["inline"],
+	Reklass.splitter.align,
+	Reklass.splitter.justify,
+	Reklass.splitter.gap,
+	Reklass.splitter.margin,
+	Reklass.splitter.padding
 );
 
 const className = classes(FlexKlass.Root(flex), Reklass.Align(align), Reklass.Justify(justify), Reklass.Gap(gap), Reklass.Margin(margin), Reklass.Padding(padding));
 ---
 
 <div {...attrs} class={className}>
-  <slot />
+	<slot />
 </div>

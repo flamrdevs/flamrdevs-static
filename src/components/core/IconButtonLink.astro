@@ -2,17 +2,11 @@
 import type { HTMLAttributes } from "astro/types";
 
 import * as IconButtonKlass from "./IconButton.klass";
-import * as Reklass from "./Reklass";
 
 import { splitProps, getRootClassesx, getButtonAttrs } from "./core";
 import type { ButtonOptions } from "./core";
 
-type Props = Omit<HTMLAttributes<"a">, "href"> & { href: string } & ButtonOptions &
-  IconButtonKlass.Variants &
-  IconButtonKlass.InnerVariants &
-  IconButtonKlass.ChildVariants &
-  Reklass.MarginVariants &
-  Reklass.PaddingVariants;
+type Props = Omit<HTMLAttributes<"a">, "href"> & { href: string } & ButtonOptions & IconButtonKlass.Variants & IconButtonKlass.InnerVariants & IconButtonKlass.ChildVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
@@ -24,84 +18,9 @@ const childClassName = IconButtonKlass.Child({ size: klass.size });
 ---
 
 <a role="button" {...attrs} class={className} {...getButtonAttrs(options)}>
-  <div class={innerClassName}>
-    <div class={childClassName}>
-      <slot />
-    </div>
-  </div>
+	<div class={innerClassName}>
+		<div class={childClassName}>
+			<slot />
+		</div>
+	</div>
 </a>
-
-<style>
-  .root {
-    border-radius: 0.4rem;
-
-    &__color {
-      &-neutral {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-11)), hsl(var(--neutral-8)), hsl(var(--neutral-6)));
-
-        &:hover {
-          background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-8)), hsl(var(--neutral-7)));
-        }
-
-        &:active {
-          background-image: linear-gradient(130deg, hsl(var(--neutral-12)), hsl(var(--neutral-9)), hsl(var(--neutral-8)));
-        }
-
-        &[data-disabled] {
-          color: hsl(var(--neutral-8));
-        }
-      }
-
-      &-primary {
-        background-image: linear-gradient(130deg, hsl(var(--primary-11)), hsl(var(--primary-8)), hsl(var(--primary-6)));
-
-        &:hover {
-          background-image: linear-gradient(130deg, hsl(var(--primary-12)), hsl(var(--primary-8)), hsl(var(--primary-7)));
-        }
-
-        &:active {
-          background-image: linear-gradient(130deg, hsl(var(--primary-12)), hsl(var(--primary-9)), hsl(var(--primary-8)));
-        }
-
-        &[data-disabled] {
-          color: hsl(var(--primary-8));
-        }
-      }
-    }
-
-    &[data-disabled] {
-      opacity: 0.8;
-      pointer-events: none;
-    }
-  }
-
-  .inner {
-    border-radius: 0.35rem;
-
-    &__color {
-      &-neutral {
-        background-image: linear-gradient(130deg, hsl(var(--neutral-3)), hsl(var(--neutral-1)));
-
-        &:hover {
-          background-image: linear-gradient(130deg, hsl(var(--neutral-4)), hsl(var(--neutral-1)));
-        }
-
-        &:active {
-          background-image: linear-gradient(130deg, hsl(var(--neutral-5)), hsl(var(--neutral-2)));
-        }
-      }
-
-      &-primary {
-        background-image: linear-gradient(130deg, hsl(var(--primary-3)), hsl(var(--primary-1)));
-
-        &:hover {
-          background-image: linear-gradient(130deg, hsl(var(--primary-4)), hsl(var(--primary-1)));
-        }
-
-        &:active {
-          background-image: linear-gradient(130deg, hsl(var(--primary-5)), hsl(var(--primary-2)));
-        }
-      }
-    }
-  }
-</style>
