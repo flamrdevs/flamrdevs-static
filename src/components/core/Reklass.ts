@@ -119,12 +119,12 @@ const Padding = reklass({
 });
 
 export const splitter = {
-	display: Display.revariantKeys,
-	align: Align.revariantKeys,
-	justify: Justify.revariantKeys,
-	gap: Gap.revariantKeys,
-	margin: Margin.revariantKeys,
-	padding: Padding.revariantKeys,
+	display: Display.rvk,
+	align: Align.rvk,
+	justify: Justify.rvk,
+	gap: Gap.rvk,
+	margin: Margin.rvk,
+	padding: Padding.rvk,
 };
 
 export type { DisplayVariants, AlignVariants, JustifyVariants, GapVariants, MarginVariants, PaddingVariants };
