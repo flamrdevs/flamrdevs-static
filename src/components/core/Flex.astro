@@ -1,10 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
+import propsplit from "propsplit";
+
 import * as FlexKlass from "./Flex.klass";
 import * as Reklass from "./Reklass";
 
-import { splitProps, getRootClassesx } from "./core";
+import { getRootClassesx } from "./core";
 
 type Props = HTMLAttributes<"div"> &
 	FlexKlass.Variants &
@@ -16,7 +18,7 @@ type Props = HTMLAttributes<"div"> &
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [flex, align, justify, gap, margin, padding, attrs] = splitProps(
+const [flex, align, justify, gap, margin, padding, attrs] = propsplit(
 	props,
 	["inline"],
 	Reklass.splitter.align,

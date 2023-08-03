@@ -1,19 +1,21 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
+import propsplit from "propsplit";
+
 import * as TextKlass from "./Text.klass";
 
-import { splitProps, getRootClassesx } from "./core";
+import { getRootClassesx } from "./core";
 
 type Props = HTMLAttributes<"div"> & TextKlass.Variants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [recipe, attrs] = splitProps(props, ["inline", "family", "size", "weight", "align"]);
+const [recipe, attrs] = propsplit(props, ["inline", "family", "size", "weight", "align"]);
 
 const className = classes(TextKlass.Root(recipe));
 ---
 
 <div {...attrs} class={className}>
-  <slot />
+	<slot />
 </div>

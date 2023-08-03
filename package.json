@@ -11,6 +11,7 @@
 		"@klass/core": "^2.0.1",
 		"astro": "^2.9.7",
 		"lucide-solid": "^0.263.0",
+		"propsplit": "1.0.0",
 		"solid-js": "^1.7.8"
 	},
 	"devDependencies": {

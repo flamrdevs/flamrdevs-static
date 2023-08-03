@@ -1,39 +1,41 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { splitProps, getRootClassesx, getLinkAttrs } from "./core";
+import propsplit from "propsplit";
+
+import { getRootClassesx, getLinkAttrs } from "./core";
 import type { LinkOptions } from "./core";
 
 type Props = Omit<HTMLAttributes<"a">, "href"> & { href: string } & LinkOptions;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [options, attrs] = splitProps(props, ["disabled"]);
+const [options, attrs] = propsplit(props, ["disabled"]);
 
 const className = classes("root");
 ---
 
 <a {...attrs} class={className} {...getLinkAttrs(options)}>
-  <slot />
+	<slot />
 </a>
 
 <style>
-  .root {
-    color: hsl(211 96% 42%);
-    font-weight: 600;
-    @apply outline-none outline-1 outline-offset-1 focus-visible:outline-neutral-11;
+	.root {
+		color: hsl(211 96% 42%);
+		font-weight: 600;
+		@apply outline-none outline-1 outline-offset-1 focus-visible:outline-neutral-11;
 
-    &:hover {
-      text-decoration: underline;
-    }
+		&:hover {
+			text-decoration: underline;
+		}
 
-    &[data-disabled] {
-      opacity: 0.7;
-      cursor: not-allowed;
+		&[data-disabled] {
+			opacity: 0.7;
+			cursor: not-allowed;
 
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
 </style>

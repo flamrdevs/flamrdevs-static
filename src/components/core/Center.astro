@@ -1,15 +1,17 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
+import propsplit from "propsplit";
+
 import * as Reklass from "./Reklass";
 
-import { splitProps, getRootClassesx } from "./core";
+import { getRootClassesx } from "./core";
 
 type Props = HTMLAttributes<"div"> & Reklass.GapVariants & Reklass.MarginVariants & Reklass.PaddingVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [gap, margin, padding, attrs] = splitProps(props, Reklass.splitter.gap, Reklass.splitter.margin, Reklass.splitter.padding);
+const [gap, margin, padding, attrs] = propsplit(props, Reklass.splitter.gap, Reklass.splitter.margin, Reklass.splitter.padding);
 
 const className = classes("flex items-center justify-center", Reklass.Gap(gap), Reklass.Margin(margin), Reklass.Padding(padding));
 ---

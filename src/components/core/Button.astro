@@ -1,16 +1,18 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
+import propsplit from "propsplit";
+
 import * as ButtonKlass from "./Button.klass";
 
-import { splitProps, getRootClassesx, getButtonAttrs } from "./core";
+import { getRootClassesx, getButtonAttrs } from "./core";
 import type { ButtonOptions } from "./core";
 
 type Props = HTMLAttributes<"button"> & ButtonOptions & ButtonKlass.Variants & ButtonKlass.InnerVariants & ButtonKlass.ChildVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [options, klass, attrs] = splitProps(props, ["disabled"], ["color", "font", "size"]);
+const [options, klass, attrs] = propsplit(props, ["disabled"], ["color", "font", "size"]);
 
 const className = classes(ButtonKlass.Root({ color: klass.color, size: klass.size }));
 const innerClassName = ButtonKlass.Inner({ color: klass.color });
