@@ -24,6 +24,6 @@
 			"~/*": ["./src/*"]
 		}
 	},
-	"include": ["src"],
+	"include": ["src", "src/components/core/.reklass.ts"],
 	"exclude": ["dist"]
 }
