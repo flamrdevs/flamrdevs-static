@@ -5,13 +5,13 @@ import propsplit from "propsplit";
 
 import * as TextKlass from "./Text.klass";
 
-import { getRootClassesx } from "./core";
+import { getRootClassesx } from "~/components/classes";
 
 type Props = HTMLAttributes<"div"> & TextKlass.Variants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [recipe, attrs] = propsplit(props, ["inline", "family", "size", "weight", "align"]);
+const [recipe, attrs] = propsplit(props, TextKlass.Root.vk);
 
 const className = classes(TextKlass.Root(recipe));
 ---

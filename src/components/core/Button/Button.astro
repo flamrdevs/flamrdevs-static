@@ -5,14 +5,16 @@ import propsplit from "propsplit";
 
 import * as ButtonKlass from "./Button.klass";
 
-import { getRootClassesx, getButtonAttrs } from "./core";
-import type { ButtonOptions } from "./core";
+import { getButtonAttrs } from "./../attributes/button";
+import type { ButtonOptions } from "./../attributes/button";
+
+import { getRootClassesx } from "~/components/classes";
 
 type Props = HTMLAttributes<"button"> & ButtonOptions & ButtonKlass.Variants & ButtonKlass.InnerVariants & ButtonKlass.ChildVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [options, klass, attrs] = propsplit(props, ["disabled"], ["color", "font", "size"]);
+const [options, klass, attrs] = propsplit(props, ["disabled"], [...ButtonKlass.Root.vk, ...ButtonKlass.Child.vk]);
 
 const className = classes(ButtonKlass.Root({ color: klass.color, size: klass.size }));
 const innerClassName = ButtonKlass.Inner({ color: klass.color });

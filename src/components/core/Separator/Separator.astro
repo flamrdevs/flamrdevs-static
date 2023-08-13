@@ -5,14 +5,16 @@ import propsplit from "propsplit";
 
 import * as SeparatorKlass from "./Separator.klass";
 
-import { getRootClassesx, getSeparatorAttrs } from "./core";
-import type { SeparatorOptions } from "./core";
+import { getSeparatorAttrs } from "./../attributes/separator";
+import type { SeparatorOptions } from "./../attributes/separator";
+
+import { getRootClassesx } from "~/components/classes";
 
 type Props = Omit<HTMLAttributes<"hr">, "orientation"> & SeparatorOptions & SeparatorKlass.Variants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [options, klass, attrs] = propsplit(props, ["orientation"], ["margin"]);
+const [options, klass, attrs] = propsplit(props, ["orientation"], SeparatorKlass.Root.vk);
 
 const className = classes(SeparatorKlass.Root(klass));
 ---

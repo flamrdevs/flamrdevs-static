@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import propsplit from "propsplit";
+
+import * as FlexKlass from "./Flex.klass";
+import * as reklass from "./../reklass";
+
+import { getRootClassesx } from "~/components/classes";
+
+type Props = HTMLAttributes<"div"> &
+	FlexKlass.Variants &
+	reklass.AlignVariants &
+	reklass.JustifyVariants &
+	reklass.GapVariants &
+	reklass.MarginVariants &
+	reklass.PaddingVariants;
+
+const [classes, props] = getRootClassesx(Astro.props);
+
+const [flex, align, justify, gap, margin, padding, attrs] = propsplit(
+	props,
+	FlexKlass.Root.vk,
+	reklass.Align.rvk,
+	reklass.Justify.rvk,
+	reklass.Gap.rvk,
+	reklass.Margin.rvk,
+	reklass.Padding.rvk
+);
+
+const className = classes(FlexKlass.Root(flex), reklass.Align(align), reklass.Justify(justify), reklass.Gap(gap), reklass.Margin(margin), reklass.Padding(padding));
+---
+
+<div {...attrs} class={className}>
+	<slot />
+</div>

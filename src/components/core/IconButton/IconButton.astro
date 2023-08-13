@@ -5,24 +5,26 @@ import propsplit from "propsplit";
 
 import * as IconButtonKlass from "./IconButton.klass";
 
-import { getRootClassesx, getButtonAttrs } from "./core";
-import type { ButtonOptions } from "./core";
+import { getButtonAttrs } from "./../attributes/button";
+import type { ButtonOptions } from "./../attributes/button";
 
-type Props = Omit<HTMLAttributes<"a">, "href"> & { href: string } & ButtonOptions & IconButtonKlass.Variants & IconButtonKlass.InnerVariants & IconButtonKlass.ChildVariants;
+import { getRootClassesx } from "~/components/classes";
+
+type Props = HTMLAttributes<"button"> & ButtonOptions & IconButtonKlass.Variants & IconButtonKlass.InnerVariants & IconButtonKlass.ChildVariants;
 
 const [classes, props] = getRootClassesx(Astro.props);
 
-const [options, klass, attrs] = propsplit(props, ["disabled"], ["color", "size"]);
+const [options, klass, attrs] = propsplit(props, ["disabled"], IconButtonKlass.Root.vk);
 
 const className = classes(IconButtonKlass.Root({ color: klass.color, size: klass.size }));
 const innerClassName = IconButtonKlass.Inner({ color: klass.color });
 const childClassName = IconButtonKlass.Child({ size: klass.size });
 ---
 
-<a role="button" {...attrs} class={className} {...getButtonAttrs(options)}>
+<button type="button" {...attrs} class={className} {...getButtonAttrs(options)}>
 	<div class={innerClassName}>
 		<div class={childClassName}>
 			<slot />
 		</div>
 	</div>
-</a>
+</button>
