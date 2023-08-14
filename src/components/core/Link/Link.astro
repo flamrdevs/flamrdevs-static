@@ -23,9 +23,9 @@ const className = classes("root");
 
 <style>
 	.root {
-		color: hsl(211 96% 42%);
+		color: hsl(var(--info-9));
 		font-weight: 600;
-		@apply outline-none outline-1 outline-offset-1 focus-visible:outline-neutral-11;
+		@apply outline-none outline-1 outline-offset-1 p-px rounded focus-visible:outline-info-10;
 
 		&:hover {
 			text-decoration: underline;
