@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import propsplit from "propsplit";
+
+import * as BadgeKlass from "./Badge.klass";
+
+import { getRootClassesx } from "~/components/classes";
+
+type Props = HTMLAttributes<"span"> & BadgeKlass.Variants & BadgeKlass.InnerVariants & BadgeKlass.ChildVariants;
+
+const [classes, props] = getRootClassesx(Astro.props);
+
+const [klass, attrs] = propsplit(props, [...BadgeKlass.Root.vk, ...BadgeKlass.Child.vk]);
+
+const className = classes(BadgeKlass.Root({ color: klass.color, size: klass.size }));
+const innerClassName = BadgeKlass.Inner({ color: klass.color });
+const childClassName = BadgeKlass.Child({ font: klass.font, size: klass.size });
+---
+
+<span {...attrs} class={className}>
+	<div class={innerClassName}>
+		<div class={childClassName}>
+			<slot />
+		</div>
+	</div>
+</span>
