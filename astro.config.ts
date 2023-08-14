@@ -14,7 +14,7 @@ export default {
 		solid(),
 		sitemap(),
 		compress({
-			logger: 1,
+			Logger: 0,
 		}),
 		stats({
 			exts: ["html", "css", "js", "json", "png", "svg", "ico", "ttf"],
