@@ -1,0 +1,55 @@
+---
+import { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+
+import { Box, Container, HTMLX, Separator, Text } from "~/components/core";
+
+import Stats from "~/components/apps/Stats";
+
+import { HOST } from "~/utils/exports";
+
+export const getStaticPaths = (async () => {
+	const projects: {
+		name: string;
+		host: string;
+	}[] = [
+		{
+			name: "static",
+			host: HOST.STATIC(),
+		},
+		{
+			name: "site",
+			host: HOST.SITE(),
+		},
+		{
+			name: "web",
+			host: HOST.WEB(),
+		},
+	];
+	return projects.map(({ name, host }) => {
+		return {
+			params: { name },
+			props: { host },
+		};
+	});
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { name } = Astro.params as Params;
+const { host } = Astro.props as Props;
+---
+
+<HTMLX>
+	<Container max="xs" py="2">
+		<Box>
+			<Text align="center">{name}</Text>
+		</Box>
+
+		<Separator />
+
+		<Box py="2">
+			<Stats host={host} client:only />
+		</Box>
+	</Container>
+</HTMLX>
