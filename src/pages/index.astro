@@ -8,25 +8,19 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs";
 ---
 
 <HTMLX>
-	<Container max="lg" p="2">
-		<Separator orientation="horizontal" />
-	</Container>
-
 	<Center>
 		<AnimatedSVGLogo
-			class="w-[10rem] h-[10rem] xs:w-[15rem] xs:h-[15rem] sm:w-[20rem] sm:h-[20rem] md:w-[25rem] md:h-[25rem] lg:w-[30rem] lg:h-[30rem] xl:w-[35rem] xl:h-[35rem]"
+			class="w-[10rem] h-[10rem] xs:w-[17rem] xs:h-[17rem] sm:w-[24rem] sm:h-[24rem] md:w-[31rem] md:h-[31rem] lg:w-[38rem] lg:h-[38rem] xl:w-[45rem] xl:h-[45rem]"
 		/>
 	</Center>
 
-	<Container max="lg" p="2">
+	<Container max="sm">
 		<Separator orientation="horizontal" />
-	</Container>
-
-	<Container max="lg" p="2">
-		<Center gap="2">
+		<Center gap="2" p="2">
 			<IconButtonLink href={LINK.GITHUB} target="_blank">
 				<GithubIcon client:idle />
 			</IconButtonLink>
 		</Center>
+		<Separator orientation="horizontal" />
 	</Container>
 </HTMLX>
