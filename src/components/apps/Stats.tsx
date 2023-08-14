@@ -32,19 +32,19 @@ const fetcher = import.meta.env.PROD
 						{
 							type: "file",
 							ext: ".css",
-							name: "main",
+							name: "main.css",
 							size: "1.25 KB",
 						},
 						{
 							type: "file",
 							ext: ".js",
-							name: "main",
+							name: "main.js",
 							size: "0.75 KB",
 						},
 						{
 							type: "file",
 							ext: ".html",
-							name: "index",
+							name: "index.html",
 							size: "7.75 KB",
 						},
 					],
@@ -56,7 +56,7 @@ const fetcher = import.meta.env.PROD
 						{
 							type: "file",
 							ext: ".css",
-							name: "globals",
+							name: "globals.css",
 							size: "1.25 KB",
 						},
 						{
@@ -66,7 +66,7 @@ const fetcher = import.meta.env.PROD
 								{
 									type: "file",
 									ext: ".png",
-									name: "image",
+									name: "image.png",
 									size: "1.25 KB",
 								},
 							],
@@ -76,7 +76,7 @@ const fetcher = import.meta.env.PROD
 				{
 					type: "file",
 					ext: ".html",
-					name: "index",
+					name: "index.html",
 					size: "11.75 KB",
 				},
 			] as Child[]);
@@ -88,7 +88,7 @@ const RenderFile = (props: { data: File }) => {
 			<div class="flex items-center justify-between p-1 text-neutral-11 hover:bg-neutral-3 hover:text-neutral-12">
 				<div class="flex items-center gap-1">
 					<FileIcon size={14} />
-					<span class="font-mono">{`${props.data.name}${props.data.ext}`}</span>
+					<span class="font-mono">{props.data.name}</span>
 				</div>
 				<span class="font-mono">{props.data.size}</span>
 			</div>
