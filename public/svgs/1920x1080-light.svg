@@ -2,14 +2,14 @@
   <defs>
     <style>
       .bg {
-        fill: #FAFAFA;
+        fill: #FCFCFC;
         width: 1920px;
         height: 1080px;
       }
 
       .filled {
-        fill: #0A0A0A;
-        stroke: #FAFAFA;
+        fill: #202020;
+        stroke: #FCFCFC;
         stroke-width: 6;
         stroke-dasharray: 1200;
         stroke-dashoffset: 1200;
@@ -17,7 +17,7 @@
       }
 
       .outlined {
-        stroke: #0A0A0A;
+        stroke: #202020;
         stroke-width: 3;
         stroke-dasharray: 1200;
         stroke-dashoffset: 1200;
@@ -25,7 +25,7 @@
       }
 
       .outlined-base {
-        stroke: #FAFAFA;
+        stroke: #FCFCFC;
         stroke-width: 3;
         stroke-dasharray: 1200;
         stroke-dashoffset: 1200;
