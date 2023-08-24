@@ -6,7 +6,7 @@ import style from "./Badge.module.css";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: [style.root, "inline-block relative overflow-hidden border-none cursor-pointer select-none"],
+	base: [style.root, "inline-block relative overflow-hidden border-none select-none"],
 	variants: {
 		color: {
 			neutral: [style["root__color-neutral"], "text-neutral-11"],
