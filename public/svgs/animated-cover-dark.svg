@@ -1,0 +1,64 @@
+<svg width="2400" height="800" viewBox="0 0 2400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg {
+        fill: #181818;
+      }
+
+      .filled {
+        stroke-dasharray: 270;
+        stroke-dashoffset: 270;
+        fill: #eeeeee;
+      }
+
+      .stroke-left {
+        stroke-dasharray: 270;
+        stroke-dashoffset: 270;
+        stroke: #181818;
+        stroke-width: 1.5;
+        animation: to-left 8000ms infinite ease-in-out;
+        transition: stroke 100ms;
+      }
+
+      .stroke-right {
+        stroke-dasharray: 270;
+        stroke-dashoffset: 270;
+        stroke: #eeeeee;
+        stroke-width: 1.5;
+        animation: to-right 4000ms infinite ease-in-out;
+        transition: stroke 100ms;
+      }
+
+      @keyframes to-left {
+        0% {
+          stroke-dashoffset: 270;
+        }
+
+        100% {
+          stroke-dashoffset: -270;
+        }
+      }
+
+      @keyframes to-right {
+        0% {
+          stroke-dashoffset: -270;
+        }
+
+        100% {
+          stroke-dashoffset: 270;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="2400" height="800" />
+  <path class="filled" d="M1045.88 389.794L976.886 372.419L1342.63 162.674L1296.69 262.777L1045.88 389.794Z" />
+  <path class="filled"
+    d="M1023.52 574.673L1081.51 395.418L1137.53 368.664L1133.48 389.89L1225.45 335.956L1212.1 395.79L1121.48 452.915L1083.49 652.459L1023.52 574.673Z" />
+  <path class="filled"
+    d="M1138.62 548.137L1325.33 418.905L1346.61 250.543L1273.65 315.559L1267.75 397.848L1159.61 464.469L1138.62 548.137Z" />
+  <path class="stroke-left"
+    d="M971.279 355.498L1039.82 372.761L1289.01 246.568L1334.64 147.116L971.279 355.498ZM1075.22 378.348L1017.61 556.439L1077.19 633.719L1130.88 351.768L1075.22 378.348ZM1126.86 372.856L1218.23 319.272L1204.96 378.717L1114.94 435.472L1126.86 372.856ZM1152.82 446.951L1131.96 530.075L1317.46 401.683L1338.61 234.414L1266.12 299.008L1260.25 380.762L1152.82 446.951Z" />
+  <path class="stroke-right"
+    d="M999.102 347.382L1067.65 364.645L1316.83 238.452L1362.47 139L999.102 347.382ZM1103.05 370.232L1045.43 548.323L1105.01 625.603L1158.7 343.652L1103.05 370.232ZM1154.68 364.74L1246.05 311.156L1232.78 370.601L1142.76 427.356L1154.68 364.74ZM1180.64 438.835L1159.78 521.959L1345.28 393.567L1366.43 226.299L1293.94 290.892L1288.08 372.646L1180.64 438.835Z" />
+</svg>
