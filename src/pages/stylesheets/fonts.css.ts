@@ -2,9 +2,9 @@ import type { APIRoute } from "astro";
 
 import { HOST } from "~/utils/exports";
 
-export const get: APIRoute = () => {
-	return {
-		body: [
+export const GET: APIRoute = () => {
+	return new Response(
+		[
 			{
 				name: "Plus Jakarta Sans",
 				style: "normal",
@@ -29,14 +29,14 @@ export const get: APIRoute = () => {
 			.map(({ name, style, filename }) => {
 				return `
 @font-face {
-  font-family: "${name}";
-  font-style: ${style};
-  font-weight: 1 999;
-  src: url("${HOST.STATIC("fonts", filename)}.ttf") format("truetype-variations");
+	font-family: "${name}";
+	font-style: ${style};
+	font-weight: 1 999;
+	src: url("${HOST.STATIC("fonts", filename)}.ttf") format("truetype-variations");
 }
-  
-  `;
+
+`;
 			})
-			.join("\n"),
-	};
+			.join("\n")
+	);
 };
