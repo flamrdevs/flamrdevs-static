@@ -19,8 +19,7 @@ const { colors, plugin } = coloradix({
 		warning: "yellow",
 		danger: "red",
 	})
-	.overlay(true)
-	.enable(true);
+	.build();
 
 const breakpoints = ["xs", "sm", "md", "lg", "xl"];
 const responsive = (...classNames: string[]) => {
