@@ -8,8 +8,9 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.0.0",
-		"@klass/core": "^2.0.6",
+		"@klass/core": "^3.3.3",
 		"astro": "^3.0.12",
+		"clsx": "^2.0.0",
 		"lucide-solid": "^0.276.0",
 		"propsplit": "1.0.0",
 		"solid-js": "^1.7.11"

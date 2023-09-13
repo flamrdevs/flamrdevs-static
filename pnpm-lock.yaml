@@ -5,11 +5,14 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0
   '@klass/core':
-    specifier: ^2.0.6
-    version: 2.0.6
+    specifier: ^3.3.3
+    version: 3.3.3
   astro:
     specifier: ^3.0.12
     version: 3.0.12(@types/node@20.6.0)
+  clsx:
+    specifier: ^2.0.0
+    version: 2.0.0
   lucide-solid:
     specifier: ^0.276.0
     version: 0.276.0(solid-js@1.7.11)
@@ -857,8 +860,10 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@klass/core@2.0.6:
-    resolution: {integrity: sha512-0qOILeb7F8aHVmDEu5BFDqbH3tci9rqRQI6dg4J47Bk+Jcvvb41i0jrYaGBUkbUkGGfZtcjd/3bk0csB1lF4/g==}
+  /@klass/core@3.3.3:
+    resolution: {integrity: sha512-H9xsVSSWMAdxxwjVTxQVLoSCoS+zbJDbjPMsLB+n1nRliHiljC9DHqdw1iHLIB7Kf9MuWkxtxIRliaP1UFbiCQ==}
+    dependencies:
+      clsx: 2.0.0
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:

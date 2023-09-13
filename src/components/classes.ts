@@ -1,4 +1,4 @@
-import { cxs } from "@klass/core";
+import clsx from "clsx";
 import type { ClassValue } from "@klass/core";
 
 type ClassesProps = {
@@ -7,7 +7,7 @@ type ClassesProps = {
 
 const getRootClassesx = <P extends ClassesProps>(props: P) => {
 	const { class: className, ...rest } = props;
-	return [(...classes: ClassValue[]) => cxs(classes, className), rest] as const;
+	return [(...classes: ClassValue[]) => clsx(classes, className), rest] as const;
 };
 
 export type { ClassesProps };
