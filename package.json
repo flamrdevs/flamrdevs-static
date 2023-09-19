@@ -8,18 +8,18 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.0.0",
-		"@klass/core": "^3.3.3",
-		"astro": "^3.0.13",
+		"@klass/core": "^3.4.6",
+		"astro": "^3.1.0",
 		"clsx": "^2.0.0",
-		"lucide-solid": "^0.276.0",
-		"propsplit": "1.0.0",
-		"solid-js": "^1.7.11"
+		"lucide-solid": "^0.279.0",
+		"propsplit": "1.0.1",
+		"solid-js": "^1.7.12"
 	},
 	"devDependencies": {
 		"@astrojs/solid-js": "^3.0.1",
 		"@astrojs/tailwind": "^5.0.0",
-		"@coloradix/tailwindcss": "^1.5.0",
-		"@types/node": "^20.6.0",
+		"@coloradix/tailwindcss": "^1.6.0",
+		"@types/node": "^20.6.2",
 		"astro-compress": "^2.0.15",
 		"tailwindcss": "^3.3.3",
 		"typescript": "^5.2.2"
