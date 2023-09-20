@@ -10,5 +10,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const GET: APIRoute<{ theme: string }> = async ({ props }) => {
-	return new Response(await fetch(HOST.IMAGE(`badge/${props.theme}`)).then((res) => res.arrayBuffer() as Promise<ArrayBuffer>));
+	return new Response(await fetch(HOST.IMAGE(`badge/${props.theme}`)).then((res) => res.text() as Promise<string>));
 };
