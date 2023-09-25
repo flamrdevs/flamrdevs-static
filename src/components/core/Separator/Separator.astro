@@ -8,15 +8,13 @@ import * as SeparatorKlass from "./Separator.klass";
 import { getSeparatorAttrs } from "./../attributes/separator";
 import type { SeparatorOptions } from "./../attributes/separator";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = Omit<HTMLAttributes<"hr">, "orientation"> & SeparatorOptions & SeparatorKlass.Variants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, options, klass, attrs] = propsplit(Astro.props, ClassesKeys, ["orientation"], SeparatorKlass.Root.vk);
 
-const [options, klass, attrs] = propsplit(props, ["orientation"], SeparatorKlass.Root.vk);
-
-const className = classes(SeparatorKlass.Root(klass));
+const className = classex(SeparatorKlass.Root(klass), classes);
 ---
 
 <hr {...attrs} class={className} {...getSeparatorAttrs(options)} />

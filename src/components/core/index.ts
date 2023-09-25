@@ -1,4 +1,5 @@
 export { default as Badge } from "./Badge/Badge.astro";
+export { default as Block } from "./Block/Block.astro";
 export { default as Box } from "./Box/Box.astro";
 export { default as Button } from "./Button/Button.astro";
 export { default as ButtonLink } from "./Button/ButtonLink.astro";

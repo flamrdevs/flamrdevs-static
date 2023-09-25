@@ -3,17 +3,24 @@ import type { HTMLAttributes } from "astro/types";
 
 import propsplit from "propsplit";
 
+import * as klass from "./../.klass";
 import * as reklass from "./../.reklass";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
-type Props = HTMLAttributes<"div"> & reklass.DisplayVariants & reklass.MarginVariants & reklass.PaddingVariants;
+type Props = HTMLAttributes<"div"> & klass.TypographyVariants & reklass.LayoutVariants & reklass.PositionVariants & reklass.MarginVariants & reklass.PaddingVariants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, typography, layout, position, margin, padding, attrs] = propsplit(
+	Astro.props,
+	ClassesKeys,
+	klass.Typography.vk,
+	reklass.Layout.rvk,
+	reklass.Position.rvk,
+	reklass.Margin.rvk,
+	reklass.Padding.rvk
+);
 
-const [display, margin, padding, attrs] = propsplit(props, reklass.Display.rvk, reklass.Margin.rvk, reklass.Padding.rvk);
-
-const className = classes(reklass.Display(display), reklass.Margin(margin), reklass.Padding(padding));
+const className = classex([klass.Typography(typography), reklass.Layout(layout), reklass.Position(position), reklass.Margin(margin), reklass.Padding(padding)], classes);
 ---
 
 <div {...attrs} class={className}>

@@ -14,7 +14,7 @@ type Props = HTMLAttributes<"div"> & {
 	reklass.MarginVariants &
 	reklass.PaddingVariants;
 
-const { inline, disp = inline ? "iflex" : "flex", ...attrs } = Astro.props;
+const { inline, disp = inline ? "iblock" : "block", ...attrs } = Astro.props;
 ---
 
 <Box disp={disp} {...attrs as any}>

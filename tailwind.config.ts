@@ -49,11 +49,22 @@ const space = (property: string) => {
 };
 
 export default {
-	content: ["src/**/*.{astro,ts,tsx}"],
+	content: ["src/**/*.{astro,ts,tsx}", "src/components/core/.{klass,reklass}.ts"],
 	safelist: [
-		...responsive("items-start", "items-center", "items-end", "items-stretch"),
-		...responsive("justify-center", "justify-center", "justify-end", "justify-around", "justify-between", "justify-evenly"),
-		...responsive(...space("gap"), ...space("gap-x"), ...space("gap-y")),
+		...responsive(
+			...["hidden", "block", "inline-block", "flex", "inline-flex", "grid", "inline-grid"],
+			...["items-start", "items-center", "items-end", "items-stretch"],
+			...["justify-center", "justify-center", "justify-end", "justify-stretch", "justify-around", "justify-between", "justify-evenly"],
+			...space("gap")
+		),
+		...responsive(
+			...["relative", "absolute", "fixed", "static", "sticky"],
+			...["z-0", "z-10", "z-20", "z-30", "z-40", "z-50"],
+			...space("top"),
+			...space("right"),
+			...space("bottom"),
+			...space("left")
+		),
 		...responsive(...space("m"), ...space("mx"), ...space("my"), ...space("mt"), ...space("mr"), ...space("mb"), ...space("ml")),
 		...responsive(...space("p"), ...space("px"), ...space("py"), ...space("pt"), ...space("pr"), ...space("pb"), ...space("pl")),
 	],
@@ -65,10 +76,38 @@ export default {
 			lg: "1280px",
 			xl: "1536px",
 		},
-		colors: colors,
+		colors: {
+			transparent: "transparent",
+			current: "currentColor",
+			...colors,
+		},
 		fontFamily: {
 			sans: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.sans],
 			mono: ["Source Code Pro", ...defaultTheme.fontFamily.mono],
+		},
+		extend: {
+			scale: {
+				"96": "0.96",
+				"97": "0.97",
+				"98": "0.98",
+				"99": "0.99",
+				"101": "1.01",
+				"102": "1.02",
+				"103": "1.03",
+				"104": "1.04",
+			},
+			spacing: {
+				112: "28rem",
+				128: "32rem",
+				144: "36rem",
+				160: "40rem",
+			},
+			width: {
+				screen: "100dvw",
+			},
+			height: {
+				screen: "100dvh",
+			},
 		},
 	},
 	corePlugins: {

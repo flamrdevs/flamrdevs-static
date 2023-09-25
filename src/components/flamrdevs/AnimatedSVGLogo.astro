@@ -1,7 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { getRootClassesx } from "~/components/classes";
+import propsplit from "propsplit";
+
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = HTMLAttributes<"svg"> & {
 	size?: number;
@@ -9,9 +11,9 @@ type Props = HTMLAttributes<"svg"> & {
 
 const SIZE_DEFAULT = 500;
 
-const [classes, { size = SIZE_DEFAULT, ...attrs }] = getRootClassesx(Astro.props);
+const [classes, { size = SIZE_DEFAULT, ...attrs }] = propsplit(Astro.props, ClassesKeys);
 
-const className = classes("root");
+const className = classex("root", classes);
 ---
 
 <svg {...attrs} class={className} width={size} height={size} viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">

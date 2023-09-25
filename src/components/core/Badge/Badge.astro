@@ -5,15 +5,13 @@ import propsplit from "propsplit";
 
 import * as BadgeKlass from "./Badge.klass";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = HTMLAttributes<"span"> & BadgeKlass.Variants & BadgeKlass.InnerVariants & BadgeKlass.ChildVariants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, klass, attrs] = propsplit(Astro.props, ClassesKeys, [...BadgeKlass.Root.vk, ...BadgeKlass.Child.vk]);
 
-const [klass, attrs] = propsplit(props, [...BadgeKlass.Root.vk, ...BadgeKlass.Child.vk]);
-
-const className = classes(BadgeKlass.Root({ color: klass.color, size: klass.size }));
+const className = classex(BadgeKlass.Root({ color: klass.color, size: klass.size }), classes);
 const innerClassName = BadgeKlass.Inner({ color: klass.color });
 const childClassName = BadgeKlass.Child({ font: klass.font, size: klass.size });
 ---

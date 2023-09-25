@@ -10,6 +10,36 @@ body {
 	@apply bg-neutral-1 text-neutral-12 font-sans;
 }
 
+::-webkit-scrollbar {
+	width: 0.4rem;
+}
+
+::-webkit-scrollbar-track {
+	background: hsl(var(--neutral-2) / 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+	background: hsl(var(--neutral-5));
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: hsl(var(--neutral-8));
+}
+
+::-moz-selection {
+	background: hsl(var(--info-9));
+	color: white;
+}
+
+::selection {
+	background: hsl(var(--info-9));
+	color: white;
+}
+
+a {
+	@apply no-underline;
+}
+
 .lucide {
 	stroke-width: 1.5;
 	width: 1.25rem;

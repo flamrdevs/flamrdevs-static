@@ -32,59 +32,63 @@ const space = (property: string) => {
 	};
 };
 
-type DisplayVariants = VariantsOf<typeof Display>;
-const Display = reklass({
+type LayoutVariants = VariantsOf<typeof Layout>;
+const Layout = reklass({
 	conditions: CONDITIONS,
 	defaultCondition: DEFAULTCONDITION,
 	variants: {
-		d: {
+		disp: {
 			none: "hidden",
 			block: "block",
 			iblock: "inline-block",
 			flex: "flex",
 			iflex: "inline-flex",
+			grid: "grid",
+			igrid: "inline-grid",
 		},
-	},
-});
-
-type AlignVariants = VariantsOf<typeof Align>;
-const Align = reklass({
-	conditions: CONDITIONS,
-	defaultCondition: DEFAULTCONDITION,
-	variants: {
 		ai: {
-			start: "items-start",
-			center: "items-center",
-			end: "items-end",
-			strect: "items-stretch",
+			":--": "items-start",
+			"-:-": "items-center",
+			"--:": "items-end",
+			":::": "items-stretch",
 		},
-	},
-});
-
-type JustifyVariants = VariantsOf<typeof Justify>;
-const Justify = reklass({
-	conditions: CONDITIONS,
-	defaultCondition: DEFAULTCONDITION,
-	variants: {
 		jc: {
-			start: "justify-center",
-			center: "justify-center",
-			end: "justify-end",
+			":--": "justify-center",
+			"-:-": "justify-center",
+			"--:": "justify-end",
+			":::": "justify-stretch",
 			around: "justify-around",
 			between: "justify-between",
 			evenly: "justify-evenly",
 		},
+		gap: space("gap"),
 	},
 });
 
-type GapVariants = VariantsOf<typeof Gap>;
-const Gap = reklass({
+type PositionVariants = VariantsOf<typeof Position>;
+const Position = reklass({
 	conditions: CONDITIONS,
 	defaultCondition: DEFAULTCONDITION,
 	variants: {
-		gap: space("gap"),
-		gapx: space("gap-x"),
-		gapy: space("gap-y"),
+		posi: {
+			rel: "relative",
+			abs: "absolute",
+			fix: "fixed",
+			stc: "static",
+			sty: "sticky",
+		},
+		zi: {
+			"0": "z-0",
+			"1": "z-10",
+			"2": "z-20",
+			"3": "z-30",
+			"4": "z-40",
+			"5": "z-50",
+		},
+		top: space("top"),
+		right: space("right"),
+		bottom: space("bottom"),
+		left: space("left"),
 	},
 });
 
@@ -118,5 +122,5 @@ const Padding = reklass({
 	},
 });
 
-export type { DisplayVariants, AlignVariants, JustifyVariants, GapVariants, MarginVariants, PaddingVariants };
-export { Display, Align, Justify, Gap, Margin, Padding };
+export type { LayoutVariants, PositionVariants, MarginVariants, PaddingVariants };
+export { Layout, Position, Margin, Padding };

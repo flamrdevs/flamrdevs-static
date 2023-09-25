@@ -8,15 +8,13 @@ import * as IconButtonKlass from "./IconButton.klass";
 import { getButtonAttrs } from "./../attributes/button";
 import type { ButtonOptions } from "./../attributes/button";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = HTMLAttributes<"button"> & ButtonOptions & IconButtonKlass.Variants & IconButtonKlass.InnerVariants & IconButtonKlass.ChildVariants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, options, klass, attrs] = propsplit(Astro.props, ClassesKeys, ["disabled"], IconButtonKlass.Root.vk);
 
-const [options, klass, attrs] = propsplit(props, ["disabled"], IconButtonKlass.Root.vk);
-
-const className = classes(IconButtonKlass.Root({ color: klass.color, size: klass.size }));
+const className = classex(IconButtonKlass.Root({ color: klass.color, size: klass.size }), classes);
 const innerClassName = IconButtonKlass.Inner({ color: klass.color });
 const childClassName = IconButtonKlass.Child({ size: klass.size });
 ---

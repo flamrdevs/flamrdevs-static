@@ -5,15 +5,13 @@ import propsplit from "propsplit";
 
 import * as LoaderKlass from "./Loader.klass";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = HTMLAttributes<"svg"> & LoaderKlass.Variants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, klass, attrs] = propsplit(Astro.props, ClassesKeys, LoaderKlass.Root.vk);
 
-const [klass, attrs] = propsplit(props, LoaderKlass.Root.vk);
-
-const className = classes(LoaderKlass.Root(klass));
+const className = classex(LoaderKlass.Root(klass), classes);
 ---
 
 <svg {...attrs} class={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

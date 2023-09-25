@@ -3,17 +3,38 @@ import type { HTMLAttributes } from "astro/types";
 
 import propsplit from "propsplit";
 
-import * as TextKlass from "./Text.klass";
+import * as klass from "./../.klass";
+import * as reklass from "./../.reklass";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
-type Props = HTMLAttributes<"div"> & TextKlass.Variants;
+type Props = Omit<HTMLAttributes<"div">, "style"> & {
+	family?: klass.TypographyVariants["ff"];
+	size?: klass.TypographyVariants["fz"];
+	style?: klass.TypographyVariants["fs"];
+	weight?: klass.TypographyVariants["fw"];
+	align?: klass.TypographyVariants["ta"];
+} & reklass.MarginVariants &
+	reklass.PaddingVariants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const { family = "sans", size = "3", style = "n", weight = "4", align = ":--", ...props } = Astro.props;
 
-const [recipe, attrs] = propsplit(props, TextKlass.Root.vk);
+const [classes, margin, padding, attrs] = propsplit(props, ClassesKeys, reklass.Margin.rvk, reklass.Padding.rvk);
 
-const className = classes(TextKlass.Root(recipe));
+const className = classex(
+	[
+		klass.Typography({
+			ff: family,
+			fz: size,
+			fs: style,
+			fw: weight,
+			ta: align,
+		}),
+		reklass.Margin(margin),
+		reklass.Padding(padding),
+	],
+	classes
+);
 ---
 
 <div {...attrs} class={className}>

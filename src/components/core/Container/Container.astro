@@ -6,15 +6,13 @@ import propsplit from "propsplit";
 import * as ContainerKlass from "./Container.klass";
 import * as reklass from "./../.reklass";
 
-import { getRootClassesx } from "~/components/classes";
+import { ClassesKeys, classex } from "~/components/classes";
 
 type Props = HTMLAttributes<"div"> & ContainerKlass.Variants & reklass.MarginVariants & reklass.PaddingVariants;
 
-const [classes, props] = getRootClassesx(Astro.props);
+const [classes, recipe, margin, padding, attrs] = propsplit(Astro.props, ClassesKeys, ContainerKlass.Root.vk, reklass.Margin.rvk, reklass.Padding.rvk);
 
-const [recipe, margin, padding, attrs] = propsplit(props, ContainerKlass.Root.vk, reklass.Margin.rvk, reklass.Padding.rvk);
-
-const className = classes(ContainerKlass.Root(recipe), reklass.Margin(margin), reklass.Padding(padding));
+const className = classex([ContainerKlass.Root(recipe), reklass.Margin(margin), reklass.Padding(padding)], classes);
 ---
 
 <div {...attrs} class={className}>

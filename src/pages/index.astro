@@ -3,7 +3,7 @@ import { GithubIcon } from "lucide-solid";
 
 import { LINK } from "~/const/exports";
 
-import { Center, Container, HTMLX, IconButtonLink, Separator } from "~/components/core";
+import { Center, Container, HTMLX, IconButtonLink, Separator, Text } from "~/components/core";
 import { AnimatedSVGLogo } from "~/components/flamrdevs";
 ---
 
@@ -17,8 +17,12 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs";
 	<Container max="sm">
 		<Separator orientation="horizontal" />
 		<Center gap="2" p="2">
+			<Text family="mono">flamrdevs</Text>
+
+			<div style="flex-grow: 1;"></div>
+
 			<IconButtonLink href={LINK.GITHUB} target="_blank">
-				<GithubIcon client:idle />
+				<GithubIcon />
 			</IconButtonLink>
 		</Center>
 		<Separator orientation="horizontal" />
