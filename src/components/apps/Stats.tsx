@@ -147,13 +147,13 @@ const RenderDirectory = (props: { data: Directory; base: string }) => {
 
 	return (
 		<div>
-			<div class="flex items-center justify-between p-1">
+			<div class="peer flex items-center justify-between p-1 text-neutral-11 ring-1 ring-transparent hover:bg-neutral-3 hover:text-neutral-12 hover:ring-neutral-4 rounded-tl rounded-tr">
 				<div class="flex items-center gap-1.5">
 					<UseFolderIcon.Use size={14} />
 					<span class="font-mono">{props.data.name}</span>
 				</div>
 			</div>
-			<div class="pl-4">
+			<div class="ring-1 ring-transparent peer-hover:ring-neutral-4 pl-4 rounded-bl rounded-br">
 				<For each={props.data.children}>
 					{(item) => {
 						if (item.type === "directory") return <RenderDirectory data={item} base={base()} />;
