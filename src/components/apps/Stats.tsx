@@ -1,50 +1,35 @@
-import { For, createSignal, splitProps } from "solid-js";
+import { For, createRoot, createSignal, splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-const createUseIcon = (name: string, Node: () => JSX.Element) => {
+import { Collapsible, Link } from "@kobalte/core";
+
+import styles from "./Stats.module.css";
+
+const createUseIcon = (name: string) => {
 	const id = `lucide-${name}`;
-	return {
-		Icon: () => {
-			return (
-				<svg style={{ display: "none" }}>
-					<symbol id={id} viewBox="0 0 24 24">
-						<Node />
-					</symbol>
-				</svg>
-			);
-		},
-		Use: (props: { size?: number }) => {
-			return (
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width={props.size ?? 24}
-					height={props.size ?? 24}
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width={2}
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class={`lucide ${id}`}
-				>
-					<use href={`#${id}`} />
-				</svg>
-			);
-		},
+	return (props: { size?: number; class?: string }) => {
+		return (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width={props.size ?? 24}
+				height={props.size ?? 24}
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width={2}
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class={`lucide ${id} ${props.class}`}
+			>
+				<use href={`#${id}`} />
+			</svg>
+		);
 	};
 };
 
-const UseFolderIcon = createUseIcon("folder", () => (
-	<>
-		<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
-	</>
-));
-const UseFileIcon = createUseIcon("file", () => (
-	<>
-		<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-		<polyline points="14 2 14 8 20 8" />
-	</>
-));
+const UseFolderIcon = createUseIcon("folder");
+const UseFileIcon = createUseIcon("file");
+const UseChevronDownIcon = createUseIcon("chevron-down");
 
 type Directory = {
 	type: "directory";
@@ -61,108 +46,152 @@ type File = {
 
 type Child = Directory | File;
 
-const fetcher = import.meta.env.PROD
-	? async (url: string) => {
-			const res = await fetch(url);
-			return (await res.json()) as Child[];
-	  }
-	: async (_url: string) => {
-			return Promise.resolve([
-				{
-					type: "directory",
-					name: "about",
-					children: [
-						{
-							type: "file",
-							ext: ".css",
-							name: "main.css",
-							size: "1.25 KB",
-						},
-						{
-							type: "file",
-							ext: ".js",
-							name: "main.js",
-							size: "0.75 KB",
-						},
-						{
-							type: "file",
-							ext: ".html",
-							name: "index.html",
-							size: "7.75 KB",
-						},
-					],
-				},
-				{
-					type: "directory",
-					name: "assets",
-					children: [
-						{
-							type: "file",
-							ext: ".css",
-							name: "globals.css",
-							size: "1.25 KB",
-						},
-						{
-							type: "directory",
-							name: "image",
-							children: [
-								{
-									type: "file",
-									ext: ".png",
-									name: "image.png",
-									size: "1.25 KB",
-								},
-							],
-						},
-					],
-				},
-				{
-					type: "file",
-					ext: ".html",
-					name: "index.html",
-					size: "11.75 KB",
-				},
-			] as Child[]);
-	  };
+const isDirectory = (child: Child): child is Directory => child.type === "directory";
+const isFile = (child: Child): child is File => child.type === "file";
+
+const fetcher = async (host: string) => {
+	try {
+		if (import.meta.env.DEV) throw new Error("DEV");
+		const res = await fetch(`${host}/stats.json`);
+		return (await res.json()) as Child[];
+	} catch {
+		return [
+			{
+				type: "directory",
+				name: "about",
+				children: [
+					{
+						type: "file",
+						ext: ".css",
+						name: "main.css",
+						size: "1.25 KB",
+					},
+					{
+						type: "file",
+						ext: ".js",
+						name: "main.js",
+						size: "0.75 KB",
+					},
+					{
+						type: "file",
+						ext: ".html",
+						name: "index.html",
+						size: "7.75 KB",
+					},
+				],
+			},
+			{
+				type: "directory",
+				name: "assets",
+				children: [
+					{
+						type: "file",
+						ext: ".css",
+						name: "globals.css",
+						size: "1.25 KB",
+					},
+					{
+						type: "directory",
+						name: "image",
+						children: [
+							{
+								type: "file",
+								ext: ".png",
+								name: "bg-1.png",
+								size: "1.25 KB",
+							},
+							{
+								type: "file",
+								ext: ".png",
+								name: "bg-2.png",
+								size: "1.25 KB",
+							},
+							{
+								type: "file",
+								ext: ".png",
+								name: "bg-3.png",
+								size: "1.25 KB",
+							},
+							{
+								type: "directory",
+								name: "og",
+								children: [
+									{
+										type: "file",
+										ext: ".png",
+										name: "post-1.png",
+										size: "1.25 KB",
+									},
+									{
+										type: "file",
+										ext: ".png",
+										name: "post-2.png",
+										size: "1.25 KB",
+									},
+									{
+										type: "file",
+										ext: ".png",
+										name: "post-3.png",
+										size: "1.25 KB",
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+			{
+				type: "file",
+				ext: ".html",
+				name: "index.html",
+				size: "11.75 KB",
+			},
+		] as Child[];
+	}
+};
 
 const RenderFile = (props: { data: File; base: string }) => {
 	return (
-		<div>
-			<a
-				href={`${props.base}/${props.data.name}`}
-				class="flex items-center justify-between p-1 text-neutral-10 hover:bg-neutral-3 hover:text-neutral-12 outline-none focus-visible:text-neutral-11 focus-visible:ring-1 focus-visible:ring-neutral-7 rounded"
-			>
-				<div class="flex items-center gap-1.5">
-					<UseFileIcon.Use size={14} />
-					<span class="font-mono">{props.data.name}</span>
-				</div>
-				<span class="font-mono">{props.data.size}</span>
-			</a>
-		</div>
+		<Link.Root href={`${props.base}/${props.data.name}`} class={styles.link__root}>
+			<UseFileIcon size={14} />
+			<div class="flex-grow text-left">{props.data.name}</div>
+			<div class="flex-grow text-right">{props.data.size}</div>
+		</Link.Root>
 	);
 };
+
+const useDirectoryState = createRoot(() => {
+	const [state, setState] = createSignal<Record<string, boolean>>({});
+
+	return (key: string) => {
+		const open = () => state()[key] ?? true;
+
+		const setOpen = (value: boolean) => {
+			setState((record) => ({ ...record, [key]: Boolean(value) }));
+		};
+
+		return [open, setOpen] as const;
+	};
+});
 
 const RenderDirectory = (props: { data: Directory; base: string }) => {
 	const base = () => `${props.base}/${props.data.name}`;
 
+	const [open, setOpen] = useDirectoryState(base());
+
 	return (
-		<div>
-			<div class="peer flex items-center justify-between p-1 text-neutral-11 ring-1 ring-transparent hover:bg-neutral-3 hover:text-neutral-12 hover:ring-neutral-4 rounded-tl rounded-tr">
-				<div class="flex items-center gap-1.5">
-					<UseFolderIcon.Use size={14} />
-					<span class="font-mono">{props.data.name}</span>
-				</div>
-			</div>
-			<div class="ring-1 ring-transparent peer-hover:ring-neutral-4 pl-4 rounded-bl rounded-br">
+		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
+			<Collapsible.Trigger class={styles.collapsible__trigger}>
+				<UseFolderIcon size={14} />
+				<div class="flex-grow text-left">{props.data.name}</div>
+				<UseChevronDownIcon class={styles["collapsible__trigger-icon"]} />
+			</Collapsible.Trigger>
+			<Collapsible.Content class={styles.collapsible__content}>
 				<For each={props.data.children}>
-					{(item) => {
-						if (item.type === "directory") return <RenderDirectory data={item} base={base()} />;
-						if (item.type === "file") return <RenderFile data={item} base={base()} />;
-						return null;
-					}}
+					{(item) => (isDirectory(item) ? <RenderDirectory data={item} base={base()} /> : isFile(item) ? <RenderFile data={item} base={base()} /> : null)}
 				</For>
-			</div>
-		</div>
+			</Collapsible.Content>
+		</Collapsible.Root>
 	);
 };
 
@@ -171,29 +200,16 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string }) => {
 
 	const [data, setData] = createSignal<Child[]>([]);
 
-	fetcher(`${local.host}/stats.json`).then((data) => {
-		setData(() => data);
-	});
+	fetcher(local.host).then((data) => setData(() => data));
 
 	const base = () => props.host;
 
 	return (
-		<>
-			<UseFolderIcon.Icon />
-			<UseFileIcon.Icon />
-
-			<div {...rest}>
-				<div class="select-none">
-					<For each={data()}>
-						{(item) => {
-							if (item.type === "directory") return <RenderDirectory data={item} base={base()} />;
-							if (item.type === "file") return <RenderFile data={item} base={base()} />;
-							return null;
-						}}
-					</For>
-				</div>
+		<div {...rest}>
+			<div>
+				<For each={data()}>{(item) => (isDirectory(item) ? <RenderDirectory data={item} base={base()} /> : isFile(item) ? <RenderFile data={item} base={base()} /> : null)}</For>
 			</div>
-		</>
+		</div>
 	);
 };
 
