@@ -21,7 +21,15 @@ const { colors, plugin } = coloradix({
 	})
 	.build();
 
-const breakpoints = ["xs", "sm", "md", "lg", "xl"];
+const screens = {
+	xs: "640px",
+	sm: "768px",
+	md: "1024px",
+	lg: "1280px",
+	xl: "1536px",
+};
+
+const breakpoints = Object.keys(screens) as (keyof typeof screens)[];
 const responsive = (...classNames: string[]) => {
 	let result: string[] = [];
 	classNames.forEach((className) => result.push(className, ...breakpoints.map((breakpoint) => `${breakpoint}:${className}`)));
@@ -54,12 +62,12 @@ export default {
 		...responsive(
 			...["hidden", "block", "inline-block", "flex", "inline-flex", "grid", "inline-grid"],
 			...["items-start", "items-center", "items-end", "items-stretch"],
-			...["justify-center", "justify-center", "justify-end", "justify-stretch", "justify-around", "justify-between", "justify-evenly"],
+			...["justify-start", "justify-center", "justify-end", "justify-stretch", "justify-around", "justify-between", "justify-evenly"],
 			...space("gap")
 		),
 		...responsive(
 			...["relative", "absolute", "fixed", "static", "sticky"],
-			...["z-0", "z-10", "z-20", "z-30", "z-40", "z-50"],
+			...["-z-10", "z-0", "z-10", "z-20", "z-30", "z-40", "z-50"],
 			...space("top"),
 			...space("right"),
 			...space("bottom"),
@@ -69,13 +77,7 @@ export default {
 		...responsive(...space("p"), ...space("px"), ...space("py"), ...space("pt"), ...space("pr"), ...space("pb"), ...space("pl")),
 	],
 	theme: {
-		screens: {
-			xs: "640px",
-			sm: "768px",
-			md: "1024px",
-			lg: "1280px",
-			xl: "1536px",
-		},
+		screens,
 		colors: {
 			transparent: "transparent",
 			current: "currentColor",

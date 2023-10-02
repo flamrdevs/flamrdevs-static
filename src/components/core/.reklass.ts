@@ -78,6 +78,7 @@ const Position = reklass({
 			sty: "sticky",
 		},
 		zi: {
+			"-1": "-z-10",
 			"0": "z-0",
 			"1": "z-10",
 			"2": "z-20",
