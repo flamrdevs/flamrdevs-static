@@ -2,7 +2,7 @@
   <defs>
     <style>
       .bg {
-        fill: #181818;
+        fill: #111111;
       }
 
       .filled {
@@ -14,7 +14,7 @@
       .stroke-left {
         stroke-dasharray: 270;
         stroke-dashoffset: 270;
-        stroke: #181818;
+        stroke: #111111;
         stroke-width: 1.5;
         animation: to-left 8000ms infinite ease-in-out;
         transition: stroke 100ms;
