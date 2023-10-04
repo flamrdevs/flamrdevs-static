@@ -15,24 +15,24 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: hsl(var(--neutral-2) / 0.5);
+	background: rgb(var(--neutral-2) / 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: hsl(var(--neutral-5));
+	background: rgb(var(--neutral-5));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: hsl(var(--neutral-8));
+	background: rgb(var(--neutral-8));
 }
 
 ::-moz-selection {
-	background: hsl(var(--info-9));
+	background: rgb(var(--info-9));
 	color: white;
 }
 
 ::selection {
-	background: hsl(var(--info-9));
+	background: rgb(var(--info-9));
 	color: white;
 }
 
@@ -44,4 +44,34 @@ a {
 	stroke-width: 1.5;
 	width: 1.25rem;
 	height: 1.25rem;
+}
+
+.vars-neutral {
+	--v-color-1: var(--neutral-1);
+	--v-color-2: var(--neutral-2);
+	--v-color-3: var(--neutral-3);
+	--v-color-4: var(--neutral-4);
+	--v-color-5: var(--neutral-5);
+	--v-color-6: var(--neutral-6);
+	--v-color-7: var(--neutral-7);
+	--v-color-8: var(--neutral-8);
+	--v-color-9: var(--neutral-9);
+	--v-color-10: var(--neutral-10);
+	--v-color-11: var(--neutral-11);
+	--v-color-12: var(--neutral-12);
+}
+
+.vars-primary {
+	--v-color-1: var(--primary-1);
+	--v-color-2: var(--primary-2);
+	--v-color-3: var(--primary-3);
+	--v-color-4: var(--primary-4);
+	--v-color-5: var(--primary-5);
+	--v-color-6: var(--primary-6);
+	--v-color-7: var(--primary-7);
+	--v-color-8: var(--primary-8);
+	--v-color-9: var(--primary-9);
+	--v-color-10: var(--primary-10);
+	--v-color-11: var(--primary-11);
+	--v-color-12: var(--primary-12);
 }

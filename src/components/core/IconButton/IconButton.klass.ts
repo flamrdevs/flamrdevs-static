@@ -9,8 +9,8 @@ const Root = klass({
 	base: [style.root, "inline-block relative overflow-hidden border-none cursor-pointer select-none outline-none outline-1 outline-offset-1"],
 	variants: {
 		color: {
-			neutral: [style["root__color-neutral"], "text-neutral-11 focus-visible:outline-neutral-11"],
-			primary: [style["root__color-primary"], "text-primary-11 focus-visible:outline-primary-11"],
+			neutral: "vars-neutral text-neutral-11 focus-visible:outline-neutral-11",
+			primary: "vars-primary text-primary-11 focus-visible:outline-primary-11",
 		},
 		size: {
 			md: "w-8 h-8 p-px",
@@ -28,8 +28,8 @@ const Inner = klass({
 	base: [style.inner, "block relative overflow-hidden w-full h-full"],
 	variants: {
 		color: {
-			neutral: style["inner__color-neutral"],
-			primary: style["inner__color-primary"],
+			neutral: "vars-neutral",
+			primary: "vars-primary",
 		},
 	},
 	defaultVariants: {

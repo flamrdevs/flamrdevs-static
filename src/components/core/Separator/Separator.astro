@@ -24,17 +24,18 @@ const className = classex(SeparatorKlass.Root(klass), classes);
 		margin-block: auto;
 		margin-inline: auto;
 		border-radius: 100%;
+		background-image: linear-gradient(var(--lg-deg), rgb(var(--neutral-3)), rgb(var(--neutral-6)), rgb(var(--neutral-3)));
 
 		&[data-orientation="horizontal"] {
+			--lg-deg: 90deg;
 			width: 100%;
 			height: 1px;
-			background-image: linear-gradient(90deg, hsl(var(--neutral-3)), hsl(var(--neutral-6)), hsl(var(--neutral-3)));
 		}
 
 		&[data-orientation="vertical"] {
+			--lg-deg: 0deg;
 			width: 1px;
 			height: 100%;
-			background-image: linear-gradient(0deg, hsl(var(--neutral-3)), hsl(var(--neutral-6)), hsl(var(--neutral-3)));
 		}
 
 		&__margin {
