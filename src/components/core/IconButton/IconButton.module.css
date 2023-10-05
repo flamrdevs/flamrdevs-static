@@ -1,21 +1,21 @@
 .root {
 	@apply rounded-7;
-	background-image: linear-gradient(140deg, rgb(var(--v-color-3)), rgb(var(--v-color-1)));
+	background-image: linear-gradient(140deg, rgb(var(--v-color-3)), rgb(var(--v-color-2)));
 	color: rgb(var(--v-color-11));
 
 	&:hover {
-		background-image: linear-gradient(140deg, rgb(var(--v-color-4)), rgb(var(--v-color-1)));
+		background-image: linear-gradient(140deg, rgb(var(--v-color-4)), rgb(var(--v-color-2)));
 
 		&::before {
-			background-image: linear-gradient(140deg, rgb(var(--v-color-12)), rgb(var(--v-color-8)), rgb(var(--v-color-7)));
+			background-image: linear-gradient(140deg, rgb(var(--v-color-10)), rgb(var(--v-color-8)), rgb(var(--v-color-7)));
 		}
 	}
 
 	&:active {
-		background-image: linear-gradient(140deg, rgb(var(--v-color-5)), rgb(var(--v-color-2)));
+		background-image: linear-gradient(140deg, rgb(var(--v-color-5)), rgb(var(--v-color-3)));
 
 		&::before {
-			background-image: linear-gradient(140deg, rgb(var(--v-color-12)), rgb(var(--v-color-9)), rgb(var(--v-color-8)));
+			background-image: linear-gradient(140deg, rgb(var(--v-color-11)), rgb(var(--v-color-9)), rgb(var(--v-color-8)));
 		}
 	}
 
@@ -26,7 +26,7 @@
 	&::before {
 		content: "";
 		@apply block absolute -z-10 -inset-px rounded-8;
-		background-image: linear-gradient(140deg, rgb(var(--v-color-11)), rgb(var(--v-color-8)), rgb(var(--v-color-6)));
+		background-image: linear-gradient(140deg, rgb(var(--v-color-9)), rgb(var(--v-color-7)), rgb(var(--v-color-6)));
 	}
 
 	&::after {

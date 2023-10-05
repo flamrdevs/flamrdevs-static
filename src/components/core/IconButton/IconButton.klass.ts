@@ -6,7 +6,7 @@ import style from "./IconButton.module.css";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: [style.root, "inline-flex relative items-center justify-center border-none outline-none outline-1 outline-offset-3 select-none cursor-pointer"],
+	base: [style.root, "inline-flex relative items-center justify-center border-none outline-none outline-1 outline-offset-2 select-none cursor-pointer"],
 	variants: {
 		color: {
 			neutral: "vars-neutral",

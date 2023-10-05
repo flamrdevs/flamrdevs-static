@@ -1,6 +1,6 @@
 .root {
 	@apply rounded-6;
-	background-image: linear-gradient(125deg, rgb(var(--v-color-5)), rgb(var(--v-color-2)));
+	background-image: linear-gradient(125deg, rgb(var(--v-color-3)), rgb(var(--v-color-2)));
 	color: rgb(var(--v-color-11));
 
 	&::before {
