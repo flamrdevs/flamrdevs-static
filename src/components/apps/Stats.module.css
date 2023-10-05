@@ -6,7 +6,7 @@
 	}
 
 	&:hover {
-		@apply bg-neutral-6 text-neutral-11 underline;
+		@apply bg-neutral-6 text-neutral-11;
 	}
 }
 

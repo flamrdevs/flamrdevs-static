@@ -1,35 +1,29 @@
-import { For, createRoot, createSignal, splitProps } from "solid-js";
+import { For, Match, Switch, createRoot, createSignal, splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 import { Collapsible, Link } from "@kobalte/core";
 
 import styles from "./Stats.module.css";
 
-const createUseIcon = (name: string) => {
-	const id = `lucide-${name}`;
-	return (props: { size?: number; class?: string }) => {
-		return (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width={props.size ?? 24}
-				height={props.size ?? 24}
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width={2}
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				class={`lucide ${id} ${props.class}`}
-			>
-				<use href={`#${id}`} />
-			</svg>
-		);
-	};
+const UseIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement> & { name: string; size?: number }) => {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={props.size ?? 24}
+			height={props.size ?? 24}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width={2}
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class={`lucide lucide-${props.name} ${props.class}`}
+			{...props}
+		>
+			<use href={`#lucide-${props.name}`} />
+		</svg>
+	);
 };
-
-const UseFolderIcon = createUseIcon("folder");
-const UseFileIcon = createUseIcon("file");
-const UseChevronDownIcon = createUseIcon("chevron-down");
 
 type Directory = {
 	type: "directory";
@@ -113,6 +107,12 @@ const fetcher = async (host: string) => {
 								size: "1.25 KB",
 							},
 							{
+								type: "file",
+								ext: ".svg",
+								name: "logo.svg",
+								size: "1.25 KB",
+							},
+							{
 								type: "directory",
 								name: "og",
 								children: [
@@ -150,12 +150,55 @@ const fetcher = async (host: string) => {
 	}
 };
 
+const getFileHref = (base: string, file: File) => {
+	let temp: string = file.name;
+	if (file.ext === ".html") {
+		temp = temp.replace(/.html/g, "");
+		return temp === "index" ? `${base}` : `${base}/${temp}`;
+	} else {
+		return `${base}/${temp}`;
+	}
+};
+
+const getFileIconStroke = (file: File) => {
+	switch (file.ext) {
+		case ".html":
+			return "#E34F26";
+
+		case ".css":
+			return "#1572B6";
+
+		case ".js":
+			return "#F7DF1E";
+
+		case ".svg":
+			return "#FFB13B";
+
+		default:
+			return "currentColor";
+	}
+};
+
+const FILE_AUDIO: string[] = [];
+const FILE_CODE: string[] = [".html", ".css", ".js"];
+const FILE_IMAGE: string[] = [".png", ".svg"];
+const FILE_VIDEO: string[] = [];
+
+const getFileIconName = (file: File) => {
+	const { ext } = file;
+	if (FILE_AUDIO.includes(ext)) return "file-audio";
+	if (FILE_CODE.includes(ext)) return "file-code";
+	if (FILE_IMAGE.includes(ext)) return "file-image";
+	if (FILE_VIDEO.includes(ext)) return "file-video";
+	return "file";
+};
+
 const RenderFile = (props: { data: File; base: string }) => {
 	return (
-		<Link.Root href={`${props.base}/${props.data.name}`} class={styles.link__root}>
-			<UseFileIcon size={14} />
-			<div class="flex-grow text-left">{props.data.name}</div>
-			<div class="flex-grow text-right">{props.data.size}</div>
+		<Link.Root href={getFileHref(props.base, props.data)} class={styles.link__root} target="_blank">
+			<UseIcon name={getFileIconName(props.data)} size={14} stroke={getFileIconStroke(props.data)} />
+			<div class="file-name flex-grow text-left">{props.data.name}</div>
+			<div class="file-size flex-grow text-right">{props.data.size}</div>
 		</Link.Root>
 	);
 };
@@ -174,6 +217,10 @@ const useDirectoryState = createRoot(() => {
 	};
 });
 
+const getDirectoryIconName = (open?: boolean) => {
+	return open ? "folder-open" : "folder-closed";
+};
+
 const RenderDirectory = (props: { data: Directory; base: string }) => {
 	const base = () => `${props.base}/${props.data.name}`;
 
@@ -182,13 +229,22 @@ const RenderDirectory = (props: { data: Directory; base: string }) => {
 	return (
 		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
 			<Collapsible.Trigger class={styles.collapsible__trigger}>
-				<UseFolderIcon size={14} />
+				<UseIcon name={getDirectoryIconName(open())} size={14} />
 				<div class="flex-grow text-left">{props.data.name}</div>
-				<UseChevronDownIcon class={styles["collapsible__trigger-icon"]} />
+				<UseIcon name="chevron-down" size={16} class={styles["collapsible__trigger-icon"]} />
 			</Collapsible.Trigger>
 			<Collapsible.Content class={styles.collapsible__content}>
 				<For each={props.data.children}>
-					{(item) => (isDirectory(item) ? <RenderDirectory data={item} base={base()} /> : isFile(item) ? <RenderFile data={item} base={base()} /> : null)}
+					{(item) => (
+						<Switch>
+							<Match when={isDirectory(item)}>
+								<RenderDirectory data={item as Directory} base={base()} />
+							</Match>
+							<Match when={isFile(item)}>
+								<RenderFile data={item as File} base={base()} />
+							</Match>
+						</Switch>
+					)}
 				</For>
 			</Collapsible.Content>
 		</Collapsible.Root>
@@ -207,7 +263,18 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string }) => {
 	return (
 		<div {...rest}>
 			<div>
-				<For each={data()}>{(item) => (isDirectory(item) ? <RenderDirectory data={item} base={base()} /> : isFile(item) ? <RenderFile data={item} base={base()} /> : null)}</For>
+				<For each={data()}>
+					{(item) => (
+						<Switch>
+							<Match when={isDirectory(item)}>
+								<RenderDirectory data={item as Directory} base={base()} />
+							</Match>
+							<Match when={isFile(item)}>
+								<RenderFile data={item as File} base={base()} />
+							</Match>
+						</Switch>
+					)}
+				</For>
 			</div>
 		</div>
 	);
