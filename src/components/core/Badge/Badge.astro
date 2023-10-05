@@ -7,19 +7,13 @@ import { ClassesKeys, classex } from "./../../classes";
 
 import * as BadgeKlass from "./Badge.klass";
 
-type Props = HTMLAttributes<"span"> & BadgeKlass.Variants & BadgeKlass.InnerVariants & BadgeKlass.ChildVariants;
+type Props = HTMLAttributes<"span"> & BadgeKlass.Variants;
 
-const [classes, klass, attrs] = propsplit(Astro.props, ClassesKeys, [...BadgeKlass.Root.vk, ...BadgeKlass.Child.vk]);
+const [classes, klass, attrs] = propsplit(Astro.props, ClassesKeys, BadgeKlass.Root.vk);
 
-const className = classex(BadgeKlass.Root({ color: klass.color, size: klass.size }), classes);
-const innerClassName = BadgeKlass.Inner({ color: klass.color });
-const childClassName = BadgeKlass.Child({ font: klass.font, size: klass.size });
+const className = classex(BadgeKlass.Root(klass), classes);
 ---
 
 <span {...attrs} class={className}>
-	<div class={innerClassName}>
-		<div class={childClassName}>
-			<slot />
-		</div>
-	</div>
+	<slot />
 </span>

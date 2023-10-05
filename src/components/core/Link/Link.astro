@@ -12,7 +12,7 @@ type Props = HTMLAttributes<"a"> & LinkOptions;
 
 const [classes, options, attrs] = propsplit(Astro.props, ClassesKeys, ["disabled"]);
 
-const className = classex("root p-px text-info-9 font-w6 hover:underline outline-none outline-1 outline-offset-1 rounded focus-visible:outline-info-10", classes);
+const className = classex("root p-px text-info-9 font-w6 hover:underline outline-none outline-1 outline-offset-1 rounded-4 focus-visible:outline-info-10", classes);
 ---
 
 <a {...attrs} class={className} {...getLinkAttrs(options)}>

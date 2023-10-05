@@ -1,31 +1,47 @@
 .root {
-	border-radius: 0.4rem;
-	background-image: linear-gradient(125deg, rgb(var(--v-color-11)), rgb(var(--v-color-8)), rgb(var(--v-color-6)));
-
-	&:hover {
-		background-image: linear-gradient(125deg, rgb(var(--v-color-12)), rgb(var(--v-color-8)), rgb(var(--v-color-7)));
-	}
-
-	&:active {
-		background-image: linear-gradient(125deg, rgb(var(--v-color-12)), rgb(var(--v-color-9)), rgb(var(--v-color-8)));
-	}
-
-	&[data-disabled] {
-		opacity: 0.8;
-		pointer-events: none;
-		color: rgb(var(--v-color-8));
-	}
-}
-
-.inner {
-	border-radius: 0.35rem;
+	@apply rounded-7;
 	background-image: linear-gradient(125deg, rgb(var(--v-color-3)), rgb(var(--v-color-1)));
+	color: rgb(var(--v-color-11));
 
 	&:hover {
 		background-image: linear-gradient(125deg, rgb(var(--v-color-4)), rgb(var(--v-color-1)));
+
+		&::before {
+			background-image: linear-gradient(125deg, rgb(var(--v-color-12)), rgb(var(--v-color-8)), rgb(var(--v-color-7)));
+		}
 	}
 
 	&:active {
 		background-image: linear-gradient(125deg, rgb(var(--v-color-5)), rgb(var(--v-color-2)));
+
+		&::before {
+			background-image: linear-gradient(125deg, rgb(var(--v-color-12)), rgb(var(--v-color-9)), rgb(var(--v-color-8)));
+		}
+	}
+
+	&:focus-visible {
+		outline-color: rgb(var(--v-color-11));
+	}
+
+	&::before {
+		content: "";
+		@apply block absolute -z-10 -inset-px rounded-8;
+		background-image: linear-gradient(125deg, rgb(var(--v-color-11)), rgb(var(--v-color-8)), rgb(var(--v-color-6)));
+	}
+
+	&::after {
+		content: "";
+		@apply block absolute z-10 inset-0 rounded-7 overflow-hidden opacity-10;
+		background-image: linear-gradient(to bottom, #2222221a, #1111111a), var(--filter-noise-svg);
+	}
+
+	&[data-disabled] {
+		pointer-events: none;
+		background-image: linear-gradient(125deg, rgb(var(--v-color-2)), rgb(var(--v-color-1)));
+		color: rgb(var(--v-color-8));
+
+		&::before {
+			background-image: linear-gradient(125deg, rgb(var(--v-color-5)), rgb(var(--v-color-4)), rgb(var(--v-color-3)));
+		}
 	}
 }

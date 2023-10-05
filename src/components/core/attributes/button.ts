@@ -6,14 +6,22 @@ type ButtonOptions = {
 type ButtonAttrs = {
 	[K in "role" | "type"]?: "button";
 } & ButtonOptions & {
+		tabindex?: number;
+		"aria-disabled"?: boolean;
 		"data-disabled"?: "";
 	};
-const getButtonAttrs = (tag: HTMLTag, options: ButtonOptions) => {
+const getButtonAttrs = (options: ButtonOptions, tag?: HTMLTag) => {
 	const result: ButtonAttrs = { ...options };
 
-	if (options.disabled) result["data-disabled"] = "";
+	if (options.disabled) {
+		result.tabindex = -1;
+		result["aria-disabled"] = true;
+		result["data-disabled"] = "";
+	}
 
-	result[tag === "button" || tag === "input" ? "type" : "role"] = "button";
+	if (tag) {
+		result[tag === "button" || tag === "input" ? "type" : "role"] = "button";
+	}
 
 	return result;
 };
