@@ -1,7 +1,7 @@
 ---
 import { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
-import { Box, Container, HTMLX, Separator, Text } from "~/components/core";
+import { Box, Container, HTMLX } from "~/components/core";
 
 import Stats from "~/components/apps/Stats";
 
@@ -88,14 +88,8 @@ const { host } = Astro.props as Props;
 		</symbol>
 	</svg>
 	<Container max="xs" py="2">
-		<Box>
-			<Text align="-:-">{name}</Text>
-		</Box>
-
-		<Separator />
-
 		<Box py="2" class="font-mono select-none">
-			<Stats host={host} client:only />
+			<Stats host={host} name={name} client:only />
 		</Box>
 	</Container>
 </HTMLX>

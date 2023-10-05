@@ -3,6 +3,8 @@ import type { JSX } from "solid-js";
 
 import { Collapsible, Link } from "@kobalte/core";
 
+import ixstorage from "ixstorage";
+
 import styles from "./Stats.module.css";
 
 const UseIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement> & { name: string; size?: number }) => {
@@ -29,6 +31,7 @@ type Directory = {
 	type: "directory";
 	name: string;
 	children: Child[];
+	size: string;
 };
 
 type File = {
@@ -43,110 +46,119 @@ type Child = Directory | File;
 const isDirectory = (child: Child): child is Directory => child.type === "directory";
 const isFile = (child: Child): child is File => child.type === "file";
 
-const fetcher = async (host: string) => {
+const fetcher = async (host: string): Promise<Directory> => {
 	try {
 		if (import.meta.env.DEV) throw new Error("DEV");
 		const res = await fetch(`${host}/stats.json`);
-		return (await res.json()) as Child[];
+		return (await res.json()) as Directory;
 	} catch {
-		return [
-			{
-				type: "directory",
-				name: "about",
-				children: [
-					{
-						type: "file",
-						ext: ".css",
-						name: "main.css",
-						size: "1.25 KB",
-					},
-					{
-						type: "file",
-						ext: ".js",
-						name: "main.js",
-						size: "0.75 KB",
-					},
-					{
-						type: "file",
-						ext: ".html",
-						name: "index.html",
-						size: "7.75 KB",
-					},
-				],
-			},
-			{
-				type: "directory",
-				name: "assets",
-				children: [
-					{
-						type: "file",
-						ext: ".css",
-						name: "globals.css",
-						size: "1.25 KB",
-					},
-					{
-						type: "directory",
-						name: "image",
-						children: [
-							{
-								type: "file",
-								ext: ".png",
-								name: "bg-1.png",
-								size: "1.25 KB",
-							},
-							{
-								type: "file",
-								ext: ".png",
-								name: "bg-2.png",
-								size: "1.25 KB",
-							},
-							{
-								type: "file",
-								ext: ".png",
-								name: "bg-3.png",
-								size: "1.25 KB",
-							},
-							{
-								type: "file",
-								ext: ".svg",
-								name: "logo.svg",
-								size: "1.25 KB",
-							},
-							{
-								type: "directory",
-								name: "og",
-								children: [
-									{
-										type: "file",
-										ext: ".png",
-										name: "post-1.png",
-										size: "1.25 KB",
-									},
-									{
-										type: "file",
-										ext: ".png",
-										name: "post-2.png",
-										size: "1.25 KB",
-									},
-									{
-										type: "file",
-										ext: ".png",
-										name: "post-3.png",
-										size: "1.25 KB",
-									},
-								],
-							},
-						],
-					},
-				],
-			},
-			{
-				type: "file",
-				ext: ".html",
-				name: "index.html",
-				size: "11.75 KB",
-			},
-		] as Child[];
+		return {
+			type: "directory",
+			name: "",
+			children: [
+				{
+					type: "directory",
+					name: "about",
+					children: [
+						{
+							type: "file",
+							ext: ".css",
+							name: "main.css",
+							size: "1 KB",
+						},
+						{
+							type: "file",
+							ext: ".js",
+							name: "main.js",
+							size: "1 KB",
+						},
+						{
+							type: "file",
+							ext: ".html",
+							name: "index.html",
+							size: "3 KB",
+						},
+					],
+					size: "5 KB",
+				},
+				{
+					type: "directory",
+					name: "assets",
+					children: [
+						{
+							type: "file",
+							ext: ".css",
+							name: "globals.css",
+							size: "1 KB",
+						},
+						{
+							type: "directory",
+							name: "image",
+							children: [
+								{
+									type: "file",
+									ext: ".png",
+									name: "bg-1.png",
+									size: "1 KB",
+								},
+								{
+									type: "file",
+									ext: ".png",
+									name: "bg-2.png",
+									size: "1 KB",
+								},
+								{
+									type: "file",
+									ext: ".png",
+									name: "bg-3.png",
+									size: "1 KB",
+								},
+								{
+									type: "file",
+									ext: ".svg",
+									name: "logo.svg",
+									size: "1 KB",
+								},
+								{
+									type: "directory",
+									name: "og",
+									children: [
+										{
+											type: "file",
+											ext: ".png",
+											name: "post-1.png",
+											size: "1 KB",
+										},
+										{
+											type: "file",
+											ext: ".png",
+											name: "post-2.png",
+											size: "1 KB",
+										},
+										{
+											type: "file",
+											ext: ".png",
+											name: "post-3.png",
+											size: "1 KB",
+										},
+									],
+									size: "3 KB",
+								},
+							],
+							size: "7 KB",
+						},
+					],
+					size: "8 KB",
+				},
+				{
+					type: "file",
+					ext: ".html",
+					name: "index.html",
+					size: "7 KB",
+				},
+			],
+			size: "20 KB",
+		} satisfies Directory;
 	}
 };
 
@@ -193,24 +205,26 @@ const getFileIconName = (file: File) => {
 	return "file";
 };
 
-const RenderFile = (props: { data: File; base: string }) => {
+const RenderFile = (props: { child: File; base: string }) => {
 	return (
-		<Link.Root href={getFileHref(props.base, props.data)} class={styles.link__root} target="_blank">
-			<UseIcon name={getFileIconName(props.data)} size={14} stroke={getFileIconStroke(props.data)} />
-			<div class="file-name flex-grow text-left">{props.data.name}</div>
-			<div class="file-size flex-grow text-right">{props.data.size}</div>
+		<Link.Root href={getFileHref(props.base, props.child)} class={styles.link__root} target="_blank">
+			<UseIcon name={getFileIconName(props.child)} size={14} stroke={getFileIconStroke(props.child)} />
+			<div class="flex-grow text-left">{props.child.name}</div>
+			<div class="flex-grow text-right">{props.child.size}</div>
 		</Link.Root>
 	);
 };
 
 const useDirectoryState = createRoot(() => {
-	const [state, setState] = createSignal<Record<string, boolean>>({});
+	const storage = ixstorage<Record<string, boolean>>("directory-state", {}, sessionStorage);
+
+	const [state, setState] = createSignal<Record<string, boolean>>(storage.get());
 
 	return (key: string) => {
 		const open = () => state()[key] ?? true;
 
 		const setOpen = (value: boolean) => {
-			setState((record) => ({ ...record, [key]: Boolean(value) }));
+			setState((record) => storage.set({ ...record, [key]: Boolean(value) }));
 		};
 
 		return [open, setOpen] as const;
@@ -221,27 +235,28 @@ const getDirectoryIconName = (open?: boolean) => {
 	return open ? "folder-open" : "folder-closed";
 };
 
-const RenderDirectory = (props: { data: Directory; base: string }) => {
-	const base = () => `${props.base}/${props.data.name}`;
+const RenderDirectory = (props: { child: Directory; base: string }) => {
+	const base = () => `${props.base}/${props.child.name}`;
 
 	const [open, setOpen] = useDirectoryState(base());
 
 	return (
 		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
-			<Collapsible.Trigger class={styles.collapsible__trigger}>
+			<Collapsible.Trigger class={[styles.collapsible__trigger, "group"].join(" ")}>
 				<UseIcon name={getDirectoryIconName(open())} size={14} />
-				<div class="flex-grow text-left">{props.data.name}</div>
+				<div class="flex-grow text-left">{props.child.name}</div>
+				<div class="flex-grow text-right invisible group-hover:visible">{props.child.size}</div>
 				<UseIcon name="chevron-down" size={16} class={styles["collapsible__trigger-icon"]} />
 			</Collapsible.Trigger>
 			<Collapsible.Content class={styles.collapsible__content}>
-				<For each={props.data.children}>
-					{(item) => (
+				<For each={props.child.children}>
+					{(child) => (
 						<Switch>
-							<Match when={isDirectory(item)}>
-								<RenderDirectory data={item as Directory} base={base()} />
+							<Match when={isDirectory(child)}>
+								<RenderDirectory child={child as Directory} base={base()} />
 							</Match>
-							<Match when={isFile(item)}>
-								<RenderFile data={item as File} base={base()} />
+							<Match when={isFile(child)}>
+								<RenderFile child={child as File} base={base()} />
 							</Match>
 						</Switch>
 					)}
@@ -251,26 +266,37 @@ const RenderDirectory = (props: { data: Directory; base: string }) => {
 	);
 };
 
-const Stats = (props: JSX.IntrinsicElements["div"] & { host: string }) => {
-	const [local, rest] = splitProps(props, ["host"]);
+const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: string }) => {
+	const [local, rest] = splitProps(props, ["host", "name"]);
 
-	const [data, setData] = createSignal<Child[]>([]);
+	const [children, setChildren] = createSignal<Child[]>([]);
+	const [size, setSize] = createSignal<string>("");
 
-	fetcher(local.host).then((data) => setData(() => data));
+	fetcher(local.host).then((data) => {
+		setChildren(() => data.children);
+		setSize(() => data.size);
+	});
 
 	const base = () => props.host;
 
 	return (
 		<div {...rest}>
+			<div class="flex justify-between font-w7 text-z5">
+				<span>{local.name}</span>
+				<span>{size()}</span>
+			</div>
+
+			<div class="my-3 h-px bg-neutral-6" />
+
 			<div>
-				<For each={data()}>
-					{(item) => (
+				<For each={children()}>
+					{(child) => (
 						<Switch>
-							<Match when={isDirectory(item)}>
-								<RenderDirectory data={item as Directory} base={base()} />
+							<Match when={isDirectory(child)}>
+								<RenderDirectory child={child as Directory} base={base()} />
 							</Match>
-							<Match when={isFile(item)}>
-								<RenderFile data={item as File} base={base()} />
+							<Match when={isFile(child)}>
+								<RenderFile child={child as File} base={base()} />
 							</Match>
 						</Switch>
 					)}

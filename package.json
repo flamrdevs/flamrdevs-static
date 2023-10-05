@@ -12,6 +12,7 @@
 		"@kobalte/core": "^0.11.0",
 		"astro": "^3.2.3",
 		"clsx": "^2.0.0",
+		"ixstorage": "^1.0.5",
 		"lucide-solid": "^0.284.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.7.12"

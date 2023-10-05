@@ -16,6 +16,9 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  ixstorage:
+    specifier: ^1.0.5
+    version: 1.0.5
   lucide-solid:
     specifier: ^0.284.0
     version: 0.284.0(solid-js@1.7.12)
@@ -2294,6 +2297,10 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  /ixstorage@1.0.5:
+    resolution: {integrity: sha512-wOJc/mrsrPchrjl7U5e/BhAXmldEjDGqePhx7HAhUeG1YoCXQhZORvnnv4gVzlK7d7NISezq9tJG7lxH5JwGTw==}
+    dev: false
 
   /jiti@1.19.1:
     resolution: {integrity: sha512-oVhqoRDaBXf7sjkll95LHVS6Myyyb1zaunVwk4Z0+WPSW4gjS0pl01zYKHScTuyEhQsFxV5L4DR5r+YqSyqyyg==}
