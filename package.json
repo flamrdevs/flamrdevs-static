@@ -7,18 +7,18 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@astrojs/sitemap": "^3.0.0",
+		"@astrojs/sitemap": "^3.0.1",
 		"@klass/core": "^3.4.8",
 		"@kobalte/core": "^0.11.0",
-		"astro": "^3.2.2",
+		"astro": "^3.2.3",
 		"clsx": "^2.0.0",
 		"lucide-solid": "^0.284.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.7.12"
 	},
 	"devDependencies": {
-		"@astrojs/solid-js": "^3.0.1",
-		"@astrojs/tailwind": "^5.0.0",
+		"@astrojs/solid-js": "^3.0.2",
+		"@astrojs/tailwind": "^5.0.1",
 		"@coloradix/tailwindcss": "^2.2.0",
 		"@types/node": "^20.8.2",
 		"astro-compress": "^2.0.15",
