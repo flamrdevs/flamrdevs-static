@@ -1,28 +1,29 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
 import propsplit from "propsplit";
 
-import * as ButtonKlass from "./Button.klass";
+import { ClassesKeys, classex } from "./../../classes";
+import type * as Polymorphic from "./../../polymorphic";
 
 import { getButtonAttrs } from "./../attributes/button";
 import type { ButtonOptions } from "./../attributes/button";
 
-import { ClassesKeys, classex } from "~/components/classes";
+import * as ButtonKlass from "./Button.klass";
 
-type Props = HTMLAttributes<"button"> & ButtonOptions & ButtonKlass.Variants & ButtonKlass.InnerVariants & ButtonKlass.ChildVariants;
+type Props<As extends Polymorphic.As = "button"> = Polymorphic.Props<As, ButtonOptions & ButtonKlass.Variants & ButtonKlass.InnerVariants & ButtonKlass.ChildVariants>;
 
-const [classes, options, klass, attrs] = propsplit(Astro.props, ClassesKeys, ["disabled"], [...ButtonKlass.Root.vk, ...ButtonKlass.Child.vk]);
+const { as: As = "button", ...props } = Astro.props;
+
+const [classes, options, klass, attrs] = propsplit(props, ClassesKeys, ["disabled"], [...ButtonKlass.Root.vk, ...ButtonKlass.Child.vk]);
 
 const className = classex(ButtonKlass.Root({ color: klass.color, size: klass.size }), classes);
 const innerClassName = ButtonKlass.Inner({ color: klass.color });
 const childClassName = ButtonKlass.Child({ font: klass.font, size: klass.size });
 ---
 
-<button type="button" {...attrs} class={className} {...getButtonAttrs(options)}>
+<As class={className} {...getButtonAttrs(As, options)} {...attrs as any}>
 	<div class={innerClassName}>
 		<div class={childClassName}>
 			<slot />
 		</div>
 	</div>
-</button>
+</As>

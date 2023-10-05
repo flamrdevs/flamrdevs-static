@@ -1,17 +1,20 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
 import propsplit from "propsplit";
+
+import { ClassesKeys, classex } from "./../../classes";
+import type * as Polymorphic from "./../../polymorphic";
 
 import * as klass from "./../.klass";
 import * as reklass from "./../.reklass";
 
-import { ClassesKeys, classex } from "~/components/classes";
+import type { BoxPolymorphicProps } from "./Box.types";
 
-type Props = HTMLAttributes<"div"> & klass.TypographyVariants & reklass.LayoutVariants & reklass.PositionVariants & reklass.MarginVariants & reklass.PaddingVariants;
+type Props<As extends Polymorphic.As = "div"> = BoxPolymorphicProps<As>;
+
+const { as: As = "div", ...props } = Astro.props;
 
 const [classes, typography, layout, position, margin, padding, attrs] = propsplit(
-	Astro.props,
+	props,
 	ClassesKeys,
 	klass.Typography.vk,
 	reklass.Layout.rvk,
@@ -23,6 +26,6 @@ const [classes, typography, layout, position, margin, padding, attrs] = propspli
 const className = classex([klass.Typography(typography), reklass.Layout(layout), reklass.Position(position), reklass.Margin(margin), reklass.Padding(padding)], classes);
 ---
 
-<div {...attrs} class={className}>
+<As {...attrs as any} class={className}>
 	<slot />
-</div>
+</As>

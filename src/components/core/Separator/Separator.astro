@@ -3,12 +3,12 @@ import type { HTMLAttributes } from "astro/types";
 
 import propsplit from "propsplit";
 
-import * as SeparatorKlass from "./Separator.klass";
+import { ClassesKeys, classex } from "./../../classes";
 
 import { getSeparatorAttrs } from "./../attributes/separator";
 import type { SeparatorOptions } from "./../attributes/separator";
 
-import { ClassesKeys, classex } from "~/components/classes";
+import * as SeparatorKlass from "./Separator.klass";
 
 type Props = Omit<HTMLAttributes<"hr">, "orientation"> & SeparatorOptions & SeparatorKlass.Variants;
 

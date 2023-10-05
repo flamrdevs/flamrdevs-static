@@ -1,23 +1,25 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
 import propsplit from "propsplit";
+
+import { ClassesKeys, classex } from "./../../classes";
+import type * as Polymorphic from "./../../polymorphic";
 
 import * as klass from "./../.klass";
 import * as reklass from "./../.reklass";
 
-import { ClassesKeys, classex } from "~/components/classes";
+type Props<As extends Polymorphic.As = "div"> = Polymorphic.Props<
+	As,
+	{
+		family?: klass.TypographyVariants["ff"];
+		size?: klass.TypographyVariants["fz"];
+		weight?: klass.TypographyVariants["fw"];
+		align?: klass.TypographyVariants["ta"];
+		italic?: boolean;
+	} & reklass.MarginVariants &
+		reklass.PaddingVariants
+>;
 
-type Props = Omit<HTMLAttributes<"div">, "style"> & {
-	family?: klass.TypographyVariants["ff"];
-	size?: klass.TypographyVariants["fz"];
-	style?: klass.TypographyVariants["fs"];
-	weight?: klass.TypographyVariants["fw"];
-	align?: klass.TypographyVariants["ta"];
-} & reklass.MarginVariants &
-	reklass.PaddingVariants;
-
-const { family = "sans", size = "3", style = "n", weight = "4", align = ":--", ...props } = Astro.props;
+const { as: As = "div", family = "sans", size = "3", weight = "4", align = ":--", italic, ...props } = Astro.props;
 
 const [classes, margin, padding, attrs] = propsplit(props, ClassesKeys, reklass.Margin.rvk, reklass.Padding.rvk);
 
@@ -26,7 +28,7 @@ const className = classex(
 		klass.Typography({
 			ff: family,
 			fz: size,
-			fs: style,
+			fs: italic ? "i" : "n",
 			fw: weight,
 			ta: align,
 		}),
@@ -37,6 +39,6 @@ const className = classex(
 );
 ---
 
-<div {...attrs} class={className}>
+<As {...attrs as any} class={className}>
 	<slot />
-</div>
+</As>

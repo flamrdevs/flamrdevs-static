@@ -3,9 +3,9 @@ import type { HTMLAttributes } from "astro/types";
 
 import propsplit from "propsplit";
 
-import * as LoaderKlass from "./Loader.klass";
+import { ClassesKeys, classex } from "./../../classes";
 
-import { ClassesKeys, classex } from "~/components/classes";
+import * as LoaderKlass from "./Loader.klass";
 
 type Props = HTMLAttributes<"svg"> & LoaderKlass.Variants;
 

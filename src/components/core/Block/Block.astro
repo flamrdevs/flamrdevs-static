@@ -1,22 +1,14 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
-import * as klass from "./../.klass";
-import * as reklass from "./../.reklass";
+import type * as Polymorphic from "./../../polymorphic";
 
 import Box from "./../Box/Box.astro";
+import type { BoxPolymorphicProps } from "./../Box/Box.types";
 
-type Props = HTMLAttributes<"div"> & {
-	inline?: boolean;
-} & klass.TypographyVariants &
-	reklass.LayoutVariants &
-	reklass.PositionVariants &
-	reklass.MarginVariants &
-	reklass.PaddingVariants;
+type Props<As extends Polymorphic.As = "div"> = BoxPolymorphicProps<As> & { inline?: boolean };
 
 const { inline, disp = inline ? "iblock" : "block", ...attrs } = Astro.props;
 ---
 
-<Box disp={disp} {...attrs as any}>
+<Box {...{ disp }} {...attrs as any}>
 	<slot />
 </Box>

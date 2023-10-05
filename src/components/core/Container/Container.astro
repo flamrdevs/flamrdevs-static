@@ -1,20 +1,22 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
 import propsplit from "propsplit";
 
-import * as ContainerKlass from "./Container.klass";
+import { ClassesKeys, classex } from "./../../classes";
+import type * as Polymorphic from "./../../polymorphic";
+
 import * as reklass from "./../.reklass";
 
-import { ClassesKeys, classex } from "~/components/classes";
+import * as ContainerKlass from "./Container.klass";
 
-type Props = HTMLAttributes<"div"> & ContainerKlass.Variants & reklass.MarginVariants & reklass.PaddingVariants;
+type Props<As extends Polymorphic.As = "div"> = Polymorphic.Props<As, ContainerKlass.Variants & reklass.MarginVariants & reklass.PaddingVariants>;
 
-const [classes, recipe, margin, padding, attrs] = propsplit(Astro.props, ClassesKeys, ContainerKlass.Root.vk, reklass.Margin.rvk, reklass.Padding.rvk);
+const { as: As = "div", ...props } = Astro.props;
+
+const [classes, recipe, margin, padding, attrs] = propsplit(props, ClassesKeys, ContainerKlass.Root.vk, reklass.Margin.rvk, reklass.Padding.rvk);
 
 const className = classex([ContainerKlass.Root(recipe), reklass.Margin(margin), reklass.Padding(padding)], classes);
 ---
 
-<div {...attrs} class={className}>
+<As {...attrs as any} class={className}>
 	<slot />
-</div>
+</As>
