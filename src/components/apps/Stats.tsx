@@ -152,12 +152,42 @@ const fetcher = async (host: string): Promise<Directory> => {
 				},
 				{
 					type: "file",
+					ext: ".txt",
+					name: "text.txt",
+					size: "1 KB",
+				},
+				{
+					type: "file",
+					ext: ".ttf",
+					name: "font.ttf",
+					size: "1 KB",
+				},
+				{
+					type: "file",
+					ext: ".json",
+					name: "data.json",
+					size: "1 KB",
+				},
+				{
+					type: "file",
+					ext: ".mp3",
+					name: "audio.mp3",
+					size: "100 KB",
+				},
+				{
+					type: "file",
+					ext: ".mp4",
+					name: "video.mp4",
+					size: "100 KB",
+				},
+				{
+					type: "file",
 					ext: ".html",
 					name: "index.html",
 					size: "7 KB",
 				},
 			],
-			size: "20 KB",
+			size: "300 KB",
 		} satisfies Directory;
 	}
 };
@@ -191,16 +221,22 @@ const getFileIconStroke = (file: File) => {
 	}
 };
 
-const FILE_AUDIO: string[] = [];
+const FILE_AUDIO: string[] = [".mp3"];
 const FILE_CODE: string[] = [".html", ".css", ".js"];
-const FILE_IMAGE: string[] = [".png", ".svg"];
-const FILE_VIDEO: string[] = [];
+const FILE_IMAGE: string[] = [".webp", ".png", ".svg"];
+const FILE_JSON: string[] = [".json"];
+const FILE_TEXT: string[] = [".txt"];
+const FILE_TYPE: string[] = [".ttf"];
+const FILE_VIDEO: string[] = [".webm", ".mp4"];
 
 const getFileIconName = (file: File) => {
 	const { ext } = file;
 	if (FILE_AUDIO.includes(ext)) return "file-audio";
 	if (FILE_CODE.includes(ext)) return "file-code";
 	if (FILE_IMAGE.includes(ext)) return "file-image";
+	if (FILE_JSON.includes(ext)) return "file-json";
+	if (FILE_TEXT.includes(ext)) return "file-text";
+	if (FILE_TYPE.includes(ext)) return "file-type";
 	if (FILE_VIDEO.includes(ext)) return "file-video";
 	return "file";
 };
@@ -242,10 +278,10 @@ const RenderDirectory = (props: { child: Directory; base: string }) => {
 
 	return (
 		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
-			<Collapsible.Trigger class={[styles.collapsible__trigger, "group"].join(" ")}>
+			<Collapsible.Trigger class={[styles.collapsible__trigger, open() && "group"].filter(Boolean).join(" ")}>
 				<UseIcon name={getDirectoryIconName(open())} size={14} />
 				<div class="flex-grow text-left">{props.child.name}</div>
-				<div class="flex-grow text-right invisible group-hover:visible">{props.child.size}</div>
+				<div class={["flex-grow text-right", open() && "invisible group-hover:visible"].filter(Boolean).join(" ")}>{props.child.size}</div>
 				<UseIcon name="chevron-down" size={16} class={styles["collapsible__trigger-icon"]} />
 			</Collapsible.Trigger>
 			<Collapsible.Content class={styles.collapsible__content}>
@@ -282,8 +318,10 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: strin
 	return (
 		<div {...rest}>
 			<div class="flex justify-between font-w7 text-z5">
-				<span>{local.name}</span>
-				<span>{size()}</span>
+				<a href={props.host} class="text-neutral-11 hover:text-neutral-12 outline-none focus-visible:text-neutral-12 focus-visible:underline">
+					{local.name}
+				</a>
+				<span class="text-neutral-11">{size()}</span>
 			</div>
 
 			<div class="my-3 h-px bg-neutral-6" />
