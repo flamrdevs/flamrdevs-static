@@ -1,0 +1,39 @@
+---
+import { MenuIcon } from "lucide-solid";
+
+import { Button, Container, Flex, HTMLX, Separator } from "~/components/core";
+---
+
+<HTMLX title="UI Core" description="core user interface">
+	<Container max="lg" p="4">
+		<Flex ai="-:-">
+			<Button as="a" href="/">home</Button>
+			<Separator orientation="vertical" style="height: 1.5rem" />
+			<Button as="a" href="/ui">ui</Button>
+		</Flex>
+	</Container>
+
+	<Container max="md" p="4">
+		<div class="flex flex-col items-stretch justify-stretch bg-neutral-1 text-neutral-12 border border-solid border-neutral-5 rounded-12 aspect-video overflow-hidden">
+			<div class="flex-shrink-0 flex items-center justify-between gap-6 px-7 h-12 bg-gradient-to-br from-neutral-3 to-neutral-2">
+				<div class="flex items-center justify-center gap-2.5">
+					<div class="w-3 h-3 rounded-full bg-danger-9"></div>
+					<div class="w-3 h-3 rounded-full bg-warning-9"></div>
+					<div class="w-3 h-3 rounded-full bg-success-9"></div>
+				</div>
+
+				<div class="flex-grow">
+					<div class="flex items-center justify-center h-8 bg-neutral-1 border border-solid border-neutral-4 rounded-8 text-z1 text-neutral-11">https://github.com/flamrdevs</div>
+				</div>
+
+				<div class="flex items-center justify-center gap-2">
+					<MenuIcon class="w-5 h-5" />
+				</div>
+			</div>
+
+			<div class="h-px bg-neutral-3"></div>
+
+			<div class="flex-grow"></div>
+		</div>
+	</Container>
+</HTMLX>
