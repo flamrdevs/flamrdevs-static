@@ -4,6 +4,7 @@
 
 :root {
 	--filter-noise-svg: url(/svgs/filter-noise.svg);
+	--default-filter-noise-background: linear-gradient(to bottom, #2222221a, #1111111a), var(--filter-noise-svg);
 }
 
 html {

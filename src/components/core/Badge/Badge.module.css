@@ -1,17 +1,14 @@
 .root {
-	@apply rounded-6;
-	background-image: linear-gradient(125deg, rgb(var(--v-color-3)), rgb(var(--v-color-2)));
-	color: rgb(var(--v-color-11));
+	--xpg: rgb(var(--v-color-3)), rgb(var(--v-color-2));
+	--xbg: rgb(var(--v-color-9)), rgb(var(--v-color-6));
 
-	&::before {
-		content: "";
-		@apply block absolute -z-10 -inset-px rounded-7;
-		background-image: linear-gradient(125deg, rgb(var(--v-color-9)), rgb(var(--v-color-6)));
-	}
+	@apply rounded-7;
+	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
+	color: rgb(var(--v-color-11));
 
 	&::after {
 		content: "";
-		@apply block absolute z-10 inset-0 rounded-6 overflow-hidden opacity-10;
-		background-image: linear-gradient(to bottom, #2222221a, #1111111a), var(--filter-noise-svg);
+		@apply block absolute z-10 inset-0 rounded-7 overflow-hidden opacity-10;
+		background: var(--default-filter-noise-background);
 	}
 }

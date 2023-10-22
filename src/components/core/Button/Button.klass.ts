@@ -6,7 +6,12 @@ import style from "./Button.module.css";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: [style.root, "inline-flex relative items-center justify-center border-none outline-none outline-1 outline-offset-2 select-none cursor-pointer"],
+	base: [
+		style.root,
+		"inline-flex relative items-center justify-center select-none cursor-pointer",
+		"border border-solid border-transparent",
+		"outline outline-1 outline-offset-2 outline-transparent",
+	],
 	variants: {
 		color: {
 			neutral: "vars-neutral",
