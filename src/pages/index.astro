@@ -1,9 +1,8 @@
 ---
-import { GithubIcon } from "lucide-solid";
-
 import { LINK } from "~/const/exports";
 
 import { Center, Container, HTMLX, IconButton, Separator, Text } from "~/components/core";
+import { Icon } from "~/components/icons/astro";
 import { AnimatedSVGLogo } from "~/components/flamrdevs";
 ---
 
@@ -22,7 +21,7 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs";
 			<div style="flex-grow: 1;"></div>
 
 			<IconButton as="a" href={LINK.GITHUB} target="_blank">
-				<GithubIcon />
+				<Icon i="Github" />
 			</IconButton>
 		</Center>
 		<Separator orientation="horizontal" />

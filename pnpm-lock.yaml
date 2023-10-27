@@ -19,9 +19,9 @@ dependencies:
   ixstorage:
     specifier: ^1.0.5
     version: 1.0.5
-  lucide-solid:
+  lucide:
     specifier: ^0.289.0
-    version: 0.289.0(solid-js@1.8.4)
+    version: 0.289.0
   propsplit:
     specifier: 1.0.1
     version: 1.0.1
@@ -48,6 +48,9 @@ devDependencies:
   tailwindcss:
     specifier: ^3.3.5
     version: 3.3.5
+  tsx:
+    specifier: ^3.14.0
+    version: 3.14.0
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
@@ -2194,6 +2197,12 @@ packages:
     resolution: {integrity: sha512-VaUJspBffn/LMCJVoMvSAdmscJyS1auj5Zulnn5UoYcY531UWmdwhRWkcGKnGU93m5HSXP9LP2usOryrBtQowA==}
     engines: {node: '>=16'}
 
+  /get-tsconfig@4.7.2:
+    resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
+    dependencies:
+      resolve-pkg-maps: 1.0.0
+    dev: true
+
   /github-from-package@0.0.0:
     resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
 
@@ -2684,12 +2693,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-solid@0.289.0(solid-js@1.8.4):
-    resolution: {integrity: sha512-8P2SSiS6dv+dCFA4oX1RQ+tPs2CAEMgDf/6gQGRA7/vW3s9JRdFghEVt4/f6tsszRaeAprCJiCT0+T+Z0AmHqQ==}
-    peerDependencies:
-      solid-js: ^1.4.7
-    dependencies:
-      solid-js: 1.8.4
+  /lucide@0.289.0:
+    resolution: {integrity: sha512-MZutbusaMF8Vy2HSfQ5a2B7jjMbXBtneogE/Vea1qZbz/RW1pB2OPQNzbut4vEI8Yn3Xfi7XpOX4vqFvmZmCMQ==}
     dev: false
 
   /lunr@2.3.9:
@@ -3643,6 +3648,10 @@ packages:
       retext-smartypants: 5.2.0
       unist-util-visit: 4.1.2
 
+  /resolve-pkg-maps@1.0.0:
+    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
+    dev: true
+
   /resolve@1.22.8:
     resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
@@ -4110,6 +4119,17 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+
+  /tsx@3.14.0:
+    resolution: {integrity: sha512-xHtFaKtHxM9LOklMmJdI3BEnQq/D5F73Of2E1GDrITi9sgoVkvIsrQUTY1G8FlmGtA+awCI4EBlTRRYxkL2sRg==}
+    hasBin: true
+    dependencies:
+      esbuild: 0.18.20
+      get-tsconfig: 4.7.2
+      source-map-support: 0.5.21
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
 
   /tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}

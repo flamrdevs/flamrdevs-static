@@ -9,6 +9,11 @@ User-agent: *
 Allow: /
 
 Sitemap: ${HOST.STATIC("sitemap-index.xml")}
-`.trim()
+`.trim(),
+		{
+			headers: {
+				"Content-Type": "text/plain",
+			},
+		}
 	);
 };

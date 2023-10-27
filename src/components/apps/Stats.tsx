@@ -5,27 +5,9 @@ import { Collapsible, Link } from "@kobalte/core";
 
 import ixstorage from "ixstorage";
 
-import styles from "./Stats.module.css";
+import { Icon } from "~/components/icons/solid";
 
-const UseIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement> & { name: string; size?: number }) => {
-	return (
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width={props.size ?? 24}
-			height={props.size ?? 24}
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width={2}
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			class={`lucide lucide-${props.name} ${props.class}`}
-			{...props}
-		>
-			<use href={`#lucide-${props.name}`} />
-		</svg>
-	);
-};
+import styles from "./Stats.module.css";
 
 type Directory = {
 	type: "directory";
@@ -231,20 +213,20 @@ const FILE_VIDEO: string[] = [".webm", ".mp4"];
 
 const getFileIconName = (file: File) => {
 	const { ext } = file;
-	if (FILE_AUDIO.includes(ext)) return "file-audio";
-	if (FILE_CODE.includes(ext)) return "file-code";
-	if (FILE_IMAGE.includes(ext)) return "file-image";
-	if (FILE_JSON.includes(ext)) return "file-json";
-	if (FILE_TEXT.includes(ext)) return "file-text";
-	if (FILE_TYPE.includes(ext)) return "file-type";
-	if (FILE_VIDEO.includes(ext)) return "file-video";
-	return "file";
+	if (FILE_AUDIO.includes(ext)) return "FileAudio";
+	if (FILE_CODE.includes(ext)) return "FileCode";
+	if (FILE_IMAGE.includes(ext)) return "FileImage";
+	if (FILE_JSON.includes(ext)) return "FileJson";
+	if (FILE_TEXT.includes(ext)) return "FileText";
+	if (FILE_TYPE.includes(ext)) return "FileType";
+	if (FILE_VIDEO.includes(ext)) return "FileVideo";
+	return "File";
 };
 
 const RenderFile = (props: { child: File; base: string }) => {
 	return (
 		<Link.Root href={getFileHref(props.base, props.child)} class={styles.link__root} target="_blank">
-			<UseIcon name={getFileIconName(props.child)} size={14} stroke={getFileIconStroke(props.child)} />
+			<Icon i={getFileIconName(props.child)} size="1rem" stroke={getFileIconStroke(props.child)} />
 			<div class="flex-grow text-left">{props.child.name}</div>
 			<div class="flex-grow text-right">{props.child.size}</div>
 		</Link.Root>
@@ -268,7 +250,7 @@ const useDirectoryState = createRoot(() => {
 });
 
 const getDirectoryIconName = (open?: boolean) => {
-	return open ? "folder-open" : "folder-closed";
+	return open ? "FolderOpen" : "FolderClosed";
 };
 
 const RenderDirectory = (props: { child: Directory; base: string }) => {
@@ -279,10 +261,10 @@ const RenderDirectory = (props: { child: Directory; base: string }) => {
 	return (
 		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
 			<Collapsible.Trigger class={[styles.collapsible__trigger, open() && "group"].filter(Boolean).join(" ")}>
-				<UseIcon name={getDirectoryIconName(open())} size={14} />
+				<Icon i={getDirectoryIconName(open())} size="1rem" />
 				<div class="flex-grow text-left">{props.child.name}</div>
 				<div class={["flex-grow text-right", open() && "invisible group-hover:visible"].filter(Boolean).join(" ")}>{props.child.size}</div>
-				<UseIcon name="chevron-down" size={16} class={styles["collapsible__trigger-icon"]} />
+				<Icon i="ChevronDown" size="1.2rem" class={styles["collapsible__trigger-icon"]} />
 			</Collapsible.Trigger>
 			<Collapsible.Content class={styles.collapsible__content}>
 				<For each={props.child.children}>

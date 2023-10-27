@@ -37,6 +37,11 @@ export const GET: APIRoute = () => {
 
 `;
 			})
-			.join("\n")
+			.join("\n"),
+		{
+			headers: {
+				"Content-Type": "text/css",
+			},
+		}
 	);
 };

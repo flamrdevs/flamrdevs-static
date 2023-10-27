@@ -1,9 +1,8 @@
 ---
-import { GithubIcon, MoonIcon } from "lucide-solid";
-
 import { LINK } from "~/const/exports";
 
 import { Badge, Box, Button, Container, Flex, HTMLX, IconButton, Link, Loader, Separator, Text } from "~/components/core";
+import { Icon } from "~/components/icons/astro";
 ---
 
 <HTMLX title="UI Core" description="core user interface">
@@ -260,7 +259,7 @@ import { Badge, Box, Button, Container, Flex, HTMLX, IconButton, Link, Loader, S
 					<Flex gap="2" p="1">
 						<Box>
 							<IconButton>
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 					</Flex>
@@ -272,32 +271,32 @@ import { Badge, Box, Button, Container, Flex, HTMLX, IconButton, Link, Loader, S
 					<Flex gap="2" p="1">
 						<Box>
 							<IconButton color="neutral">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton color="primary">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton color="success">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton color="info">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton color="warning">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton color="danger">
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 					</Flex>
@@ -309,12 +308,12 @@ import { Badge, Box, Button, Container, Flex, HTMLX, IconButton, Link, Loader, S
 					<Flex gap="2" p="1">
 						<Box>
 							<IconButton>
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton disabled>
-								<MoonIcon />
+								<Icon i="Moon" />
 							</IconButton>
 						</Box>
 					</Flex>
@@ -326,12 +325,12 @@ import { Badge, Box, Button, Container, Flex, HTMLX, IconButton, Link, Loader, S
 					<Flex gap="2" p="1">
 						<Box>
 							<IconButton as="a" href={LINK.GITHUB} target="_blank">
-								<GithubIcon />
+								<Icon i="Github" />
 							</IconButton>
 						</Box>
 						<Box>
 							<IconButton as="a" href={LINK.GITHUB} target="_blank" disabled>
-								<GithubIcon />
+								<Icon i="Github" />
 							</IconButton>
 						</Box>
 					</Flex>

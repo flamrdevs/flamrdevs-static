@@ -1,0 +1,15 @@
+export type IconName =
+  | 'ChevronDown'
+  | 'File'
+  | 'FileAudio'
+  | 'FileCode'
+  | 'FileImage'
+  | 'FileJson'
+  | 'FileText'
+  | 'FileType'
+  | 'FileVideo'
+  | 'FolderClosed'
+  | 'FolderOpen'
+  | 'Github'
+  | 'Menu'
+  | 'Moon';

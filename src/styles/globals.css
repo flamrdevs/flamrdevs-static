@@ -46,9 +46,10 @@ a {
 }
 
 .lucide {
+	fill: none;
 	stroke-width: 1.5;
-	width: 1.25rem;
-	height: 1.25rem;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 
 .vars-neutral {
