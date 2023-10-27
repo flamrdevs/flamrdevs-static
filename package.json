@@ -18,7 +18,7 @@
 		"ixstorage": "^1.0.5",
 		"ixstoragest": "^1.0.5",
 		"ixstore": "^1.0.5",
-		"lucide": "^0.289.0",
+		"lucide": "^0.290.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.8.4"
 	},
