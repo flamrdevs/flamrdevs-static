@@ -13,7 +13,11 @@
 		"@kobalte/core": "^0.11.2",
 		"astro": "^3.4.0",
 		"clsx": "^2.0.0",
+		"ixbroadcastr": "^1.0.5",
+		"ixevent": "^1.0.5",
 		"ixstorage": "^1.0.5",
+		"ixstoragest": "^1.0.5",
+		"ixstore": "^1.0.5",
 		"lucide": "^0.289.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.8.4"
