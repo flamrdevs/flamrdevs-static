@@ -6,12 +6,13 @@ import * as Classes from "../classes.ts";
 import * as Icons from "./../icons/shared.ts";
 
 import * as BadgeKlass from "./styles/Badge.klass.ts";
+import * as klass from "./styles/.klass.ts";
 
-type BadgeProps = Classes.WithProps<JSX.IntrinsicElements["span"] & BadgeKlass.Variants>;
+type BadgeProps = Classes.WithProps<JSX.IntrinsicElements["span"] & BadgeKlass.Variants & klass.Color6Variants>;
 
 const Badge = (props: BadgeProps) => {
-	const [classes, recipe, rest] = splitProps(props, Classes.Keys, BadgeKlass.Root.vk);
-	return <span {...rest} class={Classes.x(BadgeKlass.Root(recipe), classes)} />;
+	const [classes, recipe, color, rest] = splitProps(props, Classes.Keys, BadgeKlass.Root.vk, klass.Color6.vk);
+	return <span {...rest} class={Classes.x([BadgeKlass.Root(recipe), klass.Color6(color)], classes)} />;
 };
 
 type IconProps = Omit<JSX.SvgSVGAttributes<SVGSVGElement>, keyof Icons.ComponentProps> & Icons.ComponentProps;

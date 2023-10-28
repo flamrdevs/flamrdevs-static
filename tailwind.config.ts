@@ -81,6 +81,19 @@ export default {
 		colors: {
 			transparent: "transparent",
 			current: "currentColor",
+			va: {
+				"1": "rgb(var(--v-a-1) / <alpha-value>)",
+				"2": "rgb(var(--v-a-2) / <alpha-value>)",
+				"3": "rgb(var(--v-a-3) / <alpha-value>)",
+				"4": "rgb(var(--v-a-4) / <alpha-value>)",
+				"5": "rgb(var(--v-a-5) / <alpha-value>)",
+				"6": "rgb(var(--v-a-6) / <alpha-value>)",
+				"7": "rgb(var(--v-a-7) / <alpha-value>)",
+				"9": "rgb(var(--v-a-9) / <alpha-value>)",
+				"10": "rgb(var(--v-a-10) / <alpha-value>)",
+				"11": "rgb(var(--v-a-11) / <alpha-value>)",
+				"12": "rgb(var(--v-a-12) / <alpha-value>)",
+			},
 			...colors,
 		},
 		borderRadius: {

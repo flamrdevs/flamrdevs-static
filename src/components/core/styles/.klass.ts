@@ -1,6 +1,38 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+const DEFAULT_COLORS_VARIANTS = {
+	color: "neutral",
+} as const;
+
+type Color2Variants = VariantsOf<typeof Color2>;
+
+const Color2 = klass({
+	variants: {
+		color: {
+			neutral: "vars-neutral",
+			primary: "vars-primary",
+		},
+	},
+	defaultVariants: DEFAULT_COLORS_VARIANTS,
+});
+
+type Color6Variants = VariantsOf<typeof Color6>;
+
+const Color6 = klass({
+	variants: {
+		color: {
+			neutral: "vars-neutral",
+			primary: "vars-primary",
+			success: "vars-success",
+			info: "vars-info",
+			warning: "vars-warning",
+			danger: "vars-danger",
+		},
+	},
+	defaultVariants: DEFAULT_COLORS_VARIANTS,
+});
+
 type TypographyVariants = VariantsOf<typeof Typography>;
 
 const Typography = klass({
@@ -45,5 +77,5 @@ const Typography = klass({
 	},
 });
 
-export type { TypographyVariants };
-export { Typography };
+export type { Color2Variants, Color6Variants, TypographyVariants };
+export { Color2, Color6, Typography };

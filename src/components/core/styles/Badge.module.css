@@ -1,10 +1,10 @@
 .root {
-	--xpg: rgb(var(--v-color-3)), rgb(var(--v-color-2));
-	--xbg: rgb(var(--v-color-9)), rgb(var(--v-color-6));
+	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
+	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-6));
 
 	@apply rounded-7;
 	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
-	color: rgb(var(--v-color-11));
+	color: rgb(var(--v-a-11));
 
 	&::after {
 		content: "";

@@ -1,23 +1,23 @@
 .root {
-	--xpg: rgb(var(--v-color-3)), rgb(var(--v-color-2));
-	--xbg: rgb(var(--v-color-9)), rgb(var(--v-color-7)), rgb(var(--v-color-6));
+	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
+	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-7)), rgb(var(--v-a-6));
 
 	@apply rounded-8;
 	background: padding-box linear-gradient(140deg, var(--xpg)), border-box linear-gradient(140deg, var(--xbg));
-	color: rgb(var(--v-color-11));
+	color: rgb(var(--v-a-11));
 
 	&:hover {
-		--xpg: rgb(var(--v-color-4)), rgb(var(--v-color-2));
-		--xbg: rgb(var(--v-color-10)), rgb(var(--v-color-8)), rgb(var(--v-color-7));
+		--xpg: rgb(var(--v-a-4)), rgb(var(--v-a-2));
+		--xbg: rgb(var(--v-a-10)), rgb(var(--v-a-8)), rgb(var(--v-a-7));
 	}
 
 	&:active {
-		--xpg: rgb(var(--v-color-5)), rgb(var(--v-color-3));
-		--xbg: rgb(var(--v-color-11)), rgb(var(--v-color-9)), rgb(var(--v-color-8));
+		--xpg: rgb(var(--v-a-5)), rgb(var(--v-a-3));
+		--xbg: rgb(var(--v-a-11)), rgb(var(--v-a-9)), rgb(var(--v-a-8));
 	}
 
 	&:focus-visible {
-		outline-color: rgb(var(--v-color-11));
+		outline-color: rgb(var(--v-a-11));
 	}
 
 	&::after {
@@ -27,9 +27,9 @@
 	}
 
 	&[data-disabled] {
-		--xpg: rgb(var(--v-color-2)), rgb(var(--v-color-1));
-		--xbg: rgb(var(--v-color-5)), rgb(var(--v-color-4)), rgb(var(--v-color-3));
-		color: rgb(var(--v-color-8));
+		--xpg: rgb(var(--v-a-2)), rgb(var(--v-a-1));
+		--xbg: rgb(var(--v-a-5)), rgb(var(--v-a-4)), rgb(var(--v-a-3));
+		color: rgb(var(--v-a-8));
 		pointer-events: none;
 	}
 }
