@@ -1,6 +1,8 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+import styles from "./Loader.module.css";
+
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
@@ -20,6 +22,10 @@ const Root = klass({
 		size: "md",
 	},
 });
+
+export const G = styles.g;
+
+export const Circle = styles.circle;
 
 export type { Variants };
 export { Root };

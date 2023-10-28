@@ -1,17 +1,19 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+import styles from "./Separator.module.css";
+
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: "root block border-none border-0",
+	base: [styles.root, "block border-none border-0"],
 	variants: {
 		margin: {
-			"0": "root__margin-0",
-			"1": "root__margin-1",
-			"2": "root__margin-2",
-			"3": "root__margin-3",
-			"4": "root__margin-4",
+			"0": styles.m0,
+			"1": styles.m1,
+			"2": styles.m2,
+			"3": styles.m3,
+			"4": styles.m4,
 		},
 	},
 	defaultVariants: {

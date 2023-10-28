@@ -1,14 +1,17 @@
 import clsx from "clsx";
-import type { ClassValue } from "@klass/core";
+import type { ClassValue } from "clsx";
 
-type ClassesProps = {
-	class?: string | null;
+type Props = {
+	class?: ClassValue;
+	classList?: ClassValue;
 };
 
-const ClassesKeys = ["class"] as const satisfies Readonly<(keyof ClassesProps)[]>;
+type WithProps<P> = Omit<P, keyof Props> & Props;
 
-const classex = <T extends ClassesProps>(classValue: ClassValue, classes: T) => clsx(classValue, classes[ClassesKeys[0]]);
+const Keys = ["class", "classList"] as const satisfies Readonly<(keyof Props)[]>;
 
-export type { ClassesProps };
-export { ClassesKeys };
-export { classex };
+const x = <T extends Props>(classValue: ClassValue, classes: T) => clsx(classValue, classes[Keys[0]], classes[Keys[1]]);
+
+export type { WithProps };
+export { Keys };
+export { x };

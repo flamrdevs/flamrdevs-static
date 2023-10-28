@@ -5,7 +5,7 @@ import { Collapsible, Link } from "@kobalte/core";
 
 import ixstorage from "ixstorage";
 
-import { Icon } from "~/components/icons/solid";
+import { Icon } from "~/components/core/index.ts";
 
 import styles from "./Stats.module.css";
 

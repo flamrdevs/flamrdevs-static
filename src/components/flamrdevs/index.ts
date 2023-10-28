@@ -1,1 +1,1 @@
-export { default as AnimatedSVGLogo } from "./AnimatedSVGLogo.astro";
+export { default as AnimatedSVGLogo } from "./AnimatedSVGLogo.tsx";

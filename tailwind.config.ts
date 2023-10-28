@@ -57,7 +57,7 @@ const space = (property: string) => {
 };
 
 export default {
-	content: ["src/**/*.{astro,ts,tsx}", "src/components/core/.{klass,reklass}.ts"],
+	content: ["src/**/*.{astro,ts,tsx}", "src/components/core/styles/.{klass,reklass}.ts"],
 	safelist: [
 		...responsive(
 			...["hidden", "block", "inline-block", "flex", "inline-flex", "grid", "inline-grid"],

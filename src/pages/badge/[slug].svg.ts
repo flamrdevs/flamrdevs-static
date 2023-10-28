@@ -1,6 +1,6 @@
 import type { APIRoute, GetStaticPaths } from "astro";
 
-import { HOST } from "~/utils/exports";
+import { HOST } from "~/utils/exports.ts";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	return ["light", "dark"].map((theme) => ({

@@ -1,11 +1,12 @@
 ---
 import { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
-import { Box, Container, HTMLX } from "~/components/core";
+import { HTMLX } from "~/components/index.ts";
+import { Box, Container } from "~/components/core/index.ts";
 
-import Stats from "~/components/apps/Stats";
+import Stats from "~/components/apps/Stats.tsx";
 
-import { HOST } from "~/utils/exports";
+import { HOST } from "~/utils/exports.ts";
 
 export const getStaticPaths = (async () => {
 	const projects: {

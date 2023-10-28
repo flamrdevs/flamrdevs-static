@@ -1,0 +1,6 @@
+.root {
+	&[data-disabled] {
+		opacity: 0.7;
+		@apply no-underline cursor-not-allowed;
+	}
+}

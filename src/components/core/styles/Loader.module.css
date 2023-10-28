@@ -1,0 +1,28 @@
+.g {
+	transform-origin: center;
+	animation: loader-spin-o 2s linear infinite;
+}
+.circle {
+	stroke-linecap: round;
+	animation: loader-spin-i 1.5s ease-in-out infinite;
+}
+@keyframes loader-spin-o {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes loader-spin-i {
+	0% {
+		stroke-dasharray: 0 150;
+		stroke-dashoffset: 0;
+	}
+	47.5% {
+		stroke-dasharray: 42 150;
+		stroke-dashoffset: -16;
+	}
+	95%,
+	100% {
+		stroke-dasharray: 42 150;
+		stroke-dashoffset: -59;
+	}
+}

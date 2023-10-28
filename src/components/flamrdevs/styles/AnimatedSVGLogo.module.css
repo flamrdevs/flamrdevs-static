@@ -1,0 +1,47 @@
+.root {
+	opacity: 0.17;
+}
+
+.filled {
+	stroke-dasharray: 270;
+	stroke-dashoffset: 270;
+	fill: rgb(var(--neutral-12));
+}
+
+.stroke-left {
+	stroke-dasharray: 270;
+	stroke-dashoffset: 270;
+	stroke: rgb(var(--neutral-1));
+	stroke-width: 1.5;
+	animation: to-left 8000ms infinite ease-in-out;
+	transition: stroke 100ms;
+}
+
+.stroke-right {
+	stroke-dasharray: 270;
+	stroke-dashoffset: 270;
+	stroke: rgb(var(--neutral-12));
+	stroke-width: 1.5;
+	animation: to-right 4000ms infinite ease-in-out;
+	transition: stroke 100ms;
+}
+
+@keyframes to-left {
+	0% {
+		stroke-dashoffset: 270;
+	}
+
+	100% {
+		stroke-dashoffset: -270;
+	}
+}
+
+@keyframes to-right {
+	0% {
+		stroke-dashoffset: -270;
+	}
+
+	100% {
+		stroke-dashoffset: 270;
+	}
+}
