@@ -8,17 +8,17 @@
 		"setup-icons": "tsx src/components/icons/setup.ts"
 	},
 	"dependencies": {
-		"@astrojs/sitemap": "^3.0.2",
+		"@astrojs/sitemap": "^3.0.3",
 		"@klass/core": "^3.4.8",
 		"@kobalte/core": "^0.11.2",
-		"astro": "^3.4.0",
+		"astro": "^3.4.1",
 		"clsx": "^2.0.0",
 		"ixbroadcastr": "^1.0.5",
 		"ixevent": "^1.0.5",
 		"ixstorage": "^1.0.5",
 		"ixstoragest": "^1.0.5",
 		"ixstore": "^1.0.5",
-		"lucide": "^0.290.0",
+		"lucide": "^0.291.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.8.4"
 	},
@@ -26,8 +26,8 @@
 		"@astrojs/solid-js": "^3.0.2",
 		"@astrojs/tailwind": "^5.0.2",
 		"@coloradix/tailwindcss": "^2.2.0",
-		"@types/node": "^20.8.9",
-		"astro-compress": "^2.1.6",
+		"@types/node": "^20.8.10",
+		"astro-compress": "^2.2.0",
 		"tailwindcss": "^3.3.5",
 		"tsx": "^3.14.0",
 		"typescript": "^5.2.2"

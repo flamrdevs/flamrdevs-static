@@ -2,13 +2,14 @@
 	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
 	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-6));
 
-	@apply rounded-7;
+	@apply inline-flex relative items-center justify-center select-none rounded-7 text-va-11;
 	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
-	color: rgb(var(--v-a-11));
 
 	&::after {
-		content: "";
-		@apply block absolute z-10 inset-0 rounded-7 overflow-hidden opacity-10;
-		background: var(--default-filter-noise-background);
+		@apply rounded-7;
 	}
+}
+
+.md {
+	@apply h-4 px-1 text-z1 font-w3;
 }

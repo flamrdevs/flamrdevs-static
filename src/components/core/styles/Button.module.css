@@ -1,35 +1,11 @@
-.root {
-	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
-	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-7)), rgb(var(--v-a-6));
+.sm {
+	@apply h-6 px-3 py-px text-z2 font-w4;
+}
 
-	@apply rounded-8;
-	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
-	color: rgb(var(--v-a-11));
+.md {
+	@apply h-8 px-4 py-0.5 text-z3 font-w5;
+}
 
-	&:hover {
-		--xpg: rgb(var(--v-a-4)), rgb(var(--v-a-2));
-		--xbg: rgb(var(--v-a-10)), rgb(var(--v-a-8)), rgb(var(--v-a-7));
-	}
-
-	&:active {
-		--xpg: rgb(var(--v-a-5)), rgb(var(--v-a-3));
-		--xbg: rgb(var(--v-a-11)), rgb(var(--v-a-9)), rgb(var(--v-a-8));
-	}
-
-	&:focus-visible {
-		outline-color: rgb(var(--v-a-11));
-	}
-
-	&::after {
-		content: "";
-		@apply block absolute z-10 inset-0 rounded-8 overflow-hidden opacity-10;
-		background: var(--default-filter-noise-background);
-	}
-
-	&[data-disabled] {
-		--xpg: rgb(var(--v-a-2)), rgb(var(--v-a-1));
-		--xbg: rgb(var(--v-a-5)), rgb(var(--v-a-4)), rgb(var(--v-a-3));
-		color: rgb(var(--v-a-8));
-		pointer-events: none;
-	}
+.lg {
+	@apply h-10 px-5 py-1 text-z4 font-w5;
 }

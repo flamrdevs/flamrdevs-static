@@ -1,0 +1,53 @@
+.root {
+	@apply flex;
+}
+
+.input {
+}
+
+.control {
+	--xpg: rgb(var(--cn-2)), rgb(var(--cn-1));
+	--xbg: rgb(var(--cn-7)), rgb(var(--cn-5)), rgb(var(--cn-4));
+
+	@apply inline-flex relative items-center w-6 h-6 rounded-10 outline-offset-2 transition-colors;
+	padding: 0.1875rem;
+	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
+
+	&::after {
+		@apply rounded-10;
+	}
+
+	&[data-checked] {
+		--xpg: rgb(var(--v-a-9)), rgb(var(--v-a-8));
+		--xbg: rgb(var(--v-a-11)), rgb(var(--v-a-10)), rgb(var(--v-a-9));
+	}
+
+	&[data-disabled] {
+		--xpg: rgb(var(--cn-2)), rgb(var(--cn-2));
+		--xbg: rgb(var(--cn-3)), rgb(var(--cn-3));
+	}
+}
+
+.input:focus-visible + .control {
+	outline-color: rgb(var(--cn-11));
+
+	&[data-checked] {
+		outline-color: rgb(var(--v-a-11));
+	}
+}
+
+.indicator {
+	@apply w-full h-full text-white;
+
+	&[data-disabled] {
+		@apply text-cn-6;
+	}
+}
+
+.icon {
+	@apply w-full h-full stroke-[3];
+}
+
+.label {
+	@apply flex items-center h-6 ml-2 text-cn-12 text-z2;
+}

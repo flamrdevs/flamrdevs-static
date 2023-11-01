@@ -1,0 +1,11 @@
+.section-block-root {
+	@apply h-60 border border-solid border-cn-6 rounded-16;
+}
+
+.section-block-left {
+	@apply flex-grow w-auto overflow-hidden;
+}
+
+.section-block-right {
+	@apply flex-shrink-0 w-60 h-full overflow-auto;
+}

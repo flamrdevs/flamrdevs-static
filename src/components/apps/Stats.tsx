@@ -300,13 +300,13 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: strin
 	return (
 		<div {...rest}>
 			<div class="flex justify-between font-w7 text-z5">
-				<a href={props.host} class="text-neutral-11 hover:text-neutral-12 outline-none focus-visible:text-neutral-12 focus-visible:underline">
+				<a href={props.host} class="text-cn-11 hover:text-cn-12 outline-none focus-visible:text-cn-12 focus-visible:underline">
 					{local.name}
 				</a>
-				<span class="text-neutral-11">{size()}</span>
+				<span class="text-cn-11">{size()}</span>
 			</div>
 
-			<div class="my-3 h-px bg-neutral-6" />
+			<div class="my-3 h-px bg-cn-6" />
 
 			<div>
 				<For each={children()}>

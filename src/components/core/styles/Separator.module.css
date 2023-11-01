@@ -1,21 +1,20 @@
 .root {
 	--l-mb: auto;
 	--l-mi: auto;
+	@apply block border-none border-0;
 	border-radius: 100%;
-	background-image: linear-gradient(var(--l-lg-deg), rgb(var(--neutral-3)), rgb(var(--neutral-6)), rgb(var(--neutral-3)));
+	background-image: linear-gradient(var(--l-lg-deg), rgb(var(--cn-3)), rgb(var(--cn-6)), rgb(var(--cn-3)));
 
 	&[data-orientation="horizontal"] {
 		--l-lg-deg: 90deg;
 		margin-block: var(--l-mb);
-		width: 100%;
-		height: 1px;
+		@apply w-full h-px;
 	}
 
 	&[data-orientation="vertical"] {
 		--l-lg-deg: 0deg;
 		margin-inline: var(--l-mi);
-		width: 1px;
-		height: 100%;
+		@apply w-px h-full;
 	}
 }
 

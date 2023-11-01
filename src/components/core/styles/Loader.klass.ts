@@ -6,7 +6,7 @@ import styles from "./Loader.module.css";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: "stroke-va-9",
+	base: styles.root,
 	variants: {
 		size: {
 			sm: "w-8 h-8",

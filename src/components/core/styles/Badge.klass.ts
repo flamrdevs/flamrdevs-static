@@ -1,15 +1,17 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+import * as SharedStyle from "./_shared.style.ts";
+
 import styles from "./Badge.module.css";
 
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: [styles.root, "inline-flex relative items-center justify-center select-none", "border border-solid border-transparent"],
+	base: `${styles.root} ${SharedStyle.Border1pxSolidTransparent} filter-noise-layer`,
 	variants: {
 		size: {
-			md: "h-4 px-1 text-z1 font-w4",
+			md: styles.md,
 		},
 	},
 	defaultVariants: {

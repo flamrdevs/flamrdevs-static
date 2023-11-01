@@ -1,0 +1,20 @@
+.root {
+	@apply flex flex-col gap-2 w-64;
+}
+
+.container {
+	@apply flex items-center justify-between;
+}
+
+.label {
+	@apply text-cn-12 text-z2;
+}
+
+.track {
+	@apply h-2.5 bg-cn-3 rounded-4;
+}
+
+.fill {
+	@apply h-full bg-va-9 rounded-4;
+	width: var(--kb-progress-fill-width);
+}

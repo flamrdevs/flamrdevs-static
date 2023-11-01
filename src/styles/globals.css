@@ -4,7 +4,6 @@
 
 :root {
 	--filter-noise-svg: url(/svgs/filter-noise.svg);
-	--default-filter-noise-background: linear-gradient(to bottom, #2222221a, #1111111a), var(--filter-noise-svg);
 }
 
 html {
@@ -12,7 +11,7 @@ html {
 }
 
 body {
-	@apply bg-neutral-1 text-neutral-12 font-sans;
+	@apply bg-cn-1 text-cn-12 font-sans;
 }
 
 ::-webkit-scrollbar {
@@ -20,24 +19,24 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: rgb(var(--neutral-2) / 0.5);
+	background: rgb(var(--cn-2) / 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: rgb(var(--neutral-5));
+	background: rgb(var(--cn-5));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: rgb(var(--neutral-8));
+	background: rgb(var(--cn-8));
 }
 
 ::-moz-selection {
-	background: rgb(var(--info-9));
+	background: rgb(var(--ci-9));
 	color: white;
 }
 
 ::selection {
-	background: rgb(var(--info-9));
+	background: rgb(var(--ci-9));
 	color: white;
 }
 
@@ -53,91 +52,99 @@ a {
 }
 
 .vars-neutral {
-	--v-a-1: var(--neutral-1);
-	--v-a-2: var(--neutral-2);
-	--v-a-3: var(--neutral-3);
-	--v-a-4: var(--neutral-4);
-	--v-a-5: var(--neutral-5);
-	--v-a-6: var(--neutral-6);
-	--v-a-7: var(--neutral-7);
-	--v-a-8: var(--neutral-8);
-	--v-a-9: var(--neutral-9);
-	--v-a-10: var(--neutral-10);
-	--v-a-11: var(--neutral-11);
-	--v-a-12: var(--neutral-12);
+	--v-a-1: var(--cn-1);
+	--v-a-2: var(--cn-2);
+	--v-a-3: var(--cn-3);
+	--v-a-4: var(--cn-4);
+	--v-a-5: var(--cn-5);
+	--v-a-6: var(--cn-6);
+	--v-a-7: var(--cn-7);
+	--v-a-8: var(--cn-8);
+	--v-a-9: var(--cn-9);
+	--v-a-10: var(--cn-10);
+	--v-a-11: var(--cn-11);
+	--v-a-12: var(--cn-12);
 }
 
 .vars-primary {
-	--v-a-1: var(--primary-1);
-	--v-a-2: var(--primary-2);
-	--v-a-3: var(--primary-3);
-	--v-a-4: var(--primary-4);
-	--v-a-5: var(--primary-5);
-	--v-a-6: var(--primary-6);
-	--v-a-7: var(--primary-7);
-	--v-a-8: var(--primary-8);
-	--v-a-9: var(--primary-9);
-	--v-a-10: var(--primary-10);
-	--v-a-11: var(--primary-11);
-	--v-a-12: var(--primary-12);
+	--v-a-1: var(--cp-1);
+	--v-a-2: var(--cp-2);
+	--v-a-3: var(--cp-3);
+	--v-a-4: var(--cp-4);
+	--v-a-5: var(--cp-5);
+	--v-a-6: var(--cp-6);
+	--v-a-7: var(--cp-7);
+	--v-a-8: var(--cp-8);
+	--v-a-9: var(--cp-9);
+	--v-a-10: var(--cp-10);
+	--v-a-11: var(--cp-11);
+	--v-a-12: var(--cp-12);
 }
 
 .vars-success {
-	--v-a-1: var(--success-1);
-	--v-a-2: var(--success-2);
-	--v-a-3: var(--success-3);
-	--v-a-4: var(--success-4);
-	--v-a-5: var(--success-5);
-	--v-a-6: var(--success-6);
-	--v-a-7: var(--success-7);
-	--v-a-8: var(--success-8);
-	--v-a-9: var(--success-9);
-	--v-a-10: var(--success-10);
-	--v-a-11: var(--success-11);
-	--v-a-12: var(--success-12);
+	--v-a-1: var(--cs-1);
+	--v-a-2: var(--cs-2);
+	--v-a-3: var(--cs-3);
+	--v-a-4: var(--cs-4);
+	--v-a-5: var(--cs-5);
+	--v-a-6: var(--cs-6);
+	--v-a-7: var(--cs-7);
+	--v-a-8: var(--cs-8);
+	--v-a-9: var(--cs-9);
+	--v-a-10: var(--cs-10);
+	--v-a-11: var(--cs-11);
+	--v-a-12: var(--cs-12);
 }
 
 .vars-info {
-	--v-a-1: var(--info-1);
-	--v-a-2: var(--info-2);
-	--v-a-3: var(--info-3);
-	--v-a-4: var(--info-4);
-	--v-a-5: var(--info-5);
-	--v-a-6: var(--info-6);
-	--v-a-7: var(--info-7);
-	--v-a-8: var(--info-8);
-	--v-a-9: var(--info-9);
-	--v-a-10: var(--info-10);
-	--v-a-11: var(--info-11);
-	--v-a-12: var(--info-12);
+	--v-a-1: var(--ci-1);
+	--v-a-2: var(--ci-2);
+	--v-a-3: var(--ci-3);
+	--v-a-4: var(--ci-4);
+	--v-a-5: var(--ci-5);
+	--v-a-6: var(--ci-6);
+	--v-a-7: var(--ci-7);
+	--v-a-8: var(--ci-8);
+	--v-a-9: var(--ci-9);
+	--v-a-10: var(--ci-10);
+	--v-a-11: var(--ci-11);
+	--v-a-12: var(--ci-12);
 }
 
 .vars-warning {
-	--v-a-1: var(--warning-1);
-	--v-a-2: var(--warning-2);
-	--v-a-3: var(--warning-3);
-	--v-a-4: var(--warning-4);
-	--v-a-5: var(--warning-5);
-	--v-a-6: var(--warning-6);
-	--v-a-7: var(--warning-7);
-	--v-a-8: var(--warning-8);
-	--v-a-9: var(--warning-9);
-	--v-a-10: var(--warning-10);
-	--v-a-11: var(--warning-11);
-	--v-a-12: var(--warning-12);
+	--v-a-1: var(--cw-1);
+	--v-a-2: var(--cw-2);
+	--v-a-3: var(--cw-3);
+	--v-a-4: var(--cw-4);
+	--v-a-5: var(--cw-5);
+	--v-a-6: var(--cw-6);
+	--v-a-7: var(--cw-7);
+	--v-a-8: var(--cw-8);
+	--v-a-9: var(--cw-9);
+	--v-a-10: var(--cw-10);
+	--v-a-11: var(--cw-11);
+	--v-a-12: var(--cw-12);
 }
 
 .vars-danger {
-	--v-a-1: var(--danger-1);
-	--v-a-2: var(--danger-2);
-	--v-a-3: var(--danger-3);
-	--v-a-4: var(--danger-4);
-	--v-a-5: var(--danger-5);
-	--v-a-6: var(--danger-6);
-	--v-a-7: var(--danger-7);
-	--v-a-8: var(--danger-8);
-	--v-a-9: var(--danger-9);
-	--v-a-10: var(--danger-10);
-	--v-a-11: var(--danger-11);
-	--v-a-12: var(--danger-12);
+	--v-a-1: var(--cd-1);
+	--v-a-2: var(--cd-2);
+	--v-a-3: var(--cd-3);
+	--v-a-4: var(--cd-4);
+	--v-a-5: var(--cd-5);
+	--v-a-6: var(--cd-6);
+	--v-a-7: var(--cd-7);
+	--v-a-8: var(--cd-8);
+	--v-a-9: var(--cd-9);
+	--v-a-10: var(--cd-10);
+	--v-a-11: var(--cd-11);
+	--v-a-12: var(--cd-12);
+}
+
+.filter-noise-layer {
+	&::after {
+		content: "";
+		@apply block absolute z-10 inset-0 overflow-hidden opacity-10;
+		background: linear-gradient(to bottom, #2222221a, #1111111a), var(--filter-noise-svg);
+	}
 }

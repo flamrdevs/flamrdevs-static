@@ -1,7 +1,9 @@
 ---
-import { HOST } from "~/utils/exports.ts";
-
 import "~/styles/globals.css";
+
+import ThemeScript from "./core/ThemeScript.astro";
+
+import { HOST } from "~/utils/exports.ts";
 
 type Props = {
 	title?: string;
@@ -47,8 +49,15 @@ const { title = TITLE_DEFAULT, description = DESCRIPTION_DEFAULT, url = URL_DEFA
 		<link rel="preload" as="image" type="image/svg+xml" href="/icons.svg" />
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<ThemeScript />
 	</head>
 	<body>
 		<slot />
+		<script>
+			import { initTheme } from "~/stores/theme.ts";
+
+			initTheme();
+		</script>
 	</body>
 </html>

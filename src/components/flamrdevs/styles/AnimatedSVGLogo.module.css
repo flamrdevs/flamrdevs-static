@@ -5,13 +5,13 @@
 .filled {
 	stroke-dasharray: 270;
 	stroke-dashoffset: 270;
-	fill: rgb(var(--neutral-12));
+	fill: rgb(var(--cn-12));
 }
 
 .stroke-left {
 	stroke-dasharray: 270;
 	stroke-dashoffset: 270;
-	stroke: rgb(var(--neutral-1));
+	stroke: rgb(var(--cn-1));
 	stroke-width: 1.5;
 	animation: to-left 8000ms infinite ease-in-out;
 	transition: stroke 100ms;
@@ -20,7 +20,7 @@
 .stroke-right {
 	stroke-dasharray: 270;
 	stroke-dashoffset: 270;
-	stroke: rgb(var(--neutral-12));
+	stroke: rgb(var(--cn-12));
 	stroke-width: 1.5;
 	animation: to-right 4000ms infinite ease-in-out;
 	transition: stroke 100ms;

@@ -4,8 +4,8 @@ import { Dynamic } from "solid-js/web";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
 
-import * as klass from "./styles/.klass.ts";
-import * as reklass from "./styles/.reklass.ts";
+import * as klass from "./styles/_klass.ts";
+import * as reklass from "./styles/_reklass.ts";
 
 type TextOptions = Classes.WithProps<
 	{
@@ -13,12 +13,11 @@ type TextOptions = Classes.WithProps<
 		size?: klass.TypographyVariants["fz"];
 		weight?: klass.TypographyVariants["fw"];
 		align?: klass.TypographyVariants["ta"];
-		italic?: boolean;
 	} & reklass.MarginVariants &
 		reklass.PaddingVariants
 >;
 
-const TextKeys = ["family", "size", "weight", "align", "italic"] as const;
+const TextKeys = ["family", "size", "weight", "align"] as const;
 
 const Text = ((props) => {
 	const [polymorphic, classes, local, margin, padding, rest] = splitProps(props, Polymorphic.Keys, Classes.Keys, TextKeys, reklass.Margin.rvk, reklass.Padding.rvk);
@@ -32,7 +31,6 @@ const Text = ((props) => {
 					klass.Typography({
 						ff: local.family ?? "sans",
 						fz: local.size ?? "3",
-						fs: local.italic ? "i" : "n",
 						fw: local.weight ?? "4",
 						ta: local.align ?? ":--",
 					}),
@@ -45,4 +43,5 @@ const Text = ((props) => {
 	);
 }) as Polymorphic.Component<"div", TextOptions>;
 
+export type { TextOptions };
 export { Text };

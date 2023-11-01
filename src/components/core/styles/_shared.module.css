@@ -1,0 +1,7 @@
+.b1st {
+	@apply border border-solid border-transparent;
+}
+
+.o1st {
+	@apply outline outline-1 outline-transparent;
+}

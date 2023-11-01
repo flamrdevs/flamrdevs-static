@@ -4,11 +4,8 @@ import type { VariantsOf } from "@klass/core";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: "container",
+	base: "container mx-auto",
 	variants: {
-		center: {
-			true: "mx-auto",
-		},
 		max: {
 			xs: "max-w-screen-xs",
 			sm: "max-w-screen-sm",
@@ -16,9 +13,6 @@ const Root = klass({
 			lg: "max-w-screen-lg",
 			xl: "max-w-screen-xl",
 		},
-	},
-	defaultVariants: {
-		center: true,
 	},
 });
 

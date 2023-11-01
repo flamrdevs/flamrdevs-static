@@ -1,12 +1,12 @@
 .link__root {
-	@apply flex items-center justify-between gap-1.5 p-1 w-full outline-none bg-transparent text-neutral-10 border-none ring-1 ring-transparent;
+	@apply flex items-center justify-between gap-1.5 p-1 w-full outline-none bg-transparent text-cn-10 border-none ring-1 ring-transparent;
 
 	&:focus-visible {
-		@apply ring-neutral-5;
+		@apply ring-cn-5;
 	}
 
 	&:hover {
-		@apply bg-neutral-6 text-neutral-11;
+		@apply bg-cn-6 text-cn-11;
 	}
 }
 
@@ -15,22 +15,22 @@
 }
 
 .collapsible__trigger {
-	@apply flex items-center justify-between gap-1.5 p-1 w-full outline-none bg-transparent text-neutral-11 border-none ring-1 ring-transparent;
+	@apply flex items-center justify-between gap-1.5 p-1 w-full outline-none bg-transparent text-cn-11 border-none ring-1 ring-transparent;
 
 	&:focus-visible {
-		@apply bg-neutral-5 ring-neutral-5;
+		@apply bg-cn-5 ring-cn-5;
 	}
 
 	&:hover {
-		@apply bg-neutral-6 text-neutral-12 ring-neutral-6;
+		@apply bg-cn-6 text-cn-12 ring-cn-6;
 	}
 
 	&:focus-visible ~ .collapsible__content {
-		@apply ring-neutral-5;
+		@apply ring-cn-5;
 	}
 
 	&:hover ~ .collapsible__content {
-		@apply ring-neutral-6;
+		@apply ring-cn-6;
 	}
 
 	&[data-expanded] .collapsible__trigger-icon {

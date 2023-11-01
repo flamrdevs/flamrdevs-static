@@ -1,6 +1,15 @@
 .root {
+	@apply p-px text-ci-9 font-w6 outline-offset-1 rounded-4;
+
+	&:hover {
+		@apply underline;
+	}
+
+	&:focus-visible {
+		@apply outline-ci-10;
+	}
+
 	&[data-disabled] {
-		opacity: 0.7;
-		@apply no-underline cursor-not-allowed;
+		@apply no-underline cursor-not-allowed text-ci-8;
 	}
 }

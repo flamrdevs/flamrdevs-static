@@ -1,0 +1,31 @@
+.root {
+	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
+	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-7)), rgb(var(--v-a-6));
+
+	@apply inline-flex relative items-center justify-center select-none cursor-pointer rounded-8 outline-offset-2 text-va-11;
+	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));
+
+	&:hover {
+		--xpg: rgb(var(--v-a-4)), rgb(var(--v-a-2));
+		--xbg: rgb(var(--v-a-10)), rgb(var(--v-a-8)), rgb(var(--v-a-7));
+	}
+
+	&:active {
+		--xpg: rgb(var(--v-a-5)), rgb(var(--v-a-3));
+		--xbg: rgb(var(--v-a-11)), rgb(var(--v-a-9)), rgb(var(--v-a-8));
+	}
+
+	&:focus-visible {
+		@apply outline-va-11;
+	}
+
+	&::after {
+		@apply rounded-8;
+	}
+
+	&[data-disabled] {
+		--xpg: rgb(var(--cn-2)), rgb(var(--cn-1));
+		--xbg: rgb(var(--cn-5)), rgb(var(--cn-4)), rgb(var(--cn-3));
+		@apply text-cn-8 pointer-events-none;
+	}
+}

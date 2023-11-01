@@ -1,0 +1,16 @@
+.root {
+	@apply inline-block bg-cn-1 overflow-hidden select-none;
+}
+
+.img {
+	@apply w-full h-full;
+}
+
+.fallback {
+	@apply block w-full h-full border border-solid border-cn-2 opacity-10;
+	background-color: rgb(var(--cn-9));
+	background-image: repeating-linear-gradient(45deg, rgb(var(--cn-2)) 25%, transparent 25%, transparent 75%, rgb(var(--cn-2)) 75%, rgb(var(--cn-2))),
+		repeating-linear-gradient(45deg, rgb(var(--cn-2)) 25%, rgb(var(--cn-9)) 25%, rgb(var(--cn-9)) 75%, rgb(var(--cn-2)) 75%, rgb(var(--cn-2)));
+	background-position: 0 0, 10px 10px;
+	background-size: 20px 20px;
+}

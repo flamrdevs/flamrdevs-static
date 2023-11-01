@@ -56,10 +56,6 @@ const Typography = klass({
 			"12": "text-z12",
 			"13": "text-z13",
 		},
-		fs: {
-			n: "not-italic",
-			i: "italic",
-		},
 		fw: {
 			"2": "font-w2",
 			"3": "font-w3",

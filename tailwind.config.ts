@@ -12,12 +12,12 @@ const { colors, plugin } = coloradix({
 	red,
 })
 	.alias({
-		neutral: "gray",
-		primary: "violet",
-		success: "green",
-		info: "blue",
-		warning: "yellow",
-		danger: "red",
+		cn: "gray",
+		cp: "violet",
+		cs: "green",
+		ci: "blue",
+		cw: "yellow",
+		cd: "red",
 	})
 	.build();
 
@@ -37,23 +37,7 @@ const responsive = (...classNames: string[]) => {
 };
 
 const space = (property: string) => {
-	return [
-		`${property}-0`,
-		`${property}-1`,
-		`${property}-2`,
-		`${property}-3`,
-		`${property}-4`,
-		`${property}-5`,
-		`${property}-6`,
-		`${property}-7`,
-		`${property}-8`,
-		`${property}-9`,
-		`${property}-10`,
-		`${property}-11`,
-		`${property}-12`,
-		`${property}-14`,
-		`${property}-16`,
-	];
+	return [`${property}-0`, `${property}-1`, `${property}-2`, `${property}-3`, `${property}-4`, `${property}-5`, `${property}-6`, `${property}-7`, `${property}-8`];
 };
 
 export default {
@@ -66,7 +50,7 @@ export default {
 			...space("gap")
 		),
 		...responsive(
-			...["relative", "absolute", "fixed", "static", "sticky"],
+			...["relative", "absolute", "fixed", "sticky"],
 			...["-z-10", "z-0", "z-10", "z-20", "z-30", "z-40", "z-50"],
 			...space("top"),
 			...space("right"),
@@ -89,6 +73,7 @@ export default {
 				"5": "rgb(var(--v-a-5) / <alpha-value>)",
 				"6": "rgb(var(--v-a-6) / <alpha-value>)",
 				"7": "rgb(var(--v-a-7) / <alpha-value>)",
+				"8": "rgb(var(--v-a-8) / <alpha-value>)",
 				"9": "rgb(var(--v-a-9) / <alpha-value>)",
 				"10": "rgb(var(--v-a-10) / <alpha-value>)",
 				"11": "rgb(var(--v-a-11) / <alpha-value>)",

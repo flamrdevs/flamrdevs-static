@@ -1,4 +1,5 @@
 export type IconName =
+  | 'Check'
   | 'ChevronDown'
   | 'File'
   | 'FileAudio'
@@ -12,4 +13,5 @@ export type IconName =
   | 'FolderOpen'
   | 'Github'
   | 'Menu'
-  | 'Moon';
+  | 'Moon'
+  | 'Sun';

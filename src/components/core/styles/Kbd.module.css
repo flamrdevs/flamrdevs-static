@@ -1,0 +1,3 @@
+.root {
+	@apply border-b-3 rounded-b-4 rounded-t-2 px-2 py-0.5 border border-solid border-va-3 bg-va-2 font-mono font-w5 text-z3;
+}

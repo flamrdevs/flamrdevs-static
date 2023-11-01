@@ -23,12 +23,6 @@ const space = (property: string) => {
 		"6": `${property}-6`,
 		"7": `${property}-7`,
 		"8": `${property}-8`,
-		"9": `${property}-9`,
-		"10": `${property}-10`,
-		"11": `${property}-11`,
-		"12": `${property}-12`,
-		"14": `${property}-14`,
-		"16": `${property}-16`,
 	};
 };
 
@@ -53,7 +47,7 @@ const Layout = reklass({
 			":::": "items-stretch",
 		},
 		jc: {
-			":--": "justify-center",
+			":--": "justify-start",
 			"-:-": "justify-center",
 			"--:": "justify-end",
 			":::": "justify-stretch",
@@ -74,7 +68,6 @@ const Position = reklass({
 			rel: "relative",
 			abs: "absolute",
 			fix: "fixed",
-			stc: "static",
 			sty: "sticky",
 		},
 		zi: {

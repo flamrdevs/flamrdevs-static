@@ -1,17 +1,16 @@
-.g {
-	transform-origin: center;
-	animation: loader-spin-o 2s linear infinite;
-}
-
-.circle {
-	stroke-linecap: round;
-	animation: loader-spin-i 1.5s ease-in-out infinite;
+.root {
+	@apply stroke-va-9;
 }
 
 @keyframes loader-spin-o {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+.g {
+	transform-origin: center;
+	animation: loader-spin-o 2s linear infinite;
 }
 
 @keyframes loader-spin-i {
@@ -28,4 +27,9 @@
 		stroke-dasharray: 42 150;
 		stroke-dashoffset: -59;
 	}
+}
+
+.circle {
+	stroke-linecap: round;
+	animation: loader-spin-i 1.5s ease-in-out infinite;
 }

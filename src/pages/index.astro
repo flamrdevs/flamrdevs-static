@@ -22,6 +22,16 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs/index.ts";
 
 			<Separator orientation="vertical" style="height: 1.5rem" />
 
+			<IconButton id="light-theme-icon-button">
+				<Icon i="Sun" />
+			</IconButton>
+
+			<IconButton id="dark-theme-icon-button">
+				<Icon i="Moon" />
+			</IconButton>
+
+			<Separator orientation="vertical" style="height: 1.5rem" />
+
 			<IconButton as="a" href={LINK.GITHUB} target="_blank">
 				<Icon i="Github" />
 			</IconButton>
@@ -29,3 +39,14 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs/index.ts";
 		<Separator orientation="horizontal" />
 	</Container>
 </HTMLX>
+
+<script>
+	import { changeTheme } from "~/stores/theme.ts";
+
+	document.getElementById("light-theme-icon-button")!.addEventListener("click", () => {
+		changeTheme("light");
+	});
+	document.getElementById("dark-theme-icon-button")!.addEventListener("click", () => {
+		changeTheme("dark");
+	});
+</script>

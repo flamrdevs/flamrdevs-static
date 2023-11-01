@@ -6,7 +6,7 @@ import styles from "./Separator.module.css";
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: [styles.root, "block border-none border-0"],
+	base: styles.root,
 	variants: {
 		margin: {
 			"0": styles.m0,

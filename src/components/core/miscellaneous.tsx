@@ -12,11 +12,10 @@ type SeparatorProps = Classes.WithProps<
 	Polymorphic.PropsWithoutAsChild<Omit<JSX.IntrinsicElements["hr"], "orientation"> & KobalteSeparator.SeparatorRootOptions & SeparatorKlass.Variants>
 >;
 
-const SeparatorKeys = ["margin"] as const;
-
 const Separator = (props: SeparatorProps) => {
-	const [classes, recipe, rest] = splitProps(props, Classes.Keys, SeparatorKeys);
-	return <KobalteSeparator.Root {...rest} class={Classes.x(SeparatorKlass.Root(recipe), classes)} />;
+	const [classes, root, rest] = splitProps(props, Classes.Keys, SeparatorKlass.Root.vk);
+	return <KobalteSeparator.Root {...rest} class={Classes.x(SeparatorKlass.Root(root), classes)} />;
 };
 
+export type { SeparatorProps };
 export { Separator };
