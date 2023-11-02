@@ -5,12 +5,23 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"test": "vitest run",
 		"setup-icons": "tsx src/components/icons/setup.ts"
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.0.3",
+		"@internationalized/date": "^3.5.0",
+		"@internationalized/message": "^3.1.1",
+		"@internationalized/number": "^3.3.0",
 		"@klass/core": "^3.4.8",
 		"@kobalte/core": "^0.11.2",
+		"@solid-primitives/event-listener": "^2.3.0",
+		"@solid-primitives/keyed": "^1.2.0",
+		"@solid-primitives/map": "^0.4.8",
+		"@solid-primitives/media": "^2.2.5",
+		"@solid-primitives/props": "^3.1.8",
+		"@solid-primitives/refs": "^1.0.5",
+		"@solid-primitives/utils": "^6.2.1",
 		"astro": "^3.4.1",
 		"clsx": "^2.0.0",
 		"ixbroadcastr": "^1.0.5",
@@ -26,10 +37,14 @@
 		"@astrojs/solid-js": "^3.0.2",
 		"@astrojs/tailwind": "^5.0.2",
 		"@coloradix/tailwindcss": "^2.2.0",
+		"@solidjs/testing-library": "^0.8.4",
 		"@types/node": "^20.8.10",
 		"astro-compress": "^2.2.0",
+		"jsdom": "^22.1.0",
 		"tailwindcss": "^3.3.5",
 		"tsx": "^3.14.0",
-		"typescript": "^5.2.2"
+		"typescript": "^5.2.2",
+		"vite-plugin-solid": "^2.7.2",
+		"vitest": "^0.34.6"
 	}
 }
