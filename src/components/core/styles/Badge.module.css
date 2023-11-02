@@ -1,6 +1,6 @@
 .root {
-	--xpg: rgb(var(--v-a-3)), rgb(var(--v-a-2));
-	--xbg: rgb(var(--v-a-9)), rgb(var(--v-a-6));
+	--xpg: rgb(var(--va-3)), rgb(var(--va-2));
+	--xbg: rgb(var(--va-9)), rgb(var(--va-6));
 
 	@apply inline-flex relative items-center justify-center select-none rounded-7 text-va-11;
 	background: padding-box linear-gradient(125deg, var(--xpg)), border-box linear-gradient(125deg, var(--xbg));

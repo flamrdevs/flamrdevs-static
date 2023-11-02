@@ -1,42 +1,54 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
+const __variants = "variants";
+const __defaultVariants = "defaultVariants";
+
+const __color = "color";
+
+const __neutral = "neutral";
+const __primary = "primary";
+const __success = "success";
+const __info = "info";
+const __warning = "warning";
+const __danger = "danger";
+
 const DEFAULT_COLORS_VARIANTS = {
-	color: "neutral",
+	[__color]: __neutral,
 } as const;
 
 type Color2Variants = VariantsOf<typeof Color2>;
 
 const Color2 = klass({
-	variants: {
-		color: {
-			neutral: "vars-neutral",
-			primary: "vars-primary",
+	[__variants]: {
+		[__color]: {
+			[__neutral]: "va-n",
+			[__primary]: "va-p",
 		},
 	},
-	defaultVariants: DEFAULT_COLORS_VARIANTS,
+	[__defaultVariants]: DEFAULT_COLORS_VARIANTS,
 });
 
 type Color6Variants = VariantsOf<typeof Color6>;
 
 const Color6 = klass({
-	variants: {
-		color: {
-			neutral: "vars-neutral",
-			primary: "vars-primary",
-			success: "vars-success",
-			info: "vars-info",
-			warning: "vars-warning",
-			danger: "vars-danger",
+	[__variants]: {
+		[__color]: {
+			[__neutral]: "va-n",
+			[__primary]: "va-p",
+			[__success]: "va-s",
+			[__info]: "va-i",
+			[__warning]: "va-w",
+			[__danger]: "va-d",
 		},
 	},
-	defaultVariants: DEFAULT_COLORS_VARIANTS,
+	[__defaultVariants]: DEFAULT_COLORS_VARIANTS,
 });
 
 type TypographyVariants = VariantsOf<typeof Typography>;
 
 const Typography = klass({
-	variants: {
+	[__variants]: {
 		ff: {
 			sans: "font-sans",
 			mono: "font-mono",

@@ -18,8 +18,8 @@
 	}
 
 	&[data-checked] {
-		--xpg: rgb(var(--v-a-9)), rgb(var(--v-a-8));
-		--xbg: rgb(var(--v-a-11)), rgb(var(--v-a-10)), rgb(var(--v-a-9));
+		--xpg: rgb(var(--va-9)), rgb(var(--va-8));
+		--xbg: rgb(var(--va-11)), rgb(var(--va-10)), rgb(var(--va-9));
 	}
 
 	&[data-disabled] {
@@ -32,7 +32,7 @@
 	outline-color: rgb(var(--cn-11));
 
 	&[data-checked] {
-		outline-color: rgb(var(--v-a-11));
+		outline-color: rgb(var(--va-11));
 	}
 }
 
