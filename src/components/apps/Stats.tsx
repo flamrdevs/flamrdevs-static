@@ -1,7 +1,7 @@
-import { For, Match, Switch, createRoot, createSignal, splitProps } from "solid-js";
+import { For, Match, Switch, createMemo, createRoot, createSignal, splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-import { Collapsible, Link } from "@kobalte/core";
+import { Collapsible, Link, RadioGroup } from "@kobalte/core";
 
 import ixstorage from "ixstorage";
 
@@ -284,6 +284,57 @@ const RenderDirectory = (props: { child: Directory; base: string }) => {
 	);
 };
 
+const deepFilter = (child: Child[], filter: string): Child[] => {
+	return child
+		.map((item) => {
+			if (item.type === "directory") {
+				return {
+					...item,
+					children: deepFilter(item.children, filter),
+				} as Directory;
+			}
+
+			if (item.ext === filter) {
+				return item as File;
+			}
+
+			return null;
+		})
+		.filter((item) => item !== null && !(item.type === "directory" && item.children.length === 0)) as Child[];
+};
+
+const [filter, handleSetFilter] = createRoot(() => {
+	const storage = ixstorage<string>("filter", "all", sessionStorage);
+	const [filter, setFilter] = createSignal<string>(storage.get());
+	const handleSetFilter = (value: string) => {
+		setFilter(() => storage.set(value));
+	};
+
+	return [filter, handleSetFilter] as const;
+});
+
+const createFiltered = (child: Child[], filter: string) => {
+	console.log({ filter });
+
+	if (filter === "all") return child;
+
+	if (filter === ".html" || filter === ".css" || filter === ".js") return deepFilter(child, filter);
+
+	return [];
+};
+
+const createCount = (child: Child[]): number => {
+	return child.reduce((result, item) => {
+		if (item.type === "directory") {
+			return result + createCount(item.children);
+		}
+		if (item.type === "file") {
+			return result + 1;
+		}
+		return result;
+	}, 0);
+};
+
 const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: string }) => {
 	const [local, rest] = splitProps(props, ["host", "name"]);
 
@@ -297,6 +348,10 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: strin
 
 	const base = () => props.host;
 
+	const filtered = createMemo(() => createFiltered(children(), filter()));
+
+	const count = createMemo(() => createCount(filtered()));
+
 	return (
 		<div {...rest}>
 			<div class="flex justify-between font-w7 text-z5">
@@ -306,10 +361,32 @@ const Stats = (props: JSX.IntrinsicElements["div"] & { host: string; name: strin
 				<span class="text-cn-11">{size()}</span>
 			</div>
 
-			<div class="my-3 h-px bg-cn-6" />
+			<div class="flex items-center justify-between my-3 p-3 border border-solid border-transparent border-y-cn-6">
+				<div class="text-z2 text-cn-12">{count()} files</div>
+				<RadioGroup.Root value={filter()} onChange={handleSetFilter} class="flex items-center justify-center gap-1">
+					<For
+						each={[
+							{ value: "all", label: "All" },
+							{ value: ".html", label: "HTML" },
+							{ value: ".css", label: "CSS" },
+							{ value: ".js", label: "JS" },
+						]}
+					>
+						{({ value, label }) => (
+							<RadioGroup.Item value={value} class="relative px-1.5 py-0.5">
+								<RadioGroup.ItemInput />
+								<RadioGroup.ItemControl class="z-0 absolute inset-0 bg-cn-1 border border-solid border-cn-3">
+									<RadioGroup.ItemIndicator class="w-full h-full bg-cn-3" />
+								</RadioGroup.ItemControl>
+								<RadioGroup.ItemLabel class="relative z-20 text-z1 text-cn-10 data-[checked]:text-cn-12">{label}</RadioGroup.ItemLabel>
+							</RadioGroup.Item>
+						)}
+					</For>
+				</RadioGroup.Root>
+			</div>
 
 			<div>
-				<For each={children()}>
+				<For each={filtered()}>
 					{(child) => (
 						<Switch>
 							<Match when={isDirectory(child)}>
