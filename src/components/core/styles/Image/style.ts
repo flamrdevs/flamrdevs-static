@@ -1,4 +1,4 @@
-import styles from "./Image.module.css";
+import styles from "./style.module.css";
 
 const Root = `${styles.root}`;
 

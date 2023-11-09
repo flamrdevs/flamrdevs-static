@@ -1,6 +1,6 @@
-import * as SharedStyle from "./_shared.style.ts";
+import * as SharedStyle from "../_/shared/style.ts";
 
-import styles from "./Switch.module.css";
+import styles from "./style.module.css";
 
 const Root = `${styles.root}`;
 

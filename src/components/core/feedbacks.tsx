@@ -3,8 +3,8 @@ import type { JSX } from "solid-js";
 
 import * as Classes from "../classes.ts";
 
-import * as LoaderKlass from "./styles/Loader.klass.ts";
-import * as klass from "./styles/_klass.ts";
+import * as LoaderKlass from "./styles/Loader/klass.ts";
+import * as klass from "./styles/_/klass.ts";
 
 type LoaderProps = Classes.WithProps<JSX.IntrinsicElements["svg"] & LoaderKlass.Variants & klass.Color6Variants>;
 

@@ -9,11 +9,11 @@ import * as Polymorphic from "../polymorphic.ts";
 
 import * as Icons from "./../icons/shared.ts";
 
-import * as BadgeKlass from "./styles/Badge.klass.ts";
-import * as ImageStyle from "./styles/Image.style.ts";
-import * as KbdStyle from "./styles/Kbd.style.ts";
-import * as ProgressStyle from "./styles/Progress.style.ts";
-import * as klass from "./styles/_klass.ts";
+import * as BadgeKlass from "./styles/Badge/klass.ts";
+import * as ImageStyle from "./styles/Image/style.ts";
+import * as KbdStyle from "./styles/Kbd/style.ts";
+import * as ProgressStyle from "./styles/Progress/style.ts";
+import * as klass from "./styles/_/klass.ts";
 
 type BadgeProps = Classes.WithProps<JSX.IntrinsicElements["span"] & BadgeKlass.Variants & klass.Color6Variants>;
 

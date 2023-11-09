@@ -4,8 +4,8 @@ import { Dynamic } from "solid-js/web";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
 
-import * as klass from "./styles/_klass.ts";
-import * as reklass from "./styles/_reklass.ts";
+import * as klass from "./styles/_/klass.ts";
+import * as reklass from "./styles/_/reklass.ts";
 
 type TextOptions = Classes.WithProps<
 	{

@@ -1,4 +1,4 @@
-import styles from "./Progress.module.css";
+import styles from "./style.module.css";
 
 const Root = `${styles.root}`;
 

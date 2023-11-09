@@ -5,9 +5,9 @@ import { Button as KobalteButton } from "@kobalte/core";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
 
-import * as ButtonKlass from "./styles/Button.klass.ts";
-import * as IconButtonKlass from "./styles/IconButton.klass.ts";
-import * as klass from "./styles/_klass.ts";
+import * as ButtonKlass from "./styles/Button/klass.ts";
+import * as IconButtonKlass from "./styles/IconButton/klass.ts";
+import * as klass from "./styles/_/klass.ts";
 
 type ButtonOptions = Classes.WithProps<Polymorphic.PropsWithoutAsChild<KobalteButton.ButtonRootOptions & ButtonKlass.Variants & klass.Color6Variants>>;
 

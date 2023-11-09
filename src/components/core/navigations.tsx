@@ -5,7 +5,7 @@ import { Link as KobalteLink } from "@kobalte/core";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
 
-import * as LinkStyle from "./styles/Link.style.ts";
+import * as LinkStyle from "./styles/Link/style.ts";
 
 type LinkOptions = Classes.WithProps<KobalteLink.LinkRootOptions>;
 

@@ -2,9 +2,9 @@ import { describe, expect, it, vi } from "vitest";
 
 import { fireEvent } from "@solidjs/testing-library";
 
-import { A, renderRootElement } from "../test.utils.tsx";
+import { A, renderRootElement } from "../../test.utils.tsx";
 
-import { Button, IconButton } from "./buttons.tsx";
+import { Button, IconButton } from "../buttons.tsx";
 
 describe("Button", () => {
 	it("Basic", () => {

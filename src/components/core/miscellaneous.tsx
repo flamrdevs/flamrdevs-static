@@ -6,7 +6,7 @@ import { Separator as KobalteSeparator } from "@kobalte/core";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
 
-import * as SeparatorKlass from "./styles/Separator.klass.ts";
+import * as SeparatorKlass from "./styles/Separator/klass.ts";
 
 type SeparatorProps = Classes.WithProps<
 	Polymorphic.PropsWithoutAsChild<Omit<JSX.IntrinsicElements["hr"], "orientation"> & KobalteSeparator.SeparatorRootOptions & SeparatorKlass.Variants>

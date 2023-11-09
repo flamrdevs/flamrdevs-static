@@ -5,9 +5,9 @@ import { Checkbox as KobalteCheckbox, Switch as KobalteSwitch } from "@kobalte/c
 import * as Children from "../children.ts";
 import * as Classes from "../classes.ts";
 
-import * as CheckboxStyle from "./styles/Checkbox.style.ts";
-import * as SwitchStyle from "./styles/Switch.style.ts";
-import * as klass from "./styles/_klass.ts";
+import * as CheckboxStyle from "./styles/Checkbox/style.ts";
+import * as SwitchStyle from "./styles/Switch/style.ts";
+import * as klass from "./styles/_/klass.ts";
 
 import { Icon } from "./data-displays.tsx";
 

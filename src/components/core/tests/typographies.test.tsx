@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {} from "@solidjs/testing-library";
 
-import { Span, renderRootElement } from "../test.utils.tsx";
+import { Span, renderRootElement } from "../../test.utils.tsx";
 
-import { Text } from "./typographies.tsx";
+import { Text } from "../typographies.tsx";
 
 describe("Text", () => {
 	it("Basic", () => {

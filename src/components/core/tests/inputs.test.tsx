@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {} from "@solidjs/testing-library";
 
-import { renderRootElement } from "../test.utils.tsx";
+import { renderRootElement } from "../../test.utils.tsx";
 
-import { Checkbox, Switch } from "./inputs.tsx";
+import { Checkbox, Switch } from "../inputs.tsx";
 
 describe("Checkbox", () => {
 	it("Basic", () => {

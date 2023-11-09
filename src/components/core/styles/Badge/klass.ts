@@ -1,27 +1,23 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
-import styles from "./Loader.module.css";
+import * as SharedStyle from "../_/shared/style.ts";
+
+import styles from "./style.module.css";
 
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: styles.root,
+	base: `${styles.root} ${SharedStyle.Border1pxSolidTransparent} filter-noise-layer`,
 	variants: {
 		size: {
-			sm: "w-8 h-8",
-			md: "w-10 h-10",
-			lg: "w-12 h-12",
+			md: styles.md,
 		},
 	},
 	defaultVariants: {
 		size: "md",
 	},
 });
-
-export const G = styles.g;
-
-export const Circle = styles.circle;
 
 export type { Variants };
 export { Root };

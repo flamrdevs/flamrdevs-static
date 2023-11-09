@@ -1,25 +1,27 @@
 import { klass } from "@klass/core";
 import type { VariantsOf } from "@klass/core";
 
-import * as BaseButtonStyle from "./BaseButton.style.ts";
-
-import styles from "./IconButton.module.css";
+import styles from "./style.module.css";
 
 type Variants = VariantsOf<typeof Root>;
 
 const Root = klass({
-	base: `${BaseButtonStyle.Root} filter-noise-layer`,
+	base: styles.root,
 	variants: {
 		size: {
-			sm: styles.sm,
-			md: styles.md,
-			lg: styles.lg,
+			sm: "w-8 h-8",
+			md: "w-10 h-10",
+			lg: "w-12 h-12",
 		},
 	},
 	defaultVariants: {
 		size: "md",
 	},
 });
+
+export const G = styles.g;
+
+export const Circle = styles.circle;
 
 export type { Variants };
 export { Root };
