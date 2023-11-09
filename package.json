@@ -21,7 +21,7 @@
 		"@solid-primitives/props": "^3.1.8",
 		"@solid-primitives/refs": "^1.0.5",
 		"@solid-primitives/utils": "^6.2.1",
-		"astro": "^3.4.3",
+		"astro": "^3.4.4",
 		"clsx": "^2.0.0",
 		"ixbroadcastr": "^1.0.5",
 		"ixevent": "^1.0.5",
