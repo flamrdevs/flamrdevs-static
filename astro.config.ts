@@ -10,7 +10,9 @@ import { replacement, stats } from "./astro.integrations";
 export default {
 	site: "https://flamrdevs.pages.dev",
 	integrations: [
-		tailwind(),
+		tailwind({
+			applyBaseStyles: false,
+		}),
 		solid(),
 		sitemap(),
 		compress({
