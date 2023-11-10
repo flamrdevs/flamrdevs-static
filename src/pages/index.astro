@@ -8,14 +8,12 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs/index.ts";
 
 <HTMLX>
 	<Center>
-		<AnimatedSVGLogo
-			class="w-[10rem] h-[10rem] xs:w-[17rem] xs:h-[17rem] sm:w-[24rem] sm:h-[24rem] md:w-[31rem] md:h-[31rem] lg:w-[38rem] lg:h-[38rem] xl:w-[45rem] xl:h-[45rem]"
-		/>
+		<AnimatedSVGLogo class="w-48 h-48 sm:w-80 sm:h-80 md:w-112 md:h-112 lg:w-144 lg:h-144" />
 	</Center>
 
-	<Container max="sm">
+	<Container max="md" px="4">
 		<Separator orientation="horizontal" />
-		<Center gap="2" p="2">
+		<Center gap="2" p={{ __: "1", md: "2" }}>
 			<Text family="mono">flamrdevs</Text>
 
 			<div style="flex-grow: 1;"></div>

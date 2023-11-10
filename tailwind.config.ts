@@ -48,11 +48,9 @@ const { colors, plugin } = coloradix(
 	.build();
 
 const screens = {
-	xs: "640px",
-	sm: "768px",
-	md: "1024px",
-	lg: "1280px",
-	xl: "1536px",
+	sm: "512px",
+	md: "896px",
+	lg: "1536px",
 };
 
 const breakpoints = Object.keys(screens) as (keyof typeof screens)[];
@@ -179,9 +177,17 @@ export default {
 				160: "40rem",
 			},
 			width: {
+				112: "28rem",
+				128: "32rem",
+				144: "36rem",
+				160: "40rem",
 				screen: "100dvw",
 			},
 			height: {
+				112: "28rem",
+				128: "32rem",
+				144: "36rem",
+				160: "40rem",
 				screen: "100dvh",
 			},
 			borderWidth: {

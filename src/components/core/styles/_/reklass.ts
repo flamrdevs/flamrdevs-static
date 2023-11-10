@@ -3,11 +3,9 @@ import type { VariantsOf } from "@klass/core";
 
 const CONDITIONS = {
 	__: "",
-	xs: "xs:",
 	sm: "sm:",
 	md: "md:",
 	lg: "lg:",
-	xl: "xl:",
 } as const;
 
 const DEFAULTCONDITION = "__" satisfies keyof typeof CONDITIONS;
