@@ -1,34 +1,17 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
-import coloradix, { gray, violet, green, blue, yellow, red } from "@coloradix/tailwindcss";
-import type { Color, ColorValue } from "@coloradix/tailwindcss";
-
-const replace = <K extends string>(color: Color<K>) => {
-	return {
-		with: <V extends string>(next: Readonly<{ [key in K]: V }>) => {
-			return Object.entries(color).reduce((obj, [key, value]) => {
-				obj[next[key]] = (value as ColorValue<string>).map((mode) => {
-					return Object.entries(mode).reduce((_mode, [, value], index) => {
-						_mode[`${next[key]}${index + 1}`] = value;
-						return _mode;
-					}, {} as Record<string, string>);
-				});
-				return obj;
-			}, {} as Color<V>);
-		},
-	};
-};
+import coloradix, { gray, violet, green, blue, yellow, red, rename } from "@coloradix/tailwindcss";
 
 const { colors, plugin } = coloradix(
-	replace({
+	rename({
 		gray,
 		violet,
 		green,
 		blue,
 		yellow,
 		red,
-	}).with({
+	}).to({
 		gray: "xn",
 		violet: "xp",
 		green: "xs",
