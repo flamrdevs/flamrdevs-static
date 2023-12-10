@@ -8,10 +8,6 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs/index.ts";
 ---
 
 <HTMLX>
-	<Center>
-		<AnimatedSVGLogo class="w-48 h-48 sm:w-80 sm:h-80 md:w-112 md:h-112 lg:w-144 lg:h-144" />
-	</Center>
-
 	<Container max="md" px="4">
 		<Separator orientation="horizontal" />
 		<Center gap="2" p={{ __: "1", md: "2" }}>
@@ -21,22 +17,26 @@ import { AnimatedSVGLogo } from "~/components/flamrdevs/index.ts";
 
 			<Separator orientation="vertical" style="height: 1.5rem" />
 
-			<IconButton id="light-theme-icon-button">
+			<IconButton id="light-theme-icon-button" aria-label="Light theme">
 				<Icon i="Sun" />
 			</IconButton>
 
-			<IconButton id="dark-theme-icon-button">
+			<IconButton id="dark-theme-icon-button" aria-label="Dark theme">
 				<Icon i="Moon" />
 			</IconButton>
 
 			<Separator orientation="vertical" style="height: 1.5rem" />
 
-			<IconButton as="a" href={LINK.GITHUB} target="_blank">
+			<IconButton as="a" href={LINK.GITHUB} target="_blank" aria-label="GitHub">
 				<Icon i="Github" />
 			</IconButton>
 		</Center>
 		<Separator orientation="horizontal" />
 	</Container>
+
+	<Center>
+		<AnimatedSVGLogo class="w-48 h-48 sm:w-80 sm:h-80 md:w-112 md:h-112 lg:w-144 lg:h-144" />
+	</Center>
 </HTMLX>
 
 <script>
