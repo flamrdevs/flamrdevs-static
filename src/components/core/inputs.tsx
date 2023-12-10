@@ -9,7 +9,7 @@ import * as CheckboxStyle from "./styles/Checkbox/style.ts";
 import * as SwitchStyle from "./styles/Switch/style.ts";
 import * as klass from "./styles/_/klass.ts";
 
-import { Icon } from "./data-displays.tsx";
+import { Icon } from "../icons/index.tsx";
 
 type CheckboxProps = Children.WithoutProps<
 	KobalteCheckbox.CheckboxRootProps & {

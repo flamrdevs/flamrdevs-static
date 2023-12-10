@@ -1,4 +1,4 @@
-import { mergeProps, splitProps } from "solid-js";
+import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 import { Image as KobalteImage, Progress as KobalteProgress } from "@kobalte/core";
@@ -6,8 +6,6 @@ import { Image as KobalteImage, Progress as KobalteProgress } from "@kobalte/cor
 import * as Children from "../children.ts";
 import * as Classes from "../classes.ts";
 import * as Polymorphic from "../polymorphic.ts";
-
-import * as Icons from "./../icons/shared.ts";
 
 import * as BadgeKlass from "./styles/Badge/klass.ts";
 import * as ImageStyle from "./styles/Image/style.ts";
@@ -20,34 +18,6 @@ type BadgeProps = Classes.WithProps<JSX.IntrinsicElements["span"] & BadgeKlass.V
 const Badge = (props: BadgeProps) => {
 	const [classes, root, color, rest] = splitProps(props, Classes.Keys, BadgeKlass.Root.vk, klass.Color6.vk);
 	return <span {...rest} class={Classes.x([BadgeKlass.Root(root), klass.Color6(color)], classes)} />;
-};
-
-type IconProps = Omit<JSX.SvgSVGAttributes<SVGSVGElement>, keyof Icons.ComponentProps> & Icons.ComponentProps;
-
-const DefaultIconProps = {
-	i: Icons.DEFAULT_ICON,
-	size: Icons.DEFAULT_SIZE,
-	class: Icons.DEFAULT_CLASS,
-} satisfies Icons.ComponentProps & { class: string };
-
-const IconKeys = ["i", "class", "size"] as const;
-
-const DimensionKeys = ["width", "height"] as const;
-
-const Icon = (props: IconProps) => {
-	const [local, dimension, other] = splitProps(mergeProps(DefaultIconProps, props), IconKeys, DimensionKeys);
-
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-			{...mergeProps({ width: local.size, height: local.size } satisfies { [K in (typeof DimensionKeys)[number]]?: string | number }, dimension)}
-			{...other}
-			class={`lucide ${local.class}`}
-		>
-			<use href={`${Icons.href}${local.i}`} />
-		</svg>
-	);
 };
 
 type ImageProps = Polymorphic.PropsWithoutAsChild<KobalteImage.ImageRootProps & Pick<KobalteImage.ImageImgProps, "alt" | "src">>;
@@ -97,5 +67,5 @@ const Progress = (props: ProgressProps) => {
 	);
 };
 
-export type { BadgeProps, IconProps, ImageProps, KbdProps, ProgressProps };
-export { Badge, Icon, Image, Kbd, Progress };
+export type { BadgeProps, ImageProps, KbdProps, ProgressProps };
+export { Badge, Image, Kbd, Progress };

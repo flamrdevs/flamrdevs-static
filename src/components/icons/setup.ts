@@ -38,17 +38,17 @@ ${symbols.join("\n")}
 
 const build = async () => {
 	const cwd = process.cwd();
-	const current = (pathname: string) => path.resolve(cwd, "src/components/icons", pathname);
 
 	const { svg, svgmin, types } = create();
 
+	await fs.access(path.resolve(cwd, "src/components/icons"));
+	await fs.access(path.resolve(cwd, "public"));
+
 	await Promise.all([
 		//
-		fs.writeFile(current("icons.svg"), svg),
-		fs.writeFile(current("types.ts"), types),
-
-		fs.access(path.resolve(cwd, "public")),
-		fs.writeFile(path.resolve(cwd, "public", "icons.svg"), svgmin),
+		fs.writeFile(path.resolve(cwd, "src/components/icons/icons.svg"), svg),
+		fs.writeFile(path.resolve(cwd, "src/components/icons/types.ts"), types),
+		fs.writeFile(path.resolve(cwd, "public/icons.svg"), svgmin),
 	]);
 };
 

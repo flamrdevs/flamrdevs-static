@@ -44,7 +44,7 @@ a {
 	@apply no-underline;
 }
 
-.lucide {
+svg[lucide] {
 	fill: none;
 	stroke-width: 1.5;
 	stroke-linecap: round;

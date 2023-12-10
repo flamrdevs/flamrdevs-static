@@ -8,6 +8,6 @@ export default defineConfig({
 		environment: "jsdom",
 		include: ["src/**/*.test.[jt]s?(x)"],
 		setupFiles: "./vitest.setup.ts",
-		deps: { inline: [/solid-js/, /@solidjs\/router/] },
+		server: { deps: { inline: [/solid-js/, /@solidjs\/router/] } },
 	},
 });
