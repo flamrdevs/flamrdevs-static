@@ -2,6 +2,8 @@ import { For, Show, createSignal, onMount } from "solid-js";
 import { Badge, Box, Button, Checkbox, Flex, IconButton, Image, Kbd, Link, Loader, Progress, Separator, Switch, Text } from "~/components/core/index.ts";
 import { Icon } from "~/components/icons/index.tsx";
 
+import * as HOST from "~/utils/host.ts";
+
 import * as Section from "./Section.tsx";
 
 type Color2 = (typeof COLOR_2)[number];
@@ -181,7 +183,7 @@ const SectionImage = () => {
 			<Section.Block
 				left={
 					<Box>
-						<Image alt="cover-ghost" src="https://flamrdevs.pages.dev/og/cover-ghost-1200x628-dark.png" style={{ width: "300px", height: "157px" }} />
+						<Image alt="cover-ghost" src={HOST.STATIC("og", "cover-ghost-1200x628-dark.png")} style={{ width: "300px", height: "157px" }} />
 					</Box>
 				}
 				right={null}

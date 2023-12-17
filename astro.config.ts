@@ -7,8 +7,10 @@ import compress from "astro-compress";
 
 import { replacement, stats } from "./astro.integrations";
 
+import { STATIC_PROD } from "./src/const/host.ts";
+
 export default {
-	site: "https://flamrdevs.pages.dev",
+	site: STATIC_PROD,
 	integrations: [
 		tailwind({
 			applyBaseStyles: false,
