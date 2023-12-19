@@ -1,3 +1,4 @@
+import { passthroughImageService } from "astro/config";
 import type { AstroUserConfig } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
@@ -20,12 +21,14 @@ export default {
 		compress({
 			Logger: 0,
 			Exclude: ["icons.lucide.svg"],
+			Image: false,
 		}),
 		replacement(),
 		stats({
 			exts: ["html", "css", "js", "json", "png", "svg", "ico", "ttf"],
 		}),
 	],
+	image: { service: passthroughImageService() },
 	server: { host: true, port: 4000 },
 	vite: {
 		ssr: {

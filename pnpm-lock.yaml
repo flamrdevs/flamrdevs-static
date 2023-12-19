@@ -97,9 +97,6 @@ devDependencies:
   jsdom:
     specifier: ^23.0.1
     version: 23.0.1
-  sharp:
-    specifier: 0.33.0
-    version: 0.33.0
   tailwindcss:
     specifier: ^3.3.7
     version: 3.3.7
