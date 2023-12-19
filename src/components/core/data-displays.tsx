@@ -11,6 +11,7 @@ import * as BadgeKlass from "./styles/Badge/klass.ts";
 import * as ImageStyle from "./styles/Image/style.ts";
 import * as KbdStyle from "./styles/Kbd/style.ts";
 import * as ProgressStyle from "./styles/Progress/style.ts";
+import * as SpinnerKlass from "./styles/Spinner/klass.ts";
 import * as klass from "./styles/_/klass.ts";
 
 type BadgeProps = Classes.WithProps<JSX.IntrinsicElements["span"] & BadgeKlass.Variants & klass.Color6Variants>;
@@ -67,5 +68,19 @@ const Progress = (props: ProgressProps) => {
 	);
 };
 
-export type { BadgeProps, ImageProps, KbdProps, ProgressProps };
-export { Badge, Image, Kbd, Progress };
+type SpinnerProps = Classes.WithProps<JSX.IntrinsicElements["svg"] & SpinnerKlass.Variants & klass.Color6Variants>;
+
+const Spinner = (props: SpinnerProps) => {
+	const [classes, root, color, rest] = splitProps(props, Classes.Keys, SpinnerKlass.Root.vk, klass.Color6.vk);
+
+	return (
+		<svg {...rest} class={Classes.x([SpinnerKlass.Root(root), klass.Color6(color)], classes)} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+			<g class={SpinnerKlass.G}>
+				<circle class={SpinnerKlass.Circle} cx="12" cy="12" r="9.5" fill="none" stroke-width="2" />
+			</g>
+		</svg>
+	);
+};
+
+export type { BadgeProps, ImageProps, KbdProps, ProgressProps, SpinnerProps };
+export { Badge, Image, Kbd, Progress, Spinner };

@@ -2,7 +2,7 @@
 	@apply stroke-va-9;
 }
 
-@keyframes loader-spin-o {
+@keyframes spinner-o {
 	100% {
 		transform: rotate(360deg);
 	}
@@ -10,10 +10,10 @@
 
 .g {
 	transform-origin: center;
-	animation: loader-spin-o 2s linear infinite;
+	animation: spinner-o 2s linear infinite;
 }
 
-@keyframes loader-spin-i {
+@keyframes spinner-i {
 	0% {
 		stroke-dasharray: 0 150;
 		stroke-dashoffset: 0;
@@ -31,5 +31,5 @@
 
 .circle {
 	stroke-linecap: round;
-	animation: loader-spin-i 1.5s ease-in-out infinite;
+	animation: spinner-i 1.5s ease-in-out infinite;
 }
