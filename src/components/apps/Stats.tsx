@@ -5,7 +5,7 @@ import { Collapsible, Link, RadioGroup } from "@kobalte/core";
 
 import ixstorage from "ixstorage";
 
-import { Icon } from "~/components/icons/index.tsx";
+import { Lucide } from "~/components/icons/index.ts";
 
 import styles from "./Stats.module.css";
 
@@ -226,7 +226,7 @@ const getFileIconName = (file: File) => {
 const RenderFile = (props: { child: File; base: string }) => {
 	return (
 		<Link.Root href={getFileHref(props.base, props.child)} class={styles.link__root} target="_blank">
-			<Icon i={getFileIconName(props.child)} size="1rem" stroke={getFileIconStroke(props.child)} />
+			<Lucide.Icon i={getFileIconName(props.child)} size="1rem" stroke={getFileIconStroke(props.child)} />
 			<div class="flex-grow text-left">{props.child.name}</div>
 			<div class="flex-grow text-right">{props.child.size}</div>
 		</Link.Root>
@@ -261,10 +261,10 @@ const RenderDirectory = (props: { child: Directory; base: string }) => {
 	return (
 		<Collapsible.Root open={open()} onOpenChange={setOpen} class={styles.collapsible__root}>
 			<Collapsible.Trigger class={[styles.collapsible__trigger, open() && "group"].filter(Boolean).join(" ")}>
-				<Icon i={getDirectoryIconName(open())} size="1rem" />
+				<Lucide.Icon i={getDirectoryIconName(open())} size="1rem" />
 				<div class="flex-grow text-left">{props.child.name}</div>
 				<div class={["flex-grow text-right", open() && "invisible group-hover:visible"].filter(Boolean).join(" ")}>{props.child.size}</div>
-				<Icon i="ChevronDown" size="1.2rem" class={styles["collapsible__trigger-icon"]} />
+				<Lucide.Icon i="ChevronDown" size="1.2rem" class={styles["collapsible__trigger-icon"]} />
 			</Collapsible.Trigger>
 			<Collapsible.Content class={styles.collapsible__content}>
 				<For each={props.child.children}>

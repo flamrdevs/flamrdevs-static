@@ -9,7 +9,7 @@ import * as CheckboxStyle from "./styles/Checkbox/style.ts";
 import * as SwitchStyle from "./styles/Switch/style.ts";
 import * as klass from "./styles/_/klass.ts";
 
-import { Icon } from "../icons/index.tsx";
+import { Lucide } from "../icons/index.ts";
 
 type CheckboxProps = Children.WithoutProps<
 	KobalteCheckbox.CheckboxRootProps & {
@@ -27,7 +27,7 @@ const Checkbox = (props: CheckboxProps) => {
 			<KobalteCheckbox.Input class={CheckboxStyle.Input} />
 			<KobalteCheckbox.Control class={CheckboxStyle.Control}>
 				<KobalteCheckbox.Indicator class={CheckboxStyle.Indicator}>
-					<Icon i="Check" class={CheckboxStyle.Icon} />
+					<Lucide.Icon i="Check" class={CheckboxStyle.Icon} />
 				</KobalteCheckbox.Indicator>
 			</KobalteCheckbox.Control>
 			<Show when={local.label}>{(label) => <KobalteCheckbox.Label class={CheckboxStyle.Label}>{label()}</KobalteCheckbox.Label>}</Show>

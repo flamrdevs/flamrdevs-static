@@ -1,6 +1,6 @@
 import { For, Show, createSignal, onMount } from "solid-js";
 import { Badge, Box, Button, Checkbox, Flex, IconButton, Image, Kbd, Link, Loader, Progress, Separator, Switch, Text } from "~/components/core/index.ts";
-import { Icon } from "~/components/icons/index.tsx";
+import { Lucide } from "~/components/icons/index.ts";
 
 import * as HOST from "~/utils/host.ts";
 
@@ -45,7 +45,7 @@ const Color2Select = (props: { color: Color2; setColor: (value: Color2) => void 
 			{(color) => (
 				<IconButton color={color} size="sm" onClick={() => props.setColor(color)} aria-label={`Color ${color}`}>
 					<Show when={props.color === color}>
-						<Icon i="Check" style={{ width: "80%", height: "80%" }} />
+						<Lucide.Icon i="Check" style={{ width: "80%", height: "80%" }} />
 					</Show>
 				</IconButton>
 			)}
@@ -58,7 +58,7 @@ const Color6Select = (props: { color: Color6; setColor: (value: Color6) => void 
 			{(color) => (
 				<IconButton color={color} size="sm" onClick={() => props.setColor(color)} aria-label={`Color ${color}`}>
 					<Show when={props.color === color}>
-						<Icon i="Check" style={{ width: "80%", height: "80%" }} />
+						<Lucide.Icon i="Check" style={{ width: "80%", height: "80%" }} />
 					</Show>
 				</IconButton>
 			)}
@@ -162,7 +162,7 @@ const SectionIconButton = () => {
 				left={
 					<Box>
 						<IconButton color={color()} disabled={disabled()} aria-label="GitHub">
-							<Icon i="Github" />
+							<Lucide.Icon i="Github" />
 						</IconButton>
 					</Box>
 				}
