@@ -39,7 +39,6 @@
 		"@coloradix/tailwindcss": "^2.3.1",
 		"@solidjs/testing-library": "^0.8.4",
 		"@types/node": "^20.10.5",
-		"astro-compress": "^2.2.5",
 		"jsdom": "^23.0.1",
 		"tailwindcss": "^3.3.7",
 		"tsx": "^4.6.2",
