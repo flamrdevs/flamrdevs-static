@@ -1,17 +1,18 @@
 {
 	"name": "flamrdevs-static",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"test": "vitest run",
+		"test": "vitest --run",
 		"setup-icons": "tsx src/components/icons/setup.ts"
 	},
 	"dependencies": {
-		"@internationalized/date": "^3.5.0",
+		"@internationalized/date": "^3.5.1",
 		"@internationalized/message": "^3.1.1",
-		"@internationalized/number": "^3.4.0",
+		"@internationalized/number": "^3.5.0",
 		"@klass/core": "^3.4.10",
 		"@kobalte/core": "^0.11.2",
 		"@solid-primitives/event-listener": "^2.3.0",
@@ -21,30 +22,31 @@
 		"@solid-primitives/props": "^3.1.8",
 		"@solid-primitives/refs": "^1.0.5",
 		"@solid-primitives/utils": "^6.2.1",
-		"astro": "^4.0.6",
+		"astro": "^4.0.7",
 		"clsx": "^2.0.0",
 		"ixbroadcastr": "^1.0.5",
 		"ixevent": "^1.0.5",
 		"ixstorage": "^1.0.5",
 		"ixstoragest": "^1.0.5",
 		"ixstore": "^1.0.5",
-		"lucide": "^0.298.0",
+		"lucide": "^0.301.0",
 		"propsplit": "1.0.1",
 		"solid-js": "^1.8.7"
 	},
 	"devDependencies": {
 		"@astrojs/sitemap": "^3.0.3",
 		"@astrojs/solid-js": "^3.0.2",
-		"@astrojs/tailwind": "^5.0.3",
+		"@astrojs/tailwind": "^5.0.4",
 		"@coloradix/tailwindcss": "^2.3.1",
-		"@solidjs/testing-library": "^0.8.4",
+		"@solidjs/testing-library": "^0.8.5",
 		"@types/node": "^20.10.5",
+		"autoprefixer": "^10.4.16",
 		"jsdom": "^23.0.1",
-		"tailwindcss": "^3.3.7",
-		"tsx": "^4.6.2",
+		"tailwindcss": "^3.4.0",
+		"tsx": "^4.7.0",
 		"typescript": "^5.3.3",
 		"vite": "^5.0.10",
 		"vite-plugin-solid": "^2.8.0",
-		"vitest": "^1.0.4"
+		"vitest": "^1.1.0"
 	}
 }
